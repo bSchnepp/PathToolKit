@@ -6,7 +6,7 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <graphic/grstructs.h>
+#include <graphic/gstructs.h>
 #include <graphic/Shape.h>
 #include <cstdlib>
 
@@ -18,6 +18,7 @@ Shape::Shape()
 	this->numPoints = 0;
 	//Strange hacks to get this to work as intended -- we want to eventually rewrite this all in C for portability.
 	this->points = nullptr;
+	this->fill = true;
 }
 
 Shape::Shape(PTK_Point* points, int numPoints)
@@ -28,7 +29,20 @@ Shape::Shape(PTK_Point* points, int numPoints)
 	{
 		this->points[i] = points[i];
 	}
+	this->fill = true;
 }
+
+Shape::Shape(PTK_Point* points, int numPoints, bool fill)
+{
+	this->numPoints = static_cast<uint16_t>(numPoints);
+	this->points = (PTK_Point*)malloc(sizeof(PTK_Point) *  numPoints);
+	for (int i = 0; i < numPoints; i++)
+	{
+		this->points[i] = points[i];
+	}
+	this->fill = fill;
+}
+
 
 Shape::~Shape()
 {

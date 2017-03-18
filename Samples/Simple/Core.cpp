@@ -7,8 +7,9 @@
  */
 
 #include <PathToolKit/pathfinder.h>
+#include "Simple.h"
 
-int main()
+int RunSimple()
 {
 	// We'll create a PfInstance and a frame, along with it's graphics context.
 	Pathfinder::PfInstance* instance = new Pathfinder::PfInstance();

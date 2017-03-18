@@ -6,8 +6,8 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#ifndef PATHTOOLKIT_GRAPHIC_GRSTRUCTS_H_
-#define PATHTOOLKIT_GRAPHIC_GRSTRUCTS_H_
+#ifndef PATHTOOLKIT_GRAPHIC_GSTRUCTS_H_
+#define PATHTOOLKIT_GRAPHIC_GSTRUCTS_H_
 
 #include "../gutil/Color.h"
 namespace Pathfinder
@@ -52,4 +52,4 @@ PTK_Object* CreateShapeColor(Shape* shape, Color* color);
 
 }
 
-#endif /* PATHTOOLKIT_GRAPHIC_GRSTRUCTS_H_ */
+#endif /* PATHTOOLKIT_GRAPHIC_GSTRUCTS_H_ */

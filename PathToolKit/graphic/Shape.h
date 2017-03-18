@@ -9,7 +9,7 @@
 #ifndef PATHTOOLKIT_GRAPHIC_SHAPE_H_
 #define PATHTOOLKIT_GRAPHIC_SHAPE_H_
 
-#include <graphic/grstructs.h>
+#include <graphic/gstructs.h>
 #include <vector>
 
 #include <cstdint>
@@ -22,6 +22,7 @@ class Shape
 public:
 	Shape();
 	Shape(PTK_Point* points, int numPoints);
+	Shape(PTK_Point* points, int numPoints, bool fill);
 	virtual ~Shape();
 
 	void AddPoint(PTK_Point point);
@@ -32,6 +33,8 @@ public:
 private:
 	uint16_t numPoints;
 	PTK_Point* points;
+
+	bool fill;
 };
 
 } /* namespace Pathfinder */

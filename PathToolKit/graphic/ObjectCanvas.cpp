@@ -17,6 +17,20 @@ ObjectCanvas::ObjectCanvas()
 
 }
 
+bool ObjectCanvas::Repaint()
+{
+	bool success = true;
+	for (Shape* n : this->items)
+	{
+		uint16_t pointCount = n->GetNumPoints();
+		PTK_Point* points = n->GetPoints();
+		pointCount++;
+		points++;
+		//TODO
+	}
+	return success;
+}
+
 ObjectCanvas::~ObjectCanvas()
 {
 	// TODO Auto-generated destructor stub

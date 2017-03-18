@@ -12,6 +12,9 @@
 #include <vector>
 #include  <cstdint>
 
+#include "gstructs.h"
+#include "Shape.h"
+
 namespace Pathfinder
 {
 
@@ -29,15 +32,18 @@ public:
 	ObjectCanvas();
 	virtual ~ObjectCanvas();
 
-	void Repaint();
+	bool Repaint();
+
 	void AddItem();	//TODO
 	void RemoveItem(int index);
-	//std::vector<VectorItem> GetItems(); //TODO
+	std::vector<Shape*> GetItems(); //TODO
 
 private:
 	uint16_t width;
 	uint16_t height;
-	//TODO: array of objects...
+
+	PTK_Stroke stroke;
+	std::vector<Shape*> items;
 };
 
 } /* namespace Pathfinder */

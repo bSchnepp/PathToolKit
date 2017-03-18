@@ -6,8 +6,8 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include "../PfGraphics.h"
-#include "../gutil/Color.h"
+#include <PathToolKit/PfGraphics.h>
+#include <PathToolKit/gutil/Color.h>
 
 #include <xcb/xcb.h>
 #include <vector>
@@ -48,8 +48,7 @@ void PfGraphics::AssignColor(Color* color)
 	xcb_create_colormap(connection, XCB_COLORMAP_ALLOC_NONE, *(this->colormap),
 			window, screen->root_visual);
 
-	/* Had to fight with this, we're using auto because G++ can't figure out what we mean here or something. Thus, needs C++11 or later.*/
-	auto reply = xcb_alloc_color_reply(connection,
+	xcb_alloc_color_reply_t* reply = xcb_alloc_color_reply(connection,
 			xcb_alloc_color(connection, *(this->colormap),
 					static_cast<uint16_t>(color->GetRed() << 0),
 					static_cast<uint16_t>(color->GetGreen() << 0),
@@ -60,10 +59,12 @@ void PfGraphics::AssignColor(Color* color)
 	uint32_t mask = XCB_GC_FOREGROUND;
 	uint32_t value[] =
 	{ screen->black_pixel };
-	reply++;
 
+	//TODO here, this is placeholder code so we get it to compile for now with -werror.
+	reply++;
 	Color* c2 = color->Darker();
 	delete c2;
+	//
 
 	xcb_create_gc(connection, this->gcontext, window, mask, value);
 }
@@ -141,7 +142,7 @@ void PfGraphics::FillPolygon(int* xpoints, int* ypoints, int npoints)
 	for (int i = 0; i < npoints; i++)
 	{
 		xcb_point_t p =
-		{ static_cast<int16_t>(xpoints[i]), static_cast<int16_t>(ypoints[i]) }; /* Using dirty hacks to ensure we fit the C++14 standard correctly. We're making a waste here, this can be fixed later.*/
+		{ static_cast<int16_t>(xpoints[i]), static_cast<int16_t>(ypoints[i]) };
 		points->push_back(p);
 	}
 	xcb_point_t* pa = &points->at(0);

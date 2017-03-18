@@ -15,13 +15,20 @@ Core features (TODO):
 	- Support for raster graphics if you really want it.
 
 	- Preference to render surfaces in Vulkan/OpenGL whenever possible.
+	
+Completed features:
 
-	- Actually update readme (✔)
+	- Nothing!
 
-
-
+Roadmap:
+	
+	- Connect the color class to actually rendering colors shortly...
+	
+	- Within 4 months, start getting a Vulkan backend up.
+	
+	- Complete a real program with PathToolKit in 1 year!
 ___
-PathToolKit also has a 'test' folder for some programs utilizing the library.
+PathToolKit also has a sample folder for some programs utilizing the library.
 These are located in the 'Samples' folder.
 If you're building PathToolKit to be used, you should build the PathToolKit directory by itself, and create a dynamic object from it.
 

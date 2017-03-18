@@ -23,13 +23,13 @@
  **/
 
 /* Frames + other high-level stuff */
+#include <graphic/gstructs.h>
 #include "component.h"
 #include "frame.h"
 
 /* Drawing toolkity stuff */
 #include "gutil/Color.h"
 #include "graphic/Shape.h"
-#include "graphic/grstructs.h"
 #include "graphic/ObjectCanvas.h"
 
 
