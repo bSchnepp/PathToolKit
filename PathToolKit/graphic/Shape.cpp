@@ -3,6 +3,7 @@
  *
  *  Created on: Mar 7, 2017
  *      Author: Brian Schnepp
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #include <graphic/grstructs.h>

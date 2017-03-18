@@ -3,6 +3,7 @@
  *
  *  Created on: Feb 18, 2017
  *      Author: Brian Schnepp
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #include "Color.h"
@@ -72,7 +73,6 @@ Color::Color(uint16_t c, uint16_t a)
 	this->a = static_cast<uint16_t>(a);
 }
 
-/* Don't worry about this mess of C++11, just trust me that these will wrap for whatever we need and tend to throw at the constructors. I'm not going to artificially inflate line count over these. */
 Color::Color(int c)
 {
 	this->r = static_cast<uint16_t>(c);

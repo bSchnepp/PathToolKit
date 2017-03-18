@@ -3,6 +3,7 @@
  *
  *  Created on: Feb 20, 2017
  *      Author: Brian Schnepp
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #ifndef LAYOUTMANAGER_H_

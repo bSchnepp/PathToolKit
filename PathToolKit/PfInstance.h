@@ -3,7 +3,7 @@
  *
  *  Created on: Feb 18, 2017
  *      Author: Brian Schnepp
- *      //Do note that part of this was developed on Windows 10 through the Linux subsystem and an X hack for it, so if it says 'root', it's me :). Windows 10 just makes all accounts root for some reason afaik.
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #ifndef PFINSTANCE_H_

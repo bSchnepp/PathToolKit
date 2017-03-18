@@ -3,6 +3,7 @@
  *
  *  Created on: Mar 6, 2017
  *      Author: Brian Schnepp
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #include <graphic/ObjectCanvas.h>

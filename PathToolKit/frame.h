@@ -3,6 +3,7 @@
  *
  *  Created on: Feb 18, 2017
  *      Author: Brian Schnepp
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #ifndef FRAME_H_
@@ -17,11 +18,6 @@
 /**
  * Base class for a frame on Pathfinder
  *  You must create a PfInstance first, then bind this frame to it. You should __not__ need to call AssignInstance.
-<<<<<<< HEAD
- *
- *  Switched from std::string to char*s because G++ hates me. Or something.
-=======
->>>>>>> 4b89d2e8a6f4bbb16b0b9a9a5071fca5660f8a37
  */
 namespace Pathfinder
 {

@@ -3,6 +3,7 @@
  *
  *  Created on: Mar 5, 2017
  *      Author: Brian Schnepp
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #include <PathToolKit/pathfinder.h>

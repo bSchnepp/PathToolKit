@@ -3,6 +3,7 @@
  *
  *  Created on: Feb 23, 2017
  *      Author: Brian Schnepp
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #ifndef STRUCTDEFS_H_

@@ -3,6 +3,7 @@
  *
  *  Created on: Mar 7, 2017
  *      Author: Brian Schnepp
+ *      License: See 'LICENSE' in root of this repository.
  */
 
 #ifndef PATHTOOLKIT_GRAPHIC_SHAPE_H_
