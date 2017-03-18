@@ -20,7 +20,7 @@ Core features (TODO):
 
 
 
-___
+===
 PathToolKit also has a 'test' folder for some programs utilizing the library.
 These are located in the 'Samples' folder.
 If you're building PathToolKit to be used, you should build the PathToolKit directory by itself, and create a dynamic object from it.
