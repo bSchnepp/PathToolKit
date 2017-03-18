@@ -49,9 +49,6 @@ Component::Component(Component* parent)
 		this->cid = ++childrecentid;
 		children->push_back(
 		{ this, this->cid });
-#ifdef _DEBUG_
-		std::cout << "Created a new Component!" << std::endl;
-#endif
 
 
 	}

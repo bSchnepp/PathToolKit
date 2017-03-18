@@ -9,9 +9,6 @@
 #include <cstring>
 #include <xcb/xcb.h>
 
-#ifdef _DEBUG_
-#include <iostream>
-#endif
 
 namespace Pathfinder
 {
@@ -41,9 +38,6 @@ void Frame::AssignInstance(PfInstance* const instance)
 	this->instance = instance;
 	xcb_connection_t* id = this->instance->GetConnection();
 	this->window = xcb_generate_id(id);
-#ifdef _DEBUG_
-	std::cout << "Window assigned!" << std::endl;
-#endif
 }
 
 int Frame::GetPosX()
@@ -139,10 +133,6 @@ void Frame::CreateWindow()
 
 	xcb_map_window(this->instance->GetConnection(), this->window);
 	xcb_flush(this->instance->GetConnection());
-
-#ifdef _DEBUG_
-	std::cout << "Window made visible!" << std::endl;
-#endif
 }
 
 }

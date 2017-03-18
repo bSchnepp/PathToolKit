@@ -35,11 +35,6 @@ typedef struct PF_Mouse_Location_t
 	uint16_t ypos;
 }PF_Mouse_Location_t;
 
-typedef struct PF_MouseLocation_t
-{
-	int x;
-	int y;
-}PF_MouseLocation_t;
 
 class Event
 {
