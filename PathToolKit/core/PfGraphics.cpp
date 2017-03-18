@@ -41,9 +41,7 @@ void PfGraphics::AssignColor(Color* color)
 	xcb_connection_t* connection = this->instance->GetConnection();
 	xcb_screen_t* screen = this->instance->GetScreen();
 	xcb_drawable_t window = screen->root;
-	std::cout << "Before colormap!" << std::endl;
 	this->colormap = &(this->instance->GetScreen()->default_colormap);
-	std::cout << "After colormap!" << std::endl;
 
 
 	*(this->colormap) = this->instance->GetScreen()->default_colormap;

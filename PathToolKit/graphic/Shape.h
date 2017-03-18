@@ -27,10 +27,11 @@ public:
 	void AddPoint(PTK_Point point);
 
 	uint16_t GetNumPoints();
-	std::vector<PTK_Point> GetPoints();
+	PTK_Point* GetPoints();
 
 private:
-	std::vector<PTK_Point> points;
+	uint16_t numPoints;
+	PTK_Point* points;
 };
 
 } /* namespace Pathfinder */
