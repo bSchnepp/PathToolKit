@@ -9,7 +9,7 @@
 #ifndef LISTENER_H_
 #define LISTENER_H_
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 class Listener

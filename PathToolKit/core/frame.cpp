@@ -12,7 +12,7 @@
 #include <cstring>
 
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 Frame::Frame() :

@@ -39,7 +39,7 @@
  * 		AND DON'T TRY TO SERIOUSLY BUILD SOMETHING THAT WORKS WITH THIS YET.
  * 		JUST DON'T.
  */
-namespace Pathfinder
+namespace PathDraw
 {
 class Frame;
 class PfInstance

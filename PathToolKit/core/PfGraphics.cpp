@@ -15,7 +15,7 @@
 #include <cstdlib>
 #include <vector>
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 PfGraphics::PfGraphics()

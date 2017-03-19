@@ -14,12 +14,12 @@
 #include "../../structdefs.h"
 #include "../LayoutManager.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 class Component;
 } /* namespace Pathfinder */
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 class BorderLayout : public LayoutManager

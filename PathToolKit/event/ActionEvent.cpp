@@ -8,7 +8,7 @@
 
 #include "ActionEvent.h"
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 ActionEvent::ActionEvent()

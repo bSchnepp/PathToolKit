@@ -8,7 +8,7 @@
 
 #include <graphic/Arc.h>
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 Arc::Arc(PTK_Point center, uint16_t radius, uint16_t startangle, uint16_t arcangle)

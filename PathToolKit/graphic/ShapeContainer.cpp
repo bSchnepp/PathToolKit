@@ -8,7 +8,7 @@
 
 #include <graphic/ShapeContainer.h>
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 ShapeContainer::ShapeContainer()

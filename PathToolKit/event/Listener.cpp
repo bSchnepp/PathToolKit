@@ -8,7 +8,7 @@
 
 #include "Listener.h"
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 Listener::Listener()

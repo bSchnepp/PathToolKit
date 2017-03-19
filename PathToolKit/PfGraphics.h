@@ -14,7 +14,7 @@
 #include "gutil/Color.h"
 #include "graphic/gstructs.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 /* Because as always, it's actually an int and not a struct. */
 typedef uint32_t xcb_colormap_t;

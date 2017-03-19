@@ -11,7 +11,7 @@
 
 #include "../structdefs.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 class LayoutManager

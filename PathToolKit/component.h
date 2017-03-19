@@ -14,19 +14,19 @@
 #include <cstdint>
 #include <vector>
 
-namespace Pathfinder
+namespace PathDraw
 {
 class PaintableShape;
 } /* namespace Pathfinder */
 
-namespace Pathfinder
+namespace PathDraw
 {
 class LayoutManager;
 class PfInstance;
 class ShapeContainer;
 } /* namespace Pathfinder */
 
-namespace Pathfinder
+namespace PathDraw
 {
 class PfGraphics;
 class Frame;
@@ -45,7 +45,7 @@ public:
 
 	const std::vector<PF_COMPONENT_SERIAL> GetChildren();
 
-	void AssignListener(Listener* listener);
+	void AssignListener(PathEvent::Listener* listener);
 	void AssignLayout(LayoutManager* layout);
 
 	void AddComponent(Component* component);
@@ -54,11 +54,11 @@ public:
 	void RemoveComponent(Component* component);
 	void RemoveComponent(unsigned long long int id);
 
-	Listener* GetListener(int id);
-	std::vector<Listener>* GetListeners();
+	PathEvent::Listener* GetListener(int id);
+	std::vector<PathEvent::Listener>* GetListeners();
 
 	void RemoveListener(int id);
-	void RemoveListener(Listener* listener);
+	void RemoveListener(PathEvent::Listener* listener);
 
 	void OptimizeListeners();
 	void Repaint();
@@ -113,7 +113,7 @@ protected:
 	/* Counter for the most recent item. */
 	unsigned long long int childrecentid = 0;
 	std::vector<PF_COMPONENT_SERIAL>* children;
-	std::vector<Listener*>* listeners;
+	std::vector<PathEvent::Listener*>* listeners;
 
 	ShapeContainer* container;
 	LayoutManager* manager;

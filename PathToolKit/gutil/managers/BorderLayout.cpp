@@ -8,7 +8,7 @@
 
 #include "BorderLayout.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 BorderLayout::BorderLayout()

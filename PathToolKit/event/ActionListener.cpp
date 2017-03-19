@@ -8,7 +8,7 @@
 
 #include "ActionListener.h"
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 ActionListener::ActionListener()

@@ -11,7 +11,7 @@
 
 #include "xcb/xcb.h"
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 Event::Event() :
@@ -19,7 +19,7 @@ Event::Event() :
 {
 }
 
-Event::Event(Component* source)
+Event::Event(PathDraw::Component* source)
 {
 	this->source = source;
 	PF_KeyDown_t* keys = new PF_KeyDown_t;	//TODO

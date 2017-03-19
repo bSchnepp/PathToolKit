@@ -12,7 +12,7 @@
 #include <cstdint>
 #include "gstructs.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 class PaintableShape

@@ -14,7 +14,7 @@
 #include <graphic/gstructs.h>
 #include <cstdint>
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 class Shape : public PaintableShape

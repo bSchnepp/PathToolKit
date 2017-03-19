@@ -1,0 +1,11 @@
+Generally, we're aiming to have it work along this:
+	- Create instance
+	- Create frame
+	- Create graphics context
+	- Create components and their contexts,
+	- Bind them all together, define shapes and stuff, put them in.
+	
+	TODO things that would be nice:
+		- Abstract away the creation of a graphics context in a 'BasicFrame' class, which manages it's graphics context by itself.
+		- Make a ShapeFactory class
+		- Support ellipses as a shape.

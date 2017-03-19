@@ -24,7 +24,7 @@ template<typename T> std::string to_string(const T& n)
 	return stm.str();
 }
 
-namespace Pathfinder
+namespace PathDraw
 {
 PfInstance::PfInstance()
 {

@@ -19,7 +19,7 @@
  * Base class for a frame on Pathfinder
  *  You must create a PfInstance first, then bind this frame to it. You should __not__ need to call AssignInstance.
  */
-namespace Pathfinder
+namespace PathDraw
 {
 class PfInstance;
 class Frame: public Component

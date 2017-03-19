@@ -12,7 +12,7 @@
 #include <cstdint>
 #include "stdint.h"	//Workaround for above not working.
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 class Color

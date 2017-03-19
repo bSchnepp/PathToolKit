@@ -12,7 +12,7 @@
 #include "ActionEvent.h"
 #include "Listener.h"
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 class ActionListener : public Listener

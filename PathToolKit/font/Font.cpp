@@ -8,7 +8,7 @@
 
 #include "Font.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 Font::Font()

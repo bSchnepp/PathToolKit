@@ -11,7 +11,7 @@
 
 #include "event.h"
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 class FrameEvent : public Event

@@ -10,7 +10,7 @@
 #define PATHTOOLKIT_GRAPHIC_GSTRUCTS_H_
 
 #include "../gutil/Color.h"
-namespace Pathfinder
+namespace PathDraw
 {
 //Forward declaration because dependencies. My C++ is awful, and I'm used to Java for the longest time where this isn't a problem.
 class Shape;
@@ -42,8 +42,8 @@ typedef struct PTK_Stroke
 
 typedef struct PTK_Object
 {
-	Pathfinder::Shape* shape;
-	Pathfinder::PTK_Stroke* stroke;
+	PathDraw::Shape* shape;
+	PathDraw::PTK_Stroke* stroke;
 } PTK_Object;
 
 // Generate a nice generic default object.

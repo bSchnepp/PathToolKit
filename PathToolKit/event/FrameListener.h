@@ -11,7 +11,7 @@
 
 #include "Listener.h"
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 class FrameListener : public Listener

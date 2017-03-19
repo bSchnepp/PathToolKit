@@ -17,7 +17,7 @@
 #include <iterator>
 #include <limits>
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 Component::Component() :
@@ -29,7 +29,7 @@ Component::Component(Component* parent)
 {
 
 	this->children = new std::vector<PF_COMPONENT_SERIAL>();
-	this->listeners = new std::vector<Listener*>();
+	this->listeners = new std::vector<PathEvent::Listener*>();
 
 	this->xpos = 0;
 	this->ypos = 0;

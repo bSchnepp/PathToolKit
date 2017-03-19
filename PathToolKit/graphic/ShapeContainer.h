@@ -15,7 +15,7 @@
 #include "gstructs.h"
 #include "Shape.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 class RenderSurface

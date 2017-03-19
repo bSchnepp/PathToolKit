@@ -9,12 +9,13 @@
 #ifndef STRUCTDEFS_H_
 #define STRUCTDEFS_H_
 
-namespace Pathfinder
+namespace PathDraw
 {
 class Component;
+//TODO, we'll need to add some features here later.
 typedef struct PF_COMPONENT_SERIAL
 {
-	const Pathfinder::Component* component;
+	const PathDraw::Component* component;
 } PF_COMPONENT_SERIAL;
 }
 

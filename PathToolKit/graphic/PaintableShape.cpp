@@ -8,7 +8,7 @@
 
 #include <graphic/PaintableShape.h>
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 PaintableShape::PaintableShape()

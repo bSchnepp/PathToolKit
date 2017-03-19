@@ -8,7 +8,7 @@
 
 #include <graphic/Circle.h>
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 Circle::Circle(PTK_Point center, uint16_t radius)

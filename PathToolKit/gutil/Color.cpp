@@ -11,7 +11,7 @@
 
 #define PATHFINDER_INTERNAL_MULTFORFLOATCONVERT 255
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 Color::Color()

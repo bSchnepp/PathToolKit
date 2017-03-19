@@ -8,7 +8,7 @@
 
 #include "FrameListener.h"
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 FrameListener::FrameListener()

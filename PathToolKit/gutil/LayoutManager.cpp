@@ -8,7 +8,7 @@
 
 #include "LayoutManager.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 LayoutManager::LayoutManager()

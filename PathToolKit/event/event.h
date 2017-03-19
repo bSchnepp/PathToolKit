@@ -12,7 +12,7 @@
 #include "../component.h"
 #include <cstdint>
 
-namespace Pathfinder
+namespace PathEvent
 {
 
 /** Because packed structs tend to be compiler-specific, this is a mess of memory. Not too bad though, promise. */
@@ -41,16 +41,16 @@ class Event
 {
 public:
 	Event();
-	Event(Component* source);
+	Event(PathDraw::Component* source);
 
 	//Implement a way to update the KeyDown thing here.
 	virtual ~Event();
 
-	Component* GetSource();
+	PathDraw::Component* GetSource();
 	PF_KeyDown_t* GetKeys();
 
 private:
-	Component* source;
+	PathDraw::Component* source;
 	PF_KeyDown_t* keysDown;
 };
 

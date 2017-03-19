@@ -10,7 +10,7 @@
 #include <graphic/Shape.h>
 #include <cstdlib>
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 Shape::Shape()

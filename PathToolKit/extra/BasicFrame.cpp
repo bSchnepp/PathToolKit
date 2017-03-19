@@ -1,25 +1,25 @@
 /*
- * FrameEvent.cpp
+ * BasicFrame.cpp
  *
- *  Created on: Feb 20, 2017
+ *  Created on: Mar 19, 2017
  *      Author: Brian Schnepp
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include "FrameEvent.h"
+#include <extra/BasicFrame.h>
 
-namespace PathEvent
+namespace PathExtension
 {
 
-FrameEvent::FrameEvent()
+BasicFrame::BasicFrame()
 {
 	// TODO Auto-generated constructor stub
 
 }
 
-FrameEvent::~FrameEvent()
+BasicFrame::~BasicFrame()
 {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace Pathfinder */
+} /* namespace PathExtension */

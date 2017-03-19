@@ -15,9 +15,9 @@
 int RunExample()
 {
 	// We'll create a PfInstance and a frame, along with it's graphics context.
-	Pathfinder::PfInstance* instance = new Pathfinder::PfInstance();
-	Pathfinder::Frame* frame = new Pathfinder::Frame("Hello, Pathfinder!");
-	Pathfinder::PfGraphics* graphics = new Pathfinder::PfGraphics(instance);
+	PathDraw::PfInstance* instance = new PathDraw::PfInstance();
+	PathDraw::Frame* frame = new PathDraw::Frame("Hello, Pathfinder!");
+	PathDraw::PfGraphics* graphics = new PathDraw::PfGraphics(instance);
 
 	// We need to bind ("make") the frame, then set it's attributes for the later CreateFrame call.
 	instance->MakeFrame(frame);
@@ -26,7 +26,7 @@ int RunExample()
 	frame->CreateFrame();
 
 	// Make a color, assign it to the graphics context.
-	Pathfinder::Color* color = new Pathfinder::Color(0, 0, 0);
+	PathDraw::Color* color = new PathDraw::Color(0, 0, 0);
 	graphics->AssignColor(color);
 	graphics->AssignComponent(frame);
 

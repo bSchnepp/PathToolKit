@@ -11,9 +11,9 @@
 int RunShapesExample()
 {
 	// We'll create a PfInstance and a frame, along with it's graphics context.
-	Pathfinder::PfInstance* instance = new Pathfinder::PfInstance();
-	Pathfinder::Frame* frame = new Pathfinder::Frame("Hello, Pathfinder!");
-	Pathfinder::PfGraphics* graphics = new Pathfinder::PfGraphics(instance);
+	PathDraw::PfInstance* instance = new PathDraw::PfInstance();
+	PathDraw::Frame* frame = new PathDraw::Frame("Hello, Pathfinder!");
+	PathDraw::PfGraphics* graphics = new PathDraw::PfGraphics(instance);
 
 	// We need to bind ("make") the frame, then set it's attributes for the later CreateFrame call.
 	instance->MakeFrame(frame);
@@ -22,19 +22,19 @@ int RunShapesExample()
 	frame->CreateFrame();
 
 	// Make a color, assign it to the graphics context.
-	Pathfinder::Color* color = new Pathfinder::Color(0, 0, 0);
+	PathDraw::Color* color = new PathDraw::Color(0, 0, 0);
 	graphics->AssignColor(color);
 	graphics->AssignComponent(frame);
 
-	Pathfinder::PTK_Point p1 = {0.1f, 0.2f};
-	Pathfinder::PTK_Point p2 = {0.4f, 0.2f};
-	Pathfinder::PTK_Point p3 = {0.25f, 0.9f};
-	Pathfinder::PTK_Point array[] =
+	PathDraw::PTK_Point p1 = {0.1f, 0.2f};
+	PathDraw::PTK_Point p2 = {0.4f, 0.2f};
+	PathDraw::PTK_Point p3 = {0.25f, 0.9f};
+	PathDraw::PTK_Point array[] =
 	{
 			p1, p2, p3
 	};
 
-	Pathfinder::Shape* shape = new Pathfinder::Shape(array, 3);
+	PathDraw::Shape* shape = new PathDraw::Shape(array, 3);
 	shape->SetFill(false);
 	frame->AddShape(shape);
 

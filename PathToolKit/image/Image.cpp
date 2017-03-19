@@ -8,7 +8,7 @@
 
 #include "Image.h"
 
-namespace Pathfinder
+namespace PathDraw
 {
 
 Image::Image()
