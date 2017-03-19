@@ -61,7 +61,7 @@ public:
 	uint32_t GetWindow();
 
 	/** Sets up whatever it needs, then actually creates/displays the window.*/
-	void CreateWindow();
+	void CreateFrame();
 
 	/* Sets the title of the frame to something else. */
 	void SetTitle(char const* newTitle);	//Something's wrong with G++ here, so...

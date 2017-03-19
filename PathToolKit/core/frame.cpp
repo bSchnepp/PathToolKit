@@ -91,7 +91,7 @@ void Frame::SetTitle(const char* newTitle)
 			this->title.c_str());
 }
 
-void Frame::CreateWindow()
+void Frame::CreateFrame()
 {
 	xcb_screen_t* screen = this->instance->GetScreen();
 	xcb_connection_t* connection = this->instance->GetConnection();
