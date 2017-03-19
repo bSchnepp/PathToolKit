@@ -35,10 +35,10 @@ int RunShapesExample()
 	};
 
 	Pathfinder::Shape* shape = new Pathfinder::Shape(array, 3);
+	shape->SetFill(false);
 	frame->AddShape(shape);
 
 	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes.
-	frame->Repaint();
 	instance->PfInit(frame);
 
 	// Clean up our mess.

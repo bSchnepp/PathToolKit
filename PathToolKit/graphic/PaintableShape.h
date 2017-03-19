@@ -23,6 +23,7 @@ public:
 	virtual uint16_t GetNumPoints();
 	virtual PTK_Point* GetPoints();
 	bool GetFill();
+	void SetFill(bool fill);
 
 	virtual ~PaintableShape();
 

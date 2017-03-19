@@ -74,11 +74,12 @@ void PfInstance::PfInit(Component* root)
 		{
 		case XCB_EXPOSE:
 		{
-			this->root->Repaint();
-			//TODO: inform all of the components that their sizes have changed as well if the frame is resized.
+			xcb_clear_area(this->connection, 255, this->root->GetWindow(), 0, 0, static_cast<uint16_t>(this->root->GetWidth()), static_cast<uint16_t>(this->root->GetHeight()));
 			xcb_get_geometry_reply_t* reply = xcb_get_geometry_reply(this->connection, xcb_get_geometry(connection, this->root->GetWindow()), NULL);
 			this->root->SetWidth(reply->width);
 			this->root->SetHeight(reply->height);
+			this->root->Repaint();
+			//TODO: inform all of the components that their sizes have changed as well if the frame is resized.
      		break;
 		}
 

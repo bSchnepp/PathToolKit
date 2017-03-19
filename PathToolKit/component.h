@@ -88,9 +88,6 @@ protected:
 	// TODO: We want to prefer using the heap over the stack as much as we can, so turn these all into pointers...
 	// We're awful and manage memory ourselves for some reason, just because pointers are fun.
 
-	/* This Component's ID*/
-	unsigned long long int cid;
-
 	/* This component's parent. When parent is killed, all of it's children are killed too. */
 	Component* parent;
 
@@ -99,6 +96,15 @@ protected:
 
 	uint16_t width;
 	uint16_t height;
+
+	uint16_t preferredwidth;
+	uint16_t preferredheight;
+
+	uint16_t minimumwidth;
+	uint16_t minimumheight;
+
+	uint16_t maximumwidth;
+	uint16_t maximumheight;
 
 	bool visible;
 	bool enabled;

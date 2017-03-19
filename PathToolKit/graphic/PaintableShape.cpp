@@ -39,4 +39,9 @@ bool PaintableShape::GetFill()
 	return this->fill;
 }
 
+void PaintableShape::SetFill(bool fill)
+{
+	this->fill = fill;
+}
+
 } /* namespace Pathfinder */

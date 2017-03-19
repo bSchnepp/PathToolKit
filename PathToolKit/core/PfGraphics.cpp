@@ -160,6 +160,30 @@ void PfGraphics::FillOval(int x, int y, int width, int height)
 			this->gcontext, 2, &arc);
 }
 
+void PfGraphics::DrawPolygon(int* xpoints, int* ypoints, int npoints)
+{
+
+	uint32_t rootWindow = this->instance->GetRoot()->GetWindow();
+
+	std::vector<xcb_point_t>* points = new std::vector<xcb_point_t>();
+	for (int i = 0; i < npoints; i++)
+	{
+		xcb_point_t p =
+		{ static_cast<int16_t>(xpoints[i]), static_cast<int16_t>(ypoints[i]) };
+		points->push_back(p);
+	}
+	xcb_point_t org =
+	{
+			static_cast<int16_t>(xpoints[0]),
+			static_cast<int16_t>(ypoints[0])
+	};
+	points->push_back(org);
+	xcb_point_t* pa = &points->at(0);
+	xcb_poly_line(this->instance->GetConnection(), XCB_COORD_MODE_ORIGIN, rootWindow,
+			this->gcontext, npoints + 1, pa);
+	delete points;
+}
+
 void PfGraphics::FillPolygon(int* xpoints, int* ypoints, int npoints)
 {
 
