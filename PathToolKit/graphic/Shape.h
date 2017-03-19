@@ -9,15 +9,15 @@
 #ifndef PATHTOOLKIT_GRAPHIC_SHAPE_H_
 #define PATHTOOLKIT_GRAPHIC_SHAPE_H_
 
-#include <graphic/gstructs.h>
-#include <vector>
+#include "PaintableShape.h"
 
+#include <graphic/gstructs.h>
 #include <cstdint>
 
 namespace Pathfinder
 {
 
-class Shape
+class Shape : public PaintableShape
 {
 public:
 	Shape();
@@ -26,6 +26,7 @@ public:
 	virtual ~Shape();
 
 	void AddPoint(PTK_Point point);
+	void AddPoint(PTK_Point point, int index);
 
 	uint16_t GetNumPoints();
 	PTK_Point* GetPoints();
@@ -33,8 +34,6 @@ public:
 private:
 	uint16_t numPoints;
 	PTK_Point* points;
-
-	bool fill;
 };
 
 } /* namespace Pathfinder */

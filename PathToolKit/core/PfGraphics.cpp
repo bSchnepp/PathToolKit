@@ -6,13 +6,14 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
+#include <frame.h>
 #include <PfGraphics.h>
 #include <xcb/xcb.h>
-#include <xcb/xcbext.h>
+#include <xcb/xproto.h>
 #include <cstdint>
+#include <cstdio>
 #include <cstdlib>
-
-#include "graphic/gstructs.h"
+#include <vector>
 
 namespace Pathfinder
 {
@@ -21,7 +22,7 @@ PfGraphics::PfGraphics()
 {
 	this->gcontext = 0;
 	this->instance = nullptr;
-	this->frame = nullptr;
+	this->component = nullptr;
 	this->mask = XCB_GC_FOREGROUND;
 	this->value = new uint32_t[2];
 	this->colormap = nullptr;
@@ -31,7 +32,7 @@ PfGraphics::PfGraphics(PfInstance* const instance)
 {
 	this->gcontext = 0;
 	this->instance = nullptr;
-	this->frame = nullptr;
+	this->component = nullptr;
 	this->mask = XCB_GC_FOREGROUND;
 	this->value = new uint32_t[2];
 	this->colormap = nullptr;
@@ -72,75 +73,98 @@ void PfGraphics::AssignColor(Color* color)
 	xcb_create_gc(connection, this->gcontext, this->instance->GetScreen()->root, mask, value);
 }
 
-void PfGraphics::AssignFrame(Frame* frame)
+void PfGraphics::AssignComponent(Component* component)
 {
-	this->frame = frame;
+	this->component = component;
+	component->SetGraphics(this);
 }
 
 void PfGraphics::DrawArc(int x, int y, int width, int height, int startAngle,
 		int arcAngle)
 {
+	uint32_t rootWindow = this->instance->GetRoot()->GetWindow();
 	xcb_arc_t arc =
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height),
 			static_cast<int16_t>(startAngle << 6), static_cast<int16_t>(arcAngle
 					<< 6) };
-	xcb_poly_arc(this->instance->GetConnection(), this->frame->GetWindow(),
+	xcb_poly_arc(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &arc);
 }
 
 void PfGraphics::FillArc(int x, int y, int width, int height, int startAngle,
 		int arcAngle)
 {
+	uint32_t rootWindow = this->instance->GetRoot()->GetWindow();
+
 	xcb_arc_t arc =
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height),
 			static_cast<int16_t>(startAngle << 6), static_cast<int16_t>(arcAngle
 					<< 6) };
-	xcb_poly_fill_arc(this->instance->GetConnection(), this->frame->GetWindow(),
+
+	printf("Hello, world!");
+
+
+	xcb_poly_fill_arc(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &arc);
+
+
 }
 
 void PfGraphics::DrawRect(int x, int y, int width, int height)
 {
+
+	uint32_t rootWindow = this->instance->GetRoot()->GetWindow();
+
 	xcb_rectangle_t rectangle =
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height) };
 	xcb_poly_rectangle(this->instance->GetConnection(),
-			this->frame->GetWindow(), this->gcontext, 2, &rectangle);
+			rootWindow, this->gcontext, 2, &rectangle);
 }
 
 void PfGraphics::FillRect(int x, int y, int width, int height)
 {
+	uint32_t rootWindow = this->instance->GetRoot()->GetWindow();
+
 	xcb_rectangle_t rectangle =
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height) };
 	xcb_poly_fill_rectangle(this->instance->GetConnection(),
-			this->frame->GetWindow(), this->gcontext, 2, &rectangle);
+			rootWindow, this->gcontext, 2, &rectangle);
 }
 
 void PfGraphics::DrawOval(int x, int y, int width, int height)
 {
+
+	uint32_t rootWindow = this->instance->GetRoot()->GetWindow();
+
 	xcb_arc_t arc =
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height),
 			static_cast<int16_t>(0 << 6), static_cast<int16_t>(360 << 6) };
-	xcb_poly_arc(this->instance->GetConnection(), this->frame->GetWindow(),
+	xcb_poly_arc(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &arc);
 }
 
 void PfGraphics::FillOval(int x, int y, int width, int height)
 {
+	uint32_t rootWindow = this->instance->GetRoot()->GetWindow();
+
 	xcb_arc_t arc =
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height),
 			static_cast<int16_t>(0 << 6), static_cast<int16_t>(360 << 6) };
-	xcb_poly_fill_arc(this->instance->GetConnection(), this->frame->GetWindow(),
+	xcb_poly_fill_arc(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &arc);
 }
 
 void PfGraphics::FillPolygon(int* xpoints, int* ypoints, int npoints)
 {
+
+	uint32_t rootWindow = this->instance->GetRoot()->GetWindow();
+
 	std::vector<xcb_point_t>* points = new std::vector<xcb_point_t>();
 	for (int i = 0; i < npoints; i++)
 	{
@@ -149,7 +173,7 @@ void PfGraphics::FillPolygon(int* xpoints, int* ypoints, int npoints)
 		points->push_back(p);
 	}
 	xcb_point_t* pa = &points->at(0);
-	xcb_fill_poly(this->instance->GetConnection(), this->frame->GetWindow(),
+	xcb_fill_poly(this->instance->GetConnection(), rootWindow,
 			this->gcontext, XCB_POLY_SHAPE_COMPLEX, XCB_COORD_MODE_ORIGIN,
 			npoints, pa);
 	delete points;

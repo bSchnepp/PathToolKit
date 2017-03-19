@@ -34,16 +34,14 @@ public:
 	ShapeContainer();
 	virtual ~ShapeContainer();
 
-	/* Paints all of the structures of this container with the associated stroke. */
-	bool Repaint();
-
-	void AddItem();	//TODO
+	void AddItem(PaintableShape* item);	//TODO
 	void RemoveItem(int index);
-	std::vector<Shape*> GetItems(); //TODO
+	void RemoveItem(PaintableShape* item);
+	std::vector<PaintableShape*> GetItems();
 
 private:
 	PTK_Stroke stroke;
-	std::vector<Shape*> items;
+	std::vector<PaintableShape*> items;
 };
 
 } /* namespace Pathfinder */

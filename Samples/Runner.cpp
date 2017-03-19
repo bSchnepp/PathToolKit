@@ -7,16 +7,12 @@
  */
 
 // I build this in Eclipse, so this file is created so that I can test the demos and stuff.
-#define Simple
-
 #include "Simple/Simple.h"
+#include "Shapes/Shapes.h"
 
 int main()
 {
-#ifdef Simple
-	return RunSimple();
-#endif
-	return 0;
+	return RunShapesExample();
 }
 
 

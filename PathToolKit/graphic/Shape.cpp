@@ -72,4 +72,20 @@ void Shape::AddPoint(PTK_Point point)
 	this->points[this->numPoints - 1] = point;
 }
 
+void Shape::AddPoint(PTK_Point point, int index)
+{
+	this->numPoints++;
+	PTK_Point* npoints = new PTK_Point[this->GetNumPoints()];
+	for (int i = 0; i < index; i++)
+	{
+		npoints[i] = this->points[i];
+	}
+	npoints[index] = point;
+	for (int i = index+1; i < this->numPoints; i++)
+	{
+		npoints[i] = this->points[i-1];
+	}
+	free(this->points);
+}
+
 } /* namespace Pathfinder */

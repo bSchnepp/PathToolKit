@@ -58,6 +58,8 @@ public:
 
 	void PfInit(Component* root);
 
+	Frame* GetRoot();
+
 private:
 	xcb_connection_t* connection;
 	xcb_screen_t* screen;

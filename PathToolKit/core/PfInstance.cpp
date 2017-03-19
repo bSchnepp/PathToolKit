@@ -28,7 +28,7 @@ namespace Pathfinder
 {
 PfInstance::PfInstance()
 {
-	this->connection = xcb_connect (NULL, NULL);
+	this->connection = xcb_connect(NULL, NULL);
 	this->setup = xcb_get_setup(connection);
 	this->iterator = xcb_setup_roots_iterator(setup);
 	this->screen = iterator.data;
@@ -43,8 +43,14 @@ PfInstance::~PfInstance()
 
 }
 
+Frame* PfInstance::GetRoot()
+{
+	return this->root;
+}
+
 void PfInstance::MakeFrame(Frame* frame)
 {
+	this->root = frame;
 	frame->AssignInstance(this);
 }
 
@@ -61,41 +67,32 @@ xcb_screen_t* PfInstance::GetScreen()
 void PfInstance::PfInit(Component* root)
 {
 	xcb_generic_event_t *event;
-	root->repaint();
+	root->Repaint();
 	while ((event = xcb_wait_for_event(connection)))
 	{
-//		switch (event->response_type & ~0x80)
-//		{
-//		case XCB_EXPOSE:
-//		{
-//			xcb_expose_event_t* expose = (xcb_expose_event_t*) event;
-//			/* Placeholder code... */
-//			std::cout << "Window " + to_string(expose->window) << std::endl;
-//			std::cout << "x " + to_string(expose->x) << std::endl;
-//			std::cout << "y " + to_string(expose->y) << std::endl;
-//			std::cout << "width " + to_string(expose->width) << std::endl;
-//			std::cout << "height " + to_string(expose->height) << std::endl;
-//			for (PF_COMPONENT_SERIAL n :root->GetChildren())
-//			{
-//				const Component* c = n.component;
-//			}
-//			break;
-//		}
-//		case XCB_BUTTON_PRESS:
-//		{
-//			xcb_button_press_event_t* bp = (xcb_button_press_event_t*) event;
-//
-//			switch (bp->detail)
-//			{
-//			case 4:
-//				break;
-//			case 5:
-//				break;
-//			default:
-//				break;
-//			}
-//			break;
-//		}
+		switch (event->response_type & ~0x80)
+		{
+		case XCB_EXPOSE:
+		{
+			this->root->Repaint();
+     		break;
+		}
+
+		case XCB_BUTTON_PRESS:
+		{
+			xcb_button_press_event_t* bp = (xcb_button_press_event_t*) event;
+
+			switch (bp->detail)
+			{
+			case 4:
+				break;
+			case 5:
+				break;
+			default:
+				break;
+			}
+			break;
+		}
 //		case XCB_BUTTON_RELEASE:
 //		{
 //			xcb_button_release_event_t* br = (xcb_button_release_event_t*) event;
@@ -126,10 +123,10 @@ void PfInstance::PfInit(Component* root)
 //			xcb_key_release_event_t* kr = (xcb_key_release_event_t*) event;
 //			break;
 //		}
-//		default:
-//			/* Unknown event type, ignore it */
-//			break;
-//		}
+		default:
+			/* Unknown event type, ignore it */
+			break;
+		}
 
 		free(event);
 	}

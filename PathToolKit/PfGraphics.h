@@ -45,8 +45,8 @@ public:
 	/** Assigns the color value to this Graphics instance. */
 	void AssignColor(Color* color);	//TODO: Colors are currently ignored.
 
-	/** Assigns the frame that's to be used for this PfGraphics instance. */
-	void AssignFrame(Frame* frame);
+	/** Assigns the component that's to be used for this PfGraphics instance. */
+	void AssignComponent(Component* component);
 
 	/** Draws an arc (partial circle) with the specified parameters.*/
 	void DrawArc(int x, int y, int width, int height, int startAngle,
@@ -62,6 +62,9 @@ public:
 
 	/** Same as DrawPolygon, except without connecting the last point to the first automatically.*/
 	void DrawPolyline(int* xpoints, int* ypoints, int npoints);
+
+	/** Draws a polygon with (xpoints[i], ypoints[i]) as a point, for npoints points.*/
+	void DrawPolygon(int* xpoints, int* ypoints, int npoints);
 
 	/** Draws a filled-in arc (partial circle) with the specified parameters.*/
 	void FillArc(int x, int y, int width, int height, int startAngle,
@@ -86,7 +89,7 @@ protected:
 	uint32_t gcontext;
 
 	PfInstance* instance;
-	Frame* frame;
+	Component* component;
 
 	uint32_t mask;
 	uint32_t* value;

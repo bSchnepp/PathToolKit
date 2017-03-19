@@ -6,11 +6,14 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include "../component.h"
-#include "../structdefs.h"
-#include "../PfGraphics.h"
-#include "../gutil/LayoutManager.h"
-#include "../gutil/managers/BorderLayout.h"
+#include <component.h>
+#include <graphic/PaintableShape.h>
+#include <graphic/ShapeContainer.h>
+#include <gutil/managers/BorderLayout.h>
+#include <PfGraphics.h>
+#include <PfInstance.h>
+#include <stdlib.h>
+#include <iterator>
 #include <limits>
 
 namespace Pathfinder
@@ -41,6 +44,9 @@ Component::Component(Component* parent)
 			{
 				//  This is TODO code.
 				//  Sort our list of things by their ID, then look for any holes between numbers (ie, between 3 and 5 leaves 4.)
+
+				//EDIT:
+				//We're far from stable, expect this whole thing to be cleaned up eventually.
 				avID++;
 			}
 		}
@@ -64,6 +70,9 @@ Component::Component(Component* parent)
 
 	this->parent = parent;
 	this->manager = new BorderLayout();
+	this->instance = nullptr;
+	this->container = new ShapeContainer();
+	this->graphics = nullptr;
 }
 
 const std::vector<PF_COMPONENT_SERIAL> Component::GetChildren()
@@ -79,9 +88,6 @@ Component::~Component()
 		if ((children->at(i)).cid == this->cid)
 		{
 			children->erase(children->begin() + i);
-#ifdef _DEBUG_
-			std::cout << "Deleted a Component!" << std::endl;
-#endif
 		}
 	}
 	delete this->manager;
@@ -89,14 +95,67 @@ Component::~Component()
 	delete this->listeners;
 }
 
-void Component::repaint()
+void Component::SetGraphics(PfGraphics* gfx)
 {
-	//TODO
+	this->graphics = gfx;
+}
+
+void Component::Repaint()
+{
+	for (PaintableShape* n : this->container->GetItems())
+	{
+		uint16_t pointCount = n->GetNumPoints();
+		int* xpoints = (int*)malloc(sizeof(int) * pointCount);
+		int* ypoints = (int*)malloc(sizeof(int) * pointCount);
+		PTK_Point* points = n->GetPoints();
+		if (pointCount > 1)
+		{
+			if (n->GetFill())
+			{
+
+				for (int i = 0; i < pointCount; i++)
+				{
+					xpoints[i] = static_cast<int>(this->width * points[i].posx);
+					ypoints[i] = static_cast<int>(this->height * points[i].posy);
+				}
+				this->graphics->FillPolygon(xpoints, ypoints, pointCount);
+			}
+			else
+			{
+				for (int i = 0; i < pointCount; i++)
+				{
+					xpoints[i] = static_cast<int>(this->width * points[i].posx);
+					ypoints[i] = static_cast<int>(this->height * points[i].posy);
+				}
+				//this->graphics->DrawPolygon(xpoints, ypoints, pointCount);		TODO
+			}
+
+		}
+		else
+		{
+
+		}
+	}
+}
+
+Frame* Component::GetRootFrame()
+{
+	return this->instance->GetRoot();
 }
 
 void Component::OnGraphicsUpdate(PfGraphics* graphics)
 {
 	graphics->Repaint();
+}
+
+void Component::AssignInstance(PfInstance* instance)
+{
+	this->instance = instance;
+}
+
+void Component::AddShape(PaintableShape* shape)
+{
+	this->container->AddItem(shape);
 }
 
 } /* namespace Pathfinder */

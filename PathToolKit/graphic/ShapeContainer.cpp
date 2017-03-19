@@ -17,23 +17,19 @@ ShapeContainer::ShapeContainer()
 
 }
 
-bool ShapeContainer::Repaint()
-{
-	bool success = true;
-	for (Shape* n : this->items)
-	{
-		uint16_t pointCount = n->GetNumPoints();
-		PTK_Point* points = n->GetPoints();
-		pointCount++;
-		points++;
-		//TODO
-	}
-	return success;
-}
-
 ShapeContainer::~ShapeContainer()
 {
 	// TODO Auto-generated destructor stub
+}
+
+std::vector<PaintableShape*> ShapeContainer::GetItems()
+{
+	return this->items;
+}
+
+void ShapeContainer::AddItem(PaintableShape* item)
+{
+	this->items.push_back(item);
 }
 
 } /* namespace Pathfinder */

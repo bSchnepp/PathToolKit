@@ -9,7 +9,7 @@
 #ifndef SAMPLES_SIMPLE_SIMPLE_H_
 #define SAMPLES_SIMPLE_SIMPLE_H_
 
-int RunSimple();
+int RunExample();
 
 
 

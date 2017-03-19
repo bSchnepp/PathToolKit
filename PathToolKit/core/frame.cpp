@@ -6,9 +6,10 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include "../frame.h"
+#include <frame.h>
+#include <xcb/xproto.h>
+#include <cstdint>
 #include <cstring>
-#include <xcb/xcb.h>
 
 
 namespace Pathfinder
@@ -23,22 +24,15 @@ Frame::Frame(std::string title) :
 		Component::Component()
 {
 	this->title = title;
-	this->instance = nullptr;
 	this->window = 0;
 	this->frame = 0;
 	this->bwidth = 0;
 	this->width = 800;
 	this->height = 600;
+	this->instance = nullptr;
 }
 Frame::~Frame()
 {
-}
-
-void Frame::AssignInstance(PfInstance* const instance)
-{
-	this->instance = instance;
-	xcb_connection_t* id = this->instance->GetConnection();
-	this->window = xcb_generate_id(id);
 }
 
 int Frame::GetPosX()
@@ -91,6 +85,10 @@ void Frame::SetBorderWidth(int w)
 void Frame::SetTitle(const char* newTitle)
 {
 	this->title = newTitle;
+	xcb_change_property(this->instance->GetConnection(), XCB_PROP_MODE_REPLACE, window,
+			XCB_ATOM_WM_NAME, XCB_ATOM_STRING, 8,
+			static_cast<uint32_t>(strlen(newTitle)),
+			this->title.c_str());
 }
 
 void Frame::CreateWindow()
@@ -136,4 +134,10 @@ void Frame::CreateWindow()
 	xcb_flush(this->instance->GetConnection());
 }
 
+void Frame::AssignInstance(PfInstance* const instance)
+{
+	this->instance = instance;
+	xcb_connection_t* id = this->instance->GetConnection();
+	this->window = xcb_generate_id(id);
+}
 }

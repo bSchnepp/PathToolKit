@@ -9,13 +9,22 @@
 #ifndef COMPONENT_H_
 #define COMPONENT_H_
 
+#include <event/Listener.h>
+#include <structdefs.h>
 #include <cstdint>
 #include <vector>
 
-#include "gutil/LayoutManager.h"
-#include "event/Listener.h"
+namespace Pathfinder
+{
+class PaintableShape;
+} /* namespace Pathfinder */
 
-#include "structdefs.h"
+namespace Pathfinder
+{
+class LayoutManager;
+class PfInstance;
+class ShapeContainer;
+} /* namespace Pathfinder */
 
 namespace Pathfinder
 {
@@ -52,8 +61,16 @@ public:
 	void RemoveListener(Listener* listener);
 
 	void OptimizeListeners();
+	void Repaint();
 
-	void repaint();
+	/** Reassigns a PfInstance to this component. Note that by default, there is none. This should be called by the PfInstance, so don't worry about this. */
+	virtual void AssignInstance(PfInstance* instance);
+
+	Frame* GetRootFrame();
+
+	void SetGraphics(PfGraphics* gfx);
+
+	void AddShape(PaintableShape* shape);
 
 protected:
 	virtual void OnGraphicsUpdate(PfGraphics* graphics);
@@ -87,7 +104,11 @@ protected:
 	std::vector<PF_COMPONENT_SERIAL>* children;
 	std::vector<Listener*>* listeners;
 
+	ShapeContainer* container;
 	LayoutManager* manager;
+
+	PfInstance* instance;
+	PfGraphics* graphics;
 };
 
 

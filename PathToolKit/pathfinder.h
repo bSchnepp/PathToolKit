@@ -28,6 +28,8 @@
 #include "component.h"
 #include "frame.h"
 
+#include "graphic/gstructs.h"
+
 /* Drawing toolkity stuff */
 #include "gutil/Color.h"
 #include "graphic/Shape.h"
@@ -50,5 +52,7 @@
 
 /* Images and icons */
 #include "image/Image.h"
+
+/* Shapes and other graphical utilities */
 
 #endif /* PATHFINDER_H_ */
