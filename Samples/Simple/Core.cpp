@@ -51,6 +51,7 @@ int RunExample()
 	delete frame;
 	delete graphics;
 	delete instance;
+	delete color;
 
 	return 0;
 }

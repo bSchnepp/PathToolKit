@@ -13,6 +13,7 @@
 #include <PfGraphics.h>
 #include <PfInstance.h>
 #include <stdlib.h>
+#include <iostream>
 #include <iterator>
 #include <limits>
 
@@ -56,7 +57,6 @@ Component::Component(Component* parent)
 		this->cid = ++childrecentid;
 		children->push_back(
 		{ this, this->cid });
-
 
 	}
 	this->xpos = 0;
@@ -105,8 +105,8 @@ void Component::Repaint()
 	for (PaintableShape* n : this->container->GetItems())
 	{
 		uint16_t pointCount = n->GetNumPoints();
-		int* xpoints = (int*)malloc(sizeof(int) * pointCount);
-		int* ypoints = (int*)malloc(sizeof(int) * pointCount);
+		int* xpoints = (int*) malloc(sizeof(int) * pointCount);
+		int* ypoints = (int*) malloc(sizeof(int) * pointCount);
 		PTK_Point* points = n->GetPoints();
 		if (pointCount > 1)
 		{
@@ -116,7 +116,8 @@ void Component::Repaint()
 				for (int i = 0; i < pointCount; i++)
 				{
 					xpoints[i] = static_cast<int>(this->width * points[i].posx);
-					ypoints[i] = static_cast<int>(this->height * points[i].posy);
+					ypoints[i] =
+							static_cast<int>(this->height * points[i].posy);
 				}
 				this->graphics->FillPolygon(xpoints, ypoints, pointCount);
 			}
@@ -125,7 +126,8 @@ void Component::Repaint()
 				for (int i = 0; i < pointCount; i++)
 				{
 					xpoints[i] = static_cast<int>(this->width * points[i].posx);
-					ypoints[i] = static_cast<int>(this->height * points[i].posy);
+					ypoints[i] =
+							static_cast<int>(this->height * points[i].posy);
 				}
 				//this->graphics->DrawPolygon(xpoints, ypoints, pointCount);		TODO
 			}
@@ -158,4 +160,24 @@ void Component::AddShape(PaintableShape* shape)
 	this->container->AddItem(shape);
 }
 
+
+void Component::SetWidth(uint16_t width)
+{
+	this->width = width;
+}
+
+void Component::SetHeight(uint16_t height)
+{
+	this->height = height;
+}
+
+uint16_t Component::GetHeight()
+{
+	return this->height;
+}
+
+uint16_t Component::GetWidth()
+{
+	return this->width;
+}
 } /* namespace Pathfinder */

@@ -46,6 +46,9 @@ int RunShapesExample()
 	delete graphics;
 	delete instance;
 
+	delete shape;
+	delete color;
+
 	return 0;
 }
 

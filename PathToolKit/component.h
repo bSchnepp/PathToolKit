@@ -72,6 +72,11 @@ public:
 
 	void AddShape(PaintableShape* shape);
 
+	void SetWidth(uint16_t width);
+	void SetHeight(uint16_t height);
+	uint16_t GetHeight();
+	uint16_t GetWidth();
+
 protected:
 	virtual void OnGraphicsUpdate(PfGraphics* graphics);
 
