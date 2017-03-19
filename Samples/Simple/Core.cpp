@@ -14,8 +14,7 @@ int RunSimple()
 	// We'll create a PfInstance and a frame, along with it's graphics context.
 	Pathfinder::PfInstance* instance = new Pathfinder::PfInstance();
 	Pathfinder::Frame* frame = new Pathfinder::Frame("Hello, Pathfinder!");
-	Pathfinder::PfGraphics* graphics = new Pathfinder::PfGraphics();
-	graphics->AssignInstance(instance);
+	Pathfinder::PfGraphics* graphics = new Pathfinder::PfGraphics(instance);
 
 	// We need to bind ("make") the frame, then set it's attributes for the later CreateFrame call.
 	instance->MakeFrame(frame);

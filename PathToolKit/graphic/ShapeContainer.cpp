@@ -6,18 +6,18 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <graphic/ObjectCanvas.h>
+#include <graphic/ShapeContainer.h>
 
 namespace Pathfinder
 {
 
-ObjectCanvas::ObjectCanvas()
+ShapeContainer::ShapeContainer()
 {
 	// TODO Auto-generated constructor stub
 
 }
 
-bool ObjectCanvas::Repaint()
+bool ShapeContainer::Repaint()
 {
 	bool success = true;
 	for (Shape* n : this->items)
@@ -31,7 +31,7 @@ bool ObjectCanvas::Repaint()
 	return success;
 }
 
-ObjectCanvas::~ObjectCanvas()
+ShapeContainer::~ShapeContainer()
 {
 	// TODO Auto-generated destructor stub
 }

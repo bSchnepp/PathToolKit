@@ -24,16 +24,13 @@
 
 /* Frames + other high-level stuff */
 #include <graphic/gstructs.h>
+#include <graphic/ShapeContainer.h>
 #include "component.h"
 #include "frame.h"
 
 /* Drawing toolkity stuff */
 #include "gutil/Color.h"
 #include "graphic/Shape.h"
-#include "graphic/ObjectCanvas.h"
-
-
-/* Pathfinder init stuff */
 #include "PfInstance.h"
 #include "PfGraphics.h"
 

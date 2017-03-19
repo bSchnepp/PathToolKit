@@ -6,8 +6,8 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#ifndef PATHTOOLKIT_GRAPHIC_OBJECTCANVAS_H_
-#define PATHTOOLKIT_GRAPHIC_OBJECTCANVAS_H_
+#ifndef PATHTOOLKIT_GRAPHIC_SHAPECONTAINER_H_
+#define PATHTOOLKIT_GRAPHIC_SHAPECONTAINER_H_
 
 #include <vector>
 #include  <cstdint>
@@ -18,20 +18,23 @@
 namespace Pathfinder
 {
 
+class RenderSurface
+{
+	//Rasterization process goes here
+};
+
 /*
  *	TODO --
  *	Take a bunch of graphical objects, grab their functions for how they are to be represented (ie, box, line, curve, etc.)
  *	Apply it to a 'canvas' (ie, this), which is what rasterizes the vector components and puts the shapes in terms of the size of this canvas object.
  */
-
-
-
-class ObjectCanvas
+class ShapeContainer
 {
 public:
-	ObjectCanvas();
-	virtual ~ObjectCanvas();
+	ShapeContainer();
+	virtual ~ShapeContainer();
 
+	/* Paints all of the structures of this container with the associated stroke. */
 	bool Repaint();
 
 	void AddItem();	//TODO
@@ -39,13 +42,10 @@ public:
 	std::vector<Shape*> GetItems(); //TODO
 
 private:
-	uint16_t width;
-	uint16_t height;
-
 	PTK_Stroke stroke;
 	std::vector<Shape*> items;
 };
 
 } /* namespace Pathfinder */
 
-#endif /* PATHTOOLKIT_GRAPHIC_OBJECTCANVAS_H_ */
+#endif /* PATHTOOLKIT_GRAPHIC_SHAPECONTAINER_H_ */

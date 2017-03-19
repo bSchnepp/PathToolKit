@@ -79,8 +79,8 @@ void Frame::SetSize(unsigned int w, unsigned int h)
 
 void Frame::SetPos(uint16_t x, uint16_t y)
 {
-	this->xpos = x;
-	this->ypos = y;
+	this->xpos = static_cast<uint16_t>(x << 6);
+	this->ypos = static_cast<uint16_t>(y << 6);
 }
 
 void Frame::SetBorderWidth(int w)

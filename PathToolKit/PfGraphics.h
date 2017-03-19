@@ -12,6 +12,7 @@
 //#include "frame.h"
 #include "PfInstance.h"
 #include "gutil/Color.h"
+#include "graphic/gstructs.h"
 
 namespace Pathfinder
 {
@@ -29,6 +30,10 @@ class PfGraphics
 {
 public:
 	PfGraphics();
+
+	/* Pre-assigns an instance to this graphics object. */
+	PfGraphics(PfInstance* instance);
+
 	virtual ~PfGraphics();
 
 	/** Returns the Graphics Context used by this class. [PROBABLY X11 ONLY] */

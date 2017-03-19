@@ -6,27 +6,36 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <PathToolKit/PfGraphics.h>
-#include <PathToolKit/gutil/Color.h>
-
+#include <PfGraphics.h>
 #include <xcb/xcb.h>
-#include <vector>
-
+#include <xcb/xcbext.h>
+#include <cstdint>
 #include <cstdlib>
-#include <iostream>
+
+#include "graphic/gstructs.h"
 
 namespace Pathfinder
 {
 
 PfGraphics::PfGraphics()
 {
-
 	this->gcontext = 0;
 	this->instance = nullptr;
 	this->frame = nullptr;
 	this->mask = XCB_GC_FOREGROUND;
 	this->value = new uint32_t[2];
-	this->colormap = NULL;
+	this->colormap = nullptr;
+}
+
+PfGraphics::PfGraphics(PfInstance* const instance)
+{
+	this->gcontext = 0;
+	this->instance = nullptr;
+	this->frame = nullptr;
+	this->mask = XCB_GC_FOREGROUND;
+	this->value = new uint32_t[2];
+	this->colormap = nullptr;
+	this->AssignInstance(instance);
 }
 
 void PfGraphics::AssignInstance(PfInstance* const instance)
@@ -34,39 +43,33 @@ void PfGraphics::AssignInstance(PfInstance* const instance)
 	this->instance = instance;
 	xcb_connection_t* id = this->instance->GetConnection();
 	this->gcontext = xcb_generate_id(id);
+
+	this->colormap = &(this->instance->GetScreen()->default_colormap);
+	*(this->colormap) = this->instance->GetScreen()->default_colormap;
+	xcb_create_colormap(this->instance->GetConnection(), XCB_COLORMAP_ALLOC_NONE, *(this->colormap),
+			this->instance->GetScreen()->root, this->instance->GetScreen()->root_visual);
+
+	this->gcontext = xcb_generate_id(this->instance->GetConnection());
 }
 
 void PfGraphics::AssignColor(Color* color)
 {
 	xcb_connection_t* connection = this->instance->GetConnection();
-	xcb_screen_t* screen = this->instance->GetScreen();
-	xcb_drawable_t window = screen->root;
-	this->colormap = &(this->instance->GetScreen()->default_colormap);
-
-
-	*(this->colormap) = this->instance->GetScreen()->default_colormap;
-	xcb_create_colormap(connection, XCB_COLORMAP_ALLOC_NONE, *(this->colormap),
-			window, screen->root_visual);
-
-	xcb_alloc_color_reply_t* reply = xcb_alloc_color_reply(connection,
+	xcb_alloc_color_reply_t* color_reply = xcb_alloc_color_reply(connection,
 			xcb_alloc_color(connection, *(this->colormap),
 					static_cast<uint16_t>(color->GetRed() << 0),
 					static_cast<uint16_t>(color->GetGreen() << 0),
 					static_cast<uint16_t>((color->GetBlue() << 0))),
 			NULL);
 
-	this->gcontext = xcb_generate_id(connection);
-	uint32_t mask = XCB_GC_FOREGROUND;
-	uint32_t value[] =
-	{ screen->black_pixel };
-
-	//TODO here, this is placeholder code so we get it to compile for now with -werror.
-	reply++;
-	Color* c2 = color->Darker();
-	delete c2;
+	//TODO
+	free(color_reply);
 	//
 
-	xcb_create_gc(connection, this->gcontext, window, mask, value);
+	uint32_t mask = XCB_GC_FOREGROUND;
+	uint32_t value[] =
+	{ this->instance->GetScreen()->black_pixel };
+	xcb_create_gc(connection, this->gcontext, this->instance->GetScreen()->root, mask, value);
 }
 
 void PfGraphics::AssignFrame(Frame* frame)
