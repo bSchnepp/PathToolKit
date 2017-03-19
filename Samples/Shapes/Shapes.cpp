@@ -19,7 +19,7 @@ int RunShapesExample()
 	instance->MakeFrame(frame);
 	frame->SetBorderWidth(100);
 	frame->SetPos(500, 500);
-	frame->CreateWindow();
+	frame->CreateFrame();
 
 	// Make a color, assign it to the graphics context.
 	Pathfinder::Color* color = new Pathfinder::Color(0, 0, 0);

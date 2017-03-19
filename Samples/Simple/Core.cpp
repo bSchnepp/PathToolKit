@@ -10,7 +10,6 @@
 #include <gutil/Color.h>
 #include <PfGraphics.h>
 #include <PfInstance.h>
-#include <iostream>
 
 
 int RunExample()
@@ -24,7 +23,7 @@ int RunExample()
 	instance->MakeFrame(frame);
 	frame->SetBorderWidth(100);
 	frame->SetPos(500, 500);
-	frame->CreateWindow();
+	frame->CreateFrame();
 
 	// Make a color, assign it to the graphics context.
 	Pathfinder::Color* color = new Pathfinder::Color(0, 0, 0);
@@ -32,7 +31,6 @@ int RunExample()
 	graphics->AssignComponent(frame);
 
 	// Draw some shapes! These are unsafe as they aren't dynamically re-rendered.
-	std::cout << "DEBUG PRINT [ACTIVE] : Before Calling FillArc" << std::endl;
 	graphics->FillArc(0, 400, 190, 190, 50, 330);
 	graphics->FillRect(100, 100, 165, 152);
 	graphics->FillOval(300, 300, 25, 50);
@@ -45,7 +43,7 @@ int RunExample()
 	graphics->FillPolygon(xpoints, ypoints, numpoints);
 	graphics->Repaint();
 
-	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes.
+	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes. This should always be the last call of our program before cleanup and all.
 	instance->PfInit(frame);
 
 
