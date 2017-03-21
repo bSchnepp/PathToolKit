@@ -82,6 +82,11 @@ void Frame::SetBorderWidth(int w)
 	this->bwidth = w;
 }
 
+PfInstance* Frame::GetInstance()
+{
+	return this->instance;
+}
+
 void Frame::SetTitle(const char* newTitle)
 {
 	this->title = newTitle;

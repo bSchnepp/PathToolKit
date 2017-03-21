@@ -11,15 +11,37 @@
 namespace PathExtension
 {
 
-BasicFrame::BasicFrame()
+BasicFrame::BasicFrame() : PathDraw::Frame()
 {
-	// TODO Auto-generated constructor stub
+	this->instance = new PathDraw::PfInstance();
+	this->graphics = new PathDraw::PfGraphics(this->instance);
+	this->graphics->AssignComponent(this);
+	this->instance->MakeFrame(this);
+}
 
+BasicFrame::BasicFrame(std::string title) : PathDraw::Frame(title)
+{
+	this->title = title;
+	this->instance = new PathDraw::PfInstance();
+	this->graphics = new PathDraw::PfGraphics(this->instance);
+	this->graphics->AssignComponent(this);
+	this->instance->MakeFrame(this);
+}
+
+PathDraw::PfGraphics* BasicFrame::GetGraphics()
+{
+	return this->graphics;
+}
+
+PathDraw::PfInstance* BasicFrame::GetInstance()
+{
+	return this->instance;
 }
 
 BasicFrame::~BasicFrame()
 {
-	// TODO Auto-generated destructor stub
+	delete this->graphics;
+	delete this->instance;
 }
 
 } /* namespace PathExtension */

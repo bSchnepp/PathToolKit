@@ -53,6 +53,10 @@
 /* Images and icons */
 #include "image/Image.h"
 
+#ifdef PATHTOOLKIT_INCLUDE_EXTRAS
+#include "extra/BasicFrame.h"
+#endif
+
 /* Shapes and other graphical utilities */
 
 #endif /* PATHFINDER_H_ */
