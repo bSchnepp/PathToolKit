@@ -9,6 +9,8 @@
 #ifndef PATHTOOLKIT_WIDGETS_PATHLABEL_H_
 #define PATHTOOLKIT_WIDGETS_PATHLABEL_H_
 
+#include <string>
+
 namespace PathWidget
 {
 
@@ -16,7 +18,11 @@ class PathLabel
 {
 public:
 	PathLabel();
+	PathLabel(std::string label);
 	virtual ~PathLabel();
+
+private:
+	std::string label;	//PathLabels _only_ support Strings. For image components, there's a todo PathImageLabel class.
 };
 
 } /* namespace PathWidget */

@@ -34,7 +34,7 @@ int RunShapesExample()
 	};
 
 	PathDraw::Shape* shape = new PathDraw::Shape(array, 3); //TODO: add optimizations for rectangles, and other shapes.
-	shape->SetFill(false);
+	shape->SetFill(true);
 
 
 	PathDraw::PTK_Point cp1 = {0.9f, 0.6f};

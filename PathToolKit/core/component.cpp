@@ -141,7 +141,15 @@ void Component::Repaint()
 
 			int x = static_cast<int>(points->posx * this->width);
 			int y = static_cast<int>(points->posy * this->height);
-			this->graphics->DrawOval(x, y, rad, rad);
+			if (n->GetFill())
+			{
+				this->graphics->FillOval(x, y, rad, rad);
+			}
+			else
+			{
+				this->graphics->DrawOval(x, y, rad, rad);
+			}
+
 		}
 		else
 		{

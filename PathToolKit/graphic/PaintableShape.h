@@ -10,11 +10,7 @@
 #define PATHTOOLKIT_GRAPHIC_PAINTABLESHAPE_H_
 
 #include <cstdint>
-
-namespace PathDraw
-{
-struct PTK_Point;
-} /* namespace PathDraw */
+#include "gstructs.h"
 
 namespace PathDraw
 {
