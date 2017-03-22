@@ -9,9 +9,7 @@
 #ifndef PATHTOOLKIT_EXTRA_BASICFRAME_H_
 #define PATHTOOLKIT_EXTRA_BASICFRAME_H_
 
-#include "../frame.h"
-#include "../PfGraphics.h"
-
+#include <PathToolKit/frame.h>
 #include <string>
 
 namespace PathExtension

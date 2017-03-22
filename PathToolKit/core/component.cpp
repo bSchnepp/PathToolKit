@@ -6,19 +6,16 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <component.h>
-#include <graphic/PaintableShape.h>
-#include <graphic/ShapeContainer.h>
-#include <gutil/managers/BorderLayout.h>
-#include <PfGraphics.h>
-#include <PfInstance.h>
+#include <PathToolKit/component.h>
+#include <PathToolKit/graphic/Arc.h>
+#include <PathToolKit/graphic/Circle.h>
+#include <PathToolKit/graphic/gstructs.h>
+#include <PathToolKit/graphic/ShapeContainer.h>
+#include <PathToolKit/gutil/managers/BorderLayout.h>
+#include <PathToolKit/PfGraphics.h>
+#include <PathToolKit/PfInstance.h>
 #include <stdlib.h>
 #include <iostream>
-#include <iterator>
-#include <limits>
-
-#include <graphic/Arc.h>
-#include <graphic/Circle.h>
 
 #ifdef PATHTOOLKIT_CREATE_WINDOW_MANAGER
 //Include some stuff to help manage window management, Vulkan instances, all sorts of fun stuff. Requires a recent AMD graphics card, Intel iGPU, or proprietary NVIDIA drivers.
@@ -126,14 +123,13 @@ void Component::Repaint()
 			{
 				this->graphics->DrawArc(static_cast<int>(this->width * points->posx), static_cast<int>(this->width * points->posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
 			}
-
 		}
 		else if (n->IsCircle())
 		{
 			//TODO, FIXME LATER
 			Circle* circle = static_cast<Circle*>(n);
 			uint16_t radius = circle->GetRadius();
-			int rad = static_cast<int>(radius);	//Get the width and height of the circle.
+			int rad = static_cast<int>(radius);	//Get the width and height of the circle. Radius here is absolute, include setting for relative and for relative only when could be cut off later. TODO
 
 			int x = static_cast<int>(points->posx * this->width);
 			int y = static_cast<int>(points->posy * this->height);
@@ -141,7 +137,7 @@ void Component::Repaint()
 		}
 		else
 		{
-			std::cout << "Invalid shape attempted to be drawn." << std::endl;
+			std::cerr << "Invalid shape attempted to be drawn." << std::endl;
 		}
 	}
 }

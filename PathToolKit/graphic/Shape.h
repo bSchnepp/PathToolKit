@@ -9,9 +9,7 @@
 #ifndef PATHTOOLKIT_GRAPHIC_SHAPE_H_
 #define PATHTOOLKIT_GRAPHIC_SHAPE_H_
 
-#include "PaintableShape.h"
-
-#include <graphic/gstructs.h>
+#include <PathToolKit/graphic/PaintableShape.h>
 #include <cstdint>
 
 namespace PathDraw

@@ -24,8 +24,8 @@
 
 /* Frames + other high-level stuff */
 
-#include <graphic/gstructs.h>
-#include <graphic/ShapeContainer.h>
+#include <PathToolKit/graphic/gstructs.h>
+#include <PathToolKit/graphic/ShapeContainer.h>
 #include "component.h"
 #include "frame.h"
 

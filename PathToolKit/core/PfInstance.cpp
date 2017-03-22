@@ -6,15 +6,12 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <xcb/xcb.h>
+#include <PathToolKit/PfInstance.h>
+#include <xcb/xproto.h>
+#include <cstdint>
 #include <cstdlib>
-#include <iostream>
-#include <cstdio>
-#include <string>
 #include <sstream>
-
-#include "../PfInstance.h"
-#include "../frame.h"
+#include <string>
 
 /* This had to be created because for whatever reason, to_string wasn't available in C++14 or something? Dirty hack. Blame G++. Probably fixed by now, not compiling GCC over again.*/
 template<typename T> std::string to_string(const T& n)

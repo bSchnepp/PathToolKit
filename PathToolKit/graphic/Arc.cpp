@@ -6,8 +6,7 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <graphic/Arc.h>
-#include <cstdint>
+#include <PathToolKit/graphic/Arc.h>
 
 namespace PathDraw
 {

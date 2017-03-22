@@ -6,8 +6,7 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include "Color.h"
-#include <cstdint>
+#include <PathToolKit/gutil/Color.h>
 
 #define PATHFINDER_INTERNAL_MULTFORFLOATCONVERT 255
 

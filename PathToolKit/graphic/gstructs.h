@@ -9,7 +9,11 @@
 #ifndef PATHTOOLKIT_GRAPHIC_GSTRUCTS_H_
 #define PATHTOOLKIT_GRAPHIC_GSTRUCTS_H_
 
-#include "../gutil/Color.h"
+namespace PathDraw
+{
+class Color;
+} /* namespace PathDraw */
+
 namespace PathDraw
 {
 //Forward declaration because dependencies. My C++ is awful, and I'm used to Java for the longest time where this isn't a problem.

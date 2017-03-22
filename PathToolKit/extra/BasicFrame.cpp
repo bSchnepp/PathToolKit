@@ -6,7 +6,9 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <extra/BasicFrame.h>
+#include <PathToolKit/extra/BasicFrame.h>
+#include <PathToolKit/PfGraphics.h>
+#include <PathToolKit/PfInstance.h>
 
 namespace PathExtension
 {

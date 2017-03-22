@@ -6,8 +6,8 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <graphic/gstructs.h>
-#include <graphic/Shape.h>
+#include <PathToolKit/graphic/gstructs.h>
+#include <PathToolKit/graphic/Shape.h>
 #include <cstdlib>
 
 namespace PathDraw

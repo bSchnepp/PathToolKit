@@ -6,7 +6,7 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <graphic/PaintableShape.h>
+#include <PathToolKit/graphic/PaintableShape.h>
 
 namespace PathDraw
 {

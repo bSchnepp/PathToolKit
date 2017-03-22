@@ -9,18 +9,14 @@
 #ifndef COMPONENT_H_
 #define COMPONENT_H_
 
-#include <event/Listener.h>
-#include <structdefs.h>
+#include <PathToolKit/event/Listener.h>
+#include <PathToolKit/structdefs.h>
 #include <cstdint>
 #include <vector>
 
 namespace PathDraw
 {
 class PaintableShape;
-} /* namespace Pathfinder */
-
-namespace PathDraw
-{
 class LayoutManager;
 class PfInstance;
 class ShapeContainer;

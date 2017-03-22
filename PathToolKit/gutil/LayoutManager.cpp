@@ -6,7 +6,7 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include "LayoutManager.h"
+#include <PathToolKit/gutil/LayoutManager.h>
 
 namespace PathDraw
 {

@@ -9,7 +9,10 @@
 #ifndef LAYOUTMANAGER_H_
 #define LAYOUTMANAGER_H_
 
-#include "../structdefs.h"
+namespace PathDraw
+{
+struct PF_COMPONENT_SERIAL;
+} /* namespace PathDraw */
 
 namespace PathDraw
 {

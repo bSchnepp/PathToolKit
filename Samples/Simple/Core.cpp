@@ -6,10 +6,10 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <frame.h>
-#include <gutil/Color.h>
-#include <PfGraphics.h>
-#include <PfInstance.h>
+#include <PathToolKit/frame.h>
+#include <PathToolKit/gutil/Color.h>
+#include <PathToolKit/PfGraphics.h>
+#include <PathToolKit/PfInstance.h>
 
 
 int RunExample()

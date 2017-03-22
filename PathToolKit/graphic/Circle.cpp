@@ -6,7 +6,7 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <graphic/Circle.h>
+#include <PathToolKit/graphic/Circle.h>
 
 namespace PathDraw
 {

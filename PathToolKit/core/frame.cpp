@@ -6,7 +6,8 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#include <frame.h>
+#include <PathToolKit/frame.h>
+#include <sys/types.h>
 #include <xcb/xproto.h>
 #include <cstdint>
 #include <cstring>

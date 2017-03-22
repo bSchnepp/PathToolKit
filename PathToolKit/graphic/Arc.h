@@ -9,9 +9,8 @@
 #ifndef PATHTOOLKIT_GRAPHIC_ARC_H_
 #define PATHTOOLKIT_GRAPHIC_ARC_H_
 
-#include "PaintableShape.h"
-
-#include <graphic/gstructs.h>
+#include <PathToolKit/graphic/gstructs.h>
+#include <PathToolKit/graphic/PaintableShape.h>
 #include <cstdint>
 
 namespace PathDraw

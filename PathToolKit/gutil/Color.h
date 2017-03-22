@@ -10,7 +10,6 @@
 #define COLOR_H_
 
 #include <cstdint>
-#include "stdint.h"	//Workaround for above not working.
 
 namespace PathDraw
 {
