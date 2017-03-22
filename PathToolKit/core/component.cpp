@@ -20,6 +20,18 @@
 #include <graphic/Arc.h>
 #include <graphic/Circle.h>
 
+#ifdef PATHTOOLKIT_CREATE_WINDOW_MANAGER
+//Include some stuff to help manage window management, Vulkan instances, all sorts of fun stuff. Requires a recent AMD graphics card, Intel iGPU, or proprietary NVIDIA drivers.
+//Maybe try to pull off software rendering if HW acceleration through Vulkan isn't possible? Maybe an OpenGL stopgap? Not sure what to do, just 'get HW acceleration soon'.
+//We'll abstract away the actual API itself **anyway** so might as well try.
+#endif
+
+#ifdef PATHTOOLKIT_USE_VULKAN
+//Do things with managing the actual context as items in a Vulkan instance.
+#else
+//Otherwise, we reply on the X server to do all the hard work.
+#endif
+
 namespace PathDraw
 {
 
@@ -178,5 +190,10 @@ uint16_t Component::GetHeight()
 uint16_t Component::GetWidth()
 {
 	return this->width;
+}
+
+void Refresh()
+{
+	//TODO
 }
 } /* namespace Pathfinder */

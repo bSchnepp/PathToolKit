@@ -23,6 +23,7 @@
  **/
 
 /* Frames + other high-level stuff */
+
 #include <graphic/gstructs.h>
 #include <graphic/ShapeContainer.h>
 #include "component.h"
@@ -60,6 +61,9 @@
 //TODO: COLORS!!!!
 #include "graphic/Circle.h"
 #include "graphic/Arc.h"
+
+
+//Extensions
 
 #ifdef PATHTOOLKIT_INCLUDE_EXTRAS
 #include "extra/BasicFrame.h"
