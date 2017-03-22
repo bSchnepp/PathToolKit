@@ -12,7 +12,6 @@
 #include <cstdint>
 #include <cstring>
 
-
 namespace PathDraw
 {
 
@@ -91,10 +90,9 @@ PfInstance* Frame::GetInstance()
 void Frame::SetTitle(const char* newTitle)
 {
 	this->title = newTitle;
-	xcb_change_property(this->instance->GetConnection(), XCB_PROP_MODE_REPLACE, window,
-			XCB_ATOM_WM_NAME, XCB_ATOM_STRING, 8,
-			static_cast<uint32_t>(strlen(newTitle)),
-			this->title.c_str());
+	xcb_change_property(this->instance->GetConnection(), XCB_PROP_MODE_REPLACE,
+			window, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, 8,
+			static_cast<uint32_t>(strlen(newTitle)), this->title.c_str());
 }
 
 void Frame::CreateFrame()

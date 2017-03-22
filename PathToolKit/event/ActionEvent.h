@@ -14,7 +14,7 @@
 namespace PathEvent
 {
 
-class ActionEvent : public Event
+class ActionEvent: public Event
 {
 public:
 	ActionEvent();

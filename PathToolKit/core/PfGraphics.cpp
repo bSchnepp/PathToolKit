@@ -48,8 +48,10 @@ void PfGraphics::AssignInstance(PfInstance* const instance)
 
 	this->colormap = &(this->instance->GetScreen()->default_colormap);
 	*(this->colormap) = this->instance->GetScreen()->default_colormap;
-	xcb_create_colormap(this->instance->GetConnection(), XCB_COLORMAP_ALLOC_NONE, *(this->colormap),
-			this->instance->GetScreen()->root, this->instance->GetScreen()->root_visual);
+	xcb_create_colormap(this->instance->GetConnection(),
+			XCB_COLORMAP_ALLOC_NONE, *(this->colormap),
+			this->instance->GetScreen()->root,
+			this->instance->GetScreen()->root_visual);
 
 	this->gcontext = xcb_generate_id(this->instance->GetConnection());
 }
@@ -71,7 +73,8 @@ void PfGraphics::AssignColor(Color* color)
 	uint32_t mask = XCB_GC_FOREGROUND;
 	uint32_t value[] =
 	{ this->instance->GetScreen()->black_pixel };
-	xcb_create_gc(connection, this->gcontext, this->instance->GetScreen()->root, mask, value);
+	xcb_create_gc(connection, this->gcontext, this->instance->GetScreen()->root,
+			mask, value);
 }
 
 void PfGraphics::AssignComponent(Component* component)
@@ -89,8 +92,8 @@ void PfGraphics::DrawArc(int x, int y, int width, int height, int startAngle,
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height),
 			static_cast<int16_t>(startAngle << 6), static_cast<int16_t>(arcAngle
 					<< 6) };
-	xcb_poly_arc(this->instance->GetConnection(), rootWindow,
-			this->gcontext, 2, &arc);
+	xcb_poly_arc(this->instance->GetConnection(), rootWindow, this->gcontext, 2,
+			&arc);
 }
 
 void PfGraphics::FillArc(int x, int y, int width, int height, int startAngle,
@@ -106,10 +109,8 @@ void PfGraphics::FillArc(int x, int y, int width, int height, int startAngle,
 
 	printf("Hello, world!");
 
-
 	xcb_poly_fill_arc(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &arc);
-
 
 }
 
@@ -121,8 +122,8 @@ void PfGraphics::DrawRect(int x, int y, int width, int height)
 	xcb_rectangle_t rectangle =
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height) };
-	xcb_poly_rectangle(this->instance->GetConnection(),
-			rootWindow, this->gcontext, 2, &rectangle);
+	xcb_poly_rectangle(this->instance->GetConnection(), rootWindow,
+			this->gcontext, 2, &rectangle);
 }
 
 void PfGraphics::FillRect(int x, int y, int width, int height)
@@ -132,8 +133,8 @@ void PfGraphics::FillRect(int x, int y, int width, int height)
 	xcb_rectangle_t rectangle =
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height) };
-	xcb_poly_fill_rectangle(this->instance->GetConnection(),
-			rootWindow, this->gcontext, 2, &rectangle);
+	xcb_poly_fill_rectangle(this->instance->GetConnection(), rootWindow,
+			this->gcontext, 2, &rectangle);
 }
 
 void PfGraphics::DrawOval(int x, int y, int width, int height)
@@ -145,8 +146,8 @@ void PfGraphics::DrawOval(int x, int y, int width, int height)
 	{ static_cast<int16_t>(x), static_cast<int16_t>(y),
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height),
 			static_cast<int16_t>(0 << 6), static_cast<int16_t>(360 << 6) };
-	xcb_poly_arc(this->instance->GetConnection(), rootWindow,
-			this->gcontext, 2, &arc);
+	xcb_poly_arc(this->instance->GetConnection(), rootWindow, this->gcontext, 2,
+			&arc);
 }
 
 void PfGraphics::FillOval(int x, int y, int width, int height)
@@ -174,14 +175,11 @@ void PfGraphics::DrawPolygon(int* xpoints, int* ypoints, int npoints)
 		points->push_back(p);
 	}
 	xcb_point_t org =
-	{
-			static_cast<int16_t>(xpoints[0]),
-			static_cast<int16_t>(ypoints[0])
-	};
+	{ static_cast<int16_t>(xpoints[0]), static_cast<int16_t>(ypoints[0]) };
 	points->push_back(org);
 	xcb_point_t* pa = &points->at(0);
-	xcb_poly_line(this->instance->GetConnection(), XCB_COORD_MODE_ORIGIN, rootWindow,
-			this->gcontext, npoints + 1, pa);
+	xcb_poly_line(this->instance->GetConnection(), XCB_COORD_MODE_ORIGIN,
+			rootWindow, this->gcontext, npoints + 1, pa);
 	delete points;
 }
 
@@ -198,9 +196,8 @@ void PfGraphics::FillPolygon(int* xpoints, int* ypoints, int npoints)
 		points->push_back(p);
 	}
 	xcb_point_t* pa = &points->at(0);
-	xcb_fill_poly(this->instance->GetConnection(), rootWindow,
-			this->gcontext, XCB_POLY_SHAPE_COMPLEX, XCB_COORD_MODE_ORIGIN,
-			npoints, pa);
+	xcb_fill_poly(this->instance->GetConnection(), rootWindow, this->gcontext,
+			XCB_POLY_SHAPE_COMPLEX, XCB_COORD_MODE_ORIGIN, npoints, pa);
 	delete points;
 }
 

@@ -14,7 +14,7 @@
 namespace PathEvent
 {
 
-class FrameListener : public Listener
+class FrameListener: public Listener
 {
 public:
 	FrameListener();

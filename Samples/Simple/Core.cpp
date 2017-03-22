@@ -11,7 +11,6 @@
 #include <PathToolKit/PfGraphics.h>
 #include <PathToolKit/PfInstance.h>
 
-
 int RunExample()
 {
 	// We'll create a PfInstance and a frame, along with it's graphics context.
@@ -45,7 +44,6 @@ int RunExample()
 
 	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes. This should always be the last call of our program before cleanup and all.
 	instance->PfInit(frame);
-
 
 	// Clean up our mess.
 	delete frame;

@@ -13,7 +13,8 @@
 namespace PathExtension
 {
 
-BasicFrame::BasicFrame() : PathDraw::Frame()
+BasicFrame::BasicFrame() :
+		PathDraw::Frame()
 {
 	this->instance = new PathDraw::PfInstance();
 	this->graphics = new PathDraw::PfGraphics(this->instance);
@@ -21,7 +22,8 @@ BasicFrame::BasicFrame() : PathDraw::Frame()
 	this->instance->MakeFrame(this);
 }
 
-BasicFrame::BasicFrame(std::string title) : PathDraw::Frame(title)
+BasicFrame::BasicFrame(std::string title) :
+		PathDraw::Frame(title)
 {
 	this->title = title;
 	this->instance = new PathDraw::PfInstance();

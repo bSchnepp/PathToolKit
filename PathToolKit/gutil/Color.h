@@ -68,8 +68,6 @@ public:
 	/** Creates a new color based on 3 floats for the values. */
 	Color(float r, float g, float b);
 
-
-
 	/** Returns a copied color with the values darkened. */
 	Color* Darker();
 
@@ -101,6 +99,8 @@ private:
 	uint16_t b;
 	uint16_t g;
 	uint16_t a = 255;
+	uint32_t pixel;
+	bool initalized;
 };
 
 ///* Some template colors and whatnot. These color values are identical to Swing's. */

@@ -16,10 +16,11 @@
 namespace PathDraw
 {
 
-class Arc : public PaintableShape
+class Arc: public PaintableShape
 {
 public:
-	Arc(PTK_Point center, uint16_t radius, uint16_t startangle, uint16_t arcangle);
+	Arc(PTK_Point center, uint16_t radius, uint16_t startangle,
+			uint16_t arcangle);
 	virtual ~Arc();
 
 	uint16_t GetRadius();

@@ -15,7 +15,7 @@
 namespace PathExtension
 {
 
-class BasicFrame : public PathDraw::Frame
+class BasicFrame: public PathDraw::Frame
 {
 public:
 	BasicFrame();

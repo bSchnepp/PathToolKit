@@ -95,33 +95,41 @@ void Component::Repaint()
 		PTK_Point* points = n->GetPoints();
 		if (!n->IsArc() && !n->IsCircle())
 		{
-				for (int i = 0; i < pointCount; i++)
-				{
-					xpoints[i] = static_cast<int>(this->width * points[i].posx);
-					ypoints[i] = static_cast<int>(this->height * points[i].posy);
-				}
-				if (n->GetFill())
-				{
-					this->graphics->FillPolygon(xpoints, ypoints, pointCount);
-				}
-				else
-				{
-					this->graphics->DrawPolygon(xpoints, ypoints, pointCount);
-				}
+			for (int i = 0; i < pointCount; i++)
+			{
+				xpoints[i] = static_cast<int>(this->width * points[i].posx);
+				ypoints[i] = static_cast<int>(this->height * points[i].posy);
+			}
+			if (n->GetFill())
+			{
+				this->graphics->FillPolygon(xpoints, ypoints, pointCount);
+			}
+			else
+			{
+				this->graphics->DrawPolygon(xpoints, ypoints, pointCount);
+			}
 		}
 		else if (n->IsArc())
 		{
-			Arc* arc = static_cast<Arc*>(n);	//We're certain this is, in fact, an Arc.
+			Arc* arc = static_cast<Arc*>(n);//We're certain this is, in fact, an Arc.
 			uint16_t arcStart = arc->GetStartAngle();
 			uint16_t arcAngle = arc->GetArcAngle();
 			uint16_t radius = arc->GetRadius();
 			if (n->GetFill())
 			{
-				this->graphics->FillArc(static_cast<int>(this->width * points->posx), static_cast<int>(this->width * points->posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
+				this->graphics->FillArc(
+						static_cast<int>(this->width * points->posx),
+						static_cast<int>(this->width * points->posy), radius,
+						radius, static_cast<int>(arcStart),
+						static_cast<int>(arcAngle));
 			}
 			else
 			{
-				this->graphics->DrawArc(static_cast<int>(this->width * points->posx), static_cast<int>(this->width * points->posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
+				this->graphics->DrawArc(
+						static_cast<int>(this->width * points->posx),
+						static_cast<int>(this->width * points->posy), radius,
+						radius, static_cast<int>(arcStart),
+						static_cast<int>(arcAngle));
 			}
 		}
 		else if (n->IsCircle())
@@ -166,7 +174,6 @@ void Component::AddShape(PaintableShape* shape)
 {
 	this->container->AddItem(shape);
 }
-
 
 void Component::SetWidth(uint16_t width)
 {

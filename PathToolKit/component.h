@@ -110,14 +110,8 @@ public:
 protected:
 	virtual void OnGraphicsUpdate(PfGraphics* graphics);
 
-	/* Serialization, so we can keep track of the frames and whatnot... too many components will seriously slow down the system, but we can fix that later.
-	 * Going to attempt to use structs and be slightly more wasteful with memory so that we don't go in a panic when we get 2 ^ 64 different components (aka *really* big number that you can still technically reach given enough time)
-	 * Nooo, go away Cairo, we want to stay under the MIT license only.
-	 */
-
 	// TODO: We want to prefer using the heap over the stack as much as we can, so turn these all into pointers...
 	// We're awful and manage memory ourselves for some reason, just because pointers are fun.
-
 	/* This component's parent. When parent is killed, all of it's children are killed too. */
 	Component* parent;
 
@@ -151,8 +145,6 @@ protected:
 	PfInstance* instance;
 	PfGraphics* graphics;
 };
-
-
 
 } /* namespace Pathfinder */
 

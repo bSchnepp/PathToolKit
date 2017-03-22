@@ -14,7 +14,7 @@
 namespace PathEvent
 {
 
-class FrameEvent : public Event
+class FrameEvent: public Event
 {
 public:
 	FrameEvent();

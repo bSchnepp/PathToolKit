@@ -19,6 +19,7 @@ namespace PathDraw
 class RenderSurface
 {
 	//Rasterization process goes here
+	//Lots of TODO, this is for far on out!
 };
 
 /*

@@ -11,7 +11,8 @@
 namespace PathDraw
 {
 
-Arc::Arc(PTK_Point center, uint16_t radius, uint16_t startangle, uint16_t arcangle)
+Arc::Arc(PTK_Point center, uint16_t radius, uint16_t startangle,
+		uint16_t arcangle)
 {
 	this->center = center;
 	this->radius = radius;
@@ -53,8 +54,6 @@ bool Arc::IsCircle()
 {
 	return false;
 }
-
-
 
 Arc::~Arc()
 {

@@ -15,7 +15,7 @@
 namespace PathDraw
 {
 
-class Shape : public PaintableShape
+class Shape: public PaintableShape
 {
 public:
 	Shape();

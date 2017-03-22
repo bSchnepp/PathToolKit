@@ -11,6 +11,4 @@
 
 int RunShapesExample();
 
-
-
 #endif /* SAMPLES_SHAPES_SHAPES_H_ */

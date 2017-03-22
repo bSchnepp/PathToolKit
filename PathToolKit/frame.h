@@ -67,7 +67,7 @@ public:
 	void CreateFrame();
 
 	/* Sets the title of the frame to something else. */
-	void SetTitle(char const* newTitle);	//Something's wrong with G++ here, so...
+	void SetTitle(char const* newTitle);//Something's wrong with G++ here, so...
 
 protected:
 	uint32_t frame;

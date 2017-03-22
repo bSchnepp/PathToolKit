@@ -28,14 +28,13 @@ typedef struct PF_KeyDown_t
 	uint8_t wasEnterDown;
 
 	uint8_t mainKeyDown;
-}PF_KeyDown_t;
+} PF_KeyDown_t;
 
 typedef struct PF_Mouse_Location_t
 {
 	uint16_t xpos;
 	uint16_t ypos;
-}PF_Mouse_Location_t;
-
+} PF_Mouse_Location_t;
 
 class Event
 {

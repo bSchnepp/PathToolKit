@@ -19,5 +19,4 @@ typedef struct PF_COMPONENT_SERIAL
 } PF_COMPONENT_SERIAL;
 }
 
-
 #endif /* STRUCTDEFS_H_ */

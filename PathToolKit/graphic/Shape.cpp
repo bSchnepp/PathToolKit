@@ -24,7 +24,7 @@ Shape::Shape()
 Shape::Shape(PTK_Point* points, int numPoints)
 {
 	this->numPoints = static_cast<uint16_t>(numPoints);
-	this->points = (PTK_Point*)malloc(sizeof(PTK_Point) *  numPoints);
+	this->points = (PTK_Point*) malloc(sizeof(PTK_Point) * numPoints);
 	for (int i = 0; i < numPoints; i++)
 	{
 		this->points[i] = points[i];
@@ -35,14 +35,13 @@ Shape::Shape(PTK_Point* points, int numPoints)
 Shape::Shape(PTK_Point* points, int numPoints, bool fill)
 {
 	this->numPoints = static_cast<uint16_t>(numPoints);
-	this->points = (PTK_Point*)malloc(sizeof(PTK_Point) *  numPoints);
+	this->points = (PTK_Point*) malloc(sizeof(PTK_Point) * numPoints);
 	for (int i = 0; i < numPoints; i++)
 	{
 		this->points[i] = points[i];
 	}
 	this->fill = fill;
 }
-
 
 Shape::~Shape()
 {
@@ -81,9 +80,9 @@ void Shape::AddPoint(PTK_Point point, int index)
 		npoints[i] = this->points[i];
 	}
 	npoints[index] = point;
-	for (int i = index+1; i < this->numPoints; i++)
+	for (int i = index + 1; i < this->numPoints; i++)
 	{
-		npoints[i] = this->points[i-1];
+		npoints[i] = this->points[i - 1];
 	}
 	free(this->points);
 }

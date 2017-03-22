@@ -15,7 +15,7 @@
 namespace PathEvent
 {
 
-class ActionListener : public Listener
+class ActionListener: public Listener
 {
 public:
 	ActionListener();

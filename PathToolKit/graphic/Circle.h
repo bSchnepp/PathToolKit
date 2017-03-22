@@ -16,7 +16,7 @@
 namespace PathDraw
 {
 
-class Circle : public PaintableShape
+class Circle: public PaintableShape
 {
 public:
 	Circle(PTK_Point center, uint16_t radius);
@@ -29,7 +29,6 @@ public:
 
 	PTK_Point* GetPoints();
 	uint16_t GetNumPoints();
-
 
 private:
 	PTK_Point center;

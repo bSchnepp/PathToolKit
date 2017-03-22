@@ -22,7 +22,7 @@ class Component;
 namespace PathDraw
 {
 
-class BorderLayout : public LayoutManager
+class BorderLayout: public LayoutManager
 {
 public:
 	BorderLayout();

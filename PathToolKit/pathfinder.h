@@ -62,7 +62,6 @@
 #include "graphic/Circle.h"
 #include "graphic/Arc.h"
 
-
 //Extensions
 
 #ifdef PATHTOOLKIT_INCLUDE_EXTRAS

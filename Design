@@ -3,7 +3,18 @@ Generally, we're aiming to have it work along this:
 	- Create components and their contexts,
 	- Bind them all together, define shapes and stuff, put them in.
 	
-	TODO things that would be nice:
-		- Abstract away the creation of a graphics context in a 'BasicFrame' class, which manages it's graphics context by itself.
-		- Make a ShapeFactory class
-		- Support ellipses as a shape.
+TODO things that would be nice:
+	- Make a ShapeFactory class.
+	- Support ellipses as a shape.
+	- Support a bunch of variations of shapes.
+	- Get around to adding colors other than black and white.
+	- Ensure this actually works on Linux. Like, real Linux, not WSL. Actual X out in the wild.
+	- Fix the window position thing? Is that a bug? I can't tell if it's just Xming + WSL or if it's me.
+	- Make widgets suuuper customizable, load a file from ~/Pathfinder/Theme/theme.ptk (or A:/Users/Brian/Pathfinder/Theme/theme.ptk when I do something with Waypoint beyond just a dummy kernel.)
+
+Aims:
+	- Easy to rewrite FreedomWriter using PathToolKit in C++ (since PTK is heavilly inspired by Swing, GTK, and in a way Vulkan, this shouldn't be too hard)
+	- Rewrite the GUIs for VulpineGE in PTK, in an effort to stay away from GTK, Cairo, Qt, etc. (Because custom everything is fun, I probably have severe NIHS or something haha.)
+	- Write a new graphics editing program, 3D modelling tool (and port Cycles to it), etc, aim to build a full desktop environment from self-created tools. Eventually.
+	- Write a new window manager that makes extensive use of Vulkan for rendering. (Disregard that Nouveau doesn't support it, whatever.)
+	- Eventually get around to making this not awful. Clean up code, make optimizations, avoid long branching conditions, etc.

@@ -11,6 +11,4 @@
 
 int RunExample();
 
-
-
 #endif /* SAMPLES_SIMPLE_SIMPLE_H_ */

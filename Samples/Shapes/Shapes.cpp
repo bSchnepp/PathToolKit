@@ -7,6 +7,7 @@
  */
 
 #define PATHTOOLKIT_INCLUDE_EXTRAS
+#define PATHTOOLKIT_USE_VULKAN
 #include <PathToolKit/pathfinder.h>
 
 #include <iostream>
@@ -47,7 +48,6 @@ int RunShapesExample()
 
 	// Clean up our mess
 	delete frame;
-
 	delete shape;
 	delete color;
 
