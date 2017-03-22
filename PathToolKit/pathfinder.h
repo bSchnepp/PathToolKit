@@ -53,6 +53,14 @@
 /* Images and icons */
 #include "image/Image.h"
 
+/* Shapes */
+//TODO: Irregular circles and arcs!!
+//TODO: Dynamically painted objects
+//TODO: Dynamic objects
+//TODO: COLORS!!!!
+#include "graphic/Circle.h"
+#include "graphic/Arc.h"
+
 #ifdef PATHTOOLKIT_INCLUDE_EXTRAS
 #include "extra/BasicFrame.h"
 #endif

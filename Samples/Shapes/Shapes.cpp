@@ -32,14 +32,20 @@ int RunShapesExample()
 			p1, p2, p3
 	};
 
-	PathDraw::Shape* shape = new PathDraw::Shape(array, 3);
+	PathDraw::Shape* shape = new PathDraw::Shape(array, 3); //TODO: add optimizations for rectangles, and other shapes.
 	shape->SetFill(false);
+
+
+	PathDraw::PTK_Point cp1 = {0.9f, 0.6f};
+	PathDraw::Circle* circle = new PathDraw::Circle(cp1, 80);
+	circle->SetFill(true);
 	frame->AddShape(shape);
+	frame->AddShape(circle);
 
 	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes.
 	frame->GetInstance()->PfInit(frame);
 
-	// Clean up our mess.
+	// Clean up our mess
 	delete frame;
 
 	delete shape;

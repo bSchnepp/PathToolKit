@@ -1,7 +1,5 @@
 Generally, we're aiming to have it work along this:
-	- Create instance
-	- Create frame
-	- Create graphics context
+	- Create BasicFrame (or separate graphics context, frame, and instance if you want)
 	- Create components and their contexts,
 	- Bind them all together, define shapes and stuff, put them in.
 	

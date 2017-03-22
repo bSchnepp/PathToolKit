@@ -15,8 +15,32 @@ Circle::Circle(PTK_Point center, uint16_t radius)
 {
 	this->center = center;
 	this->radius = radius;
+	this->isCircle = true;
 }
 
+bool Circle::IsArc()
+{
+	return false;
+}
+
+bool Circle::IsCircle()
+{
+	return true;
+}
+
+uint16_t Circle::GetRadius()
+{
+	return this->radius;
+}
+
+PTK_Point* Circle::GetPoints()
+{
+	return &this->center;
+}
+uint16_t Circle::GetNumPoints()
+{
+	return 1;
+}
 
 Circle::~Circle()
 {

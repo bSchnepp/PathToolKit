@@ -23,6 +23,15 @@ public:
 	Arc(PTK_Point center, uint16_t radius, uint16_t startangle, uint16_t arcangle);
 	virtual ~Arc();
 
+	uint16_t GetRadius();
+	uint16_t GetStartAngle();
+	uint16_t GetArcAngle();
+
+	uint16_t GetNumPoints();
+	PTK_Point* GetPoints();
+
+	bool IsArc();
+	bool IsCircle();
 
 private:
 	PTK_Point center;

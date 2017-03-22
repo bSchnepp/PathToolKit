@@ -31,6 +31,7 @@ uint16_t PaintableShape::GetNumPoints()
 PTK_Point* PaintableShape::GetPoints()
 {
 	//Circle/arc should return their single point as a pointer.
+	//Refactor later.
 	return nullptr;
 }
 
@@ -42,6 +43,16 @@ bool PaintableShape::GetFill()
 void PaintableShape::SetFill(bool fill)
 {
 	this->fill = fill;
+}
+
+bool PaintableShape::IsArc()
+{
+	return false;
+}
+
+bool PaintableShape::IsCircle()
+{
+	return false;
 }
 
 } /* namespace Pathfinder */

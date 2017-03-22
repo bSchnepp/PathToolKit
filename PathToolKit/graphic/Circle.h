@@ -23,6 +23,14 @@ public:
 	Circle(PTK_Point center, uint16_t radius);
 	virtual ~Circle();
 
+	bool IsArc();
+	bool IsCircle();
+
+	uint16_t GetRadius();
+
+	PTK_Point* GetPoints();
+	uint16_t GetNumPoints();
+
 
 private:
 	PTK_Point center;

@@ -25,10 +25,15 @@ public:
 	bool GetFill();
 	void SetFill(bool fill);
 
+	virtual bool IsArc();
+	virtual bool IsCircle();
+
 	virtual ~PaintableShape();
 
 protected:
 	bool fill;
+	bool isArc = false;
+	bool isCircle = false;
 };
 
 } /* namespace Pathfinder */

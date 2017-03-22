@@ -17,6 +17,9 @@
 #include <iterator>
 #include <limits>
 
+#include <graphic/Arc.h>
+#include <graphic/Circle.h>
+
 namespace PathDraw
 {
 
@@ -81,34 +84,53 @@ void Component::Repaint()
 		int* xpoints = (int*) malloc(sizeof(int) * pointCount);
 		int* ypoints = (int*) malloc(sizeof(int) * pointCount);
 		PTK_Point* points = n->GetPoints();
-		if (pointCount > 1)
+		if (!n->IsArc() && !n->IsCircle())
 		{
-			if (n->GetFill())
-			{
-
 				for (int i = 0; i < pointCount; i++)
 				{
 					xpoints[i] = static_cast<int>(this->width * points[i].posx);
-					ypoints[i] =
-							static_cast<int>(this->height * points[i].posy);
+					ypoints[i] = static_cast<int>(this->height * points[i].posy);
 				}
-				this->graphics->FillPolygon(xpoints, ypoints, pointCount);
+				if (n->GetFill())
+				{
+					this->graphics->FillPolygon(xpoints, ypoints, pointCount);
+				}
+				else
+				{
+					this->graphics->DrawPolygon(xpoints, ypoints, pointCount);
+				}
+		}
+		else if (n->IsArc())
+		{
+			Arc* arc = static_cast<Arc*>(n);	//We're certain this is, in fact, an Arc.
+			PTK_Point center = *arc->GetPoints();
+			uint16_t arcStart = arc->GetStartAngle();
+			uint16_t arcAngle = arc->GetArcAngle();
+			uint16_t radius = arc->GetRadius();
+			if (n->GetFill())
+			{
+				this->graphics->FillArc(static_cast<int>(this->width * center.posx), static_cast<int>(this->width * center.posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
 			}
 			else
 			{
-				for (int i = 0; i < pointCount; i++)
-				{
-					xpoints[i] = static_cast<int>(this->width * points[i].posx);
-					ypoints[i] =
-							static_cast<int>(this->height * points[i].posy);
-				}
-				this->graphics->DrawPolygon(xpoints, ypoints, pointCount);
+				this->graphics->DrawArc(static_cast<int>(this->width * center.posx), static_cast<int>(this->width * center.posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
 			}
 
 		}
+		else if (n->IsCircle())
+		{
+			Circle* circle = static_cast<Circle*>(n);
+			PTK_Point* points = circle->GetPoints();
+			uint16_t radius = circle->GetRadius();
+			int rad = static_cast<int>(radius);	//Get the width and height of the circle.
+
+			int x = static_cast<int>(points->posx * this->width);
+			int y = static_cast<int>(points->posy * this->height);
+			this->graphics->DrawOval(x, y, rad, rad);
+		}
 		else
 		{
-
+			//Something went wrong!
 		}
 	}
 }
