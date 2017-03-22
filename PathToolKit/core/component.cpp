@@ -103,24 +103,23 @@ void Component::Repaint()
 		else if (n->IsArc())
 		{
 			Arc* arc = static_cast<Arc*>(n);	//We're certain this is, in fact, an Arc.
-			PTK_Point center = *arc->GetPoints();
 			uint16_t arcStart = arc->GetStartAngle();
 			uint16_t arcAngle = arc->GetArcAngle();
 			uint16_t radius = arc->GetRadius();
 			if (n->GetFill())
 			{
-				this->graphics->FillArc(static_cast<int>(this->width * center.posx), static_cast<int>(this->width * center.posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
+				this->graphics->FillArc(static_cast<int>(this->width * points->posx), static_cast<int>(this->width * points->posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
 			}
 			else
 			{
-				this->graphics->DrawArc(static_cast<int>(this->width * center.posx), static_cast<int>(this->width * center.posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
+				this->graphics->DrawArc(static_cast<int>(this->width * points->posx), static_cast<int>(this->width * points->posy), radius, radius, static_cast<int>(arcStart), static_cast<int>(arcAngle));
 			}
 
 		}
 		else if (n->IsCircle())
 		{
+			//TODO, FIXME LATER
 			Circle* circle = static_cast<Circle*>(n);
-			PTK_Point* points = circle->GetPoints();
 			uint16_t radius = circle->GetRadius();
 			int rad = static_cast<int>(radius);	//Get the width and height of the circle.
 
@@ -130,7 +129,7 @@ void Component::Repaint()
 		}
 		else
 		{
-			//Something went wrong!
+			std::cout << "Invalid shape attempted to be drawn." << std::endl;
 		}
 	}
 }
@@ -143,6 +142,11 @@ Frame* Component::GetRootFrame()
 void Component::OnGraphicsUpdate(PfGraphics* graphics)
 {
 	graphics->Repaint();
+}
+
+PfInstance* Component::GetInstance()
+{
+	return this->instance;
 }
 
 void Component::AssignInstance(PfInstance* instance)

@@ -77,6 +77,8 @@ public:
 	uint16_t GetHeight();
 	uint16_t GetWidth();
 
+	PfInstance* GetInstance();
+
 protected:
 	virtual void OnGraphicsUpdate(PfGraphics* graphics);
 

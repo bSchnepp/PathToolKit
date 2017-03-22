@@ -132,7 +132,7 @@ void PfInstance::PfInit(Component* root)
 			/* Unknown event type, ignore it */
 			break;
 		}
-
+		xcb_flush(this->root->GetInstance()->GetConnection());
 		free(event);
 	}
 
