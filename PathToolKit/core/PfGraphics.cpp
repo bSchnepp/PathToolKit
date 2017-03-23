@@ -54,10 +54,8 @@ void PfGraphics::AssignInstance(PfInstance* const instance)
 
 void PfGraphics::AssignColor(Color* color)
 {
-	xcb_connection_t* connection = this->instance->GetConnection();
 	uint32_t c = color->GenerateColor();
-	xcb_change_gc(connection, this->gcontext, XCB_GC_FOREGROUND | XCB_GC_BACKGROUND, &c);
-
+	xcb_change_gc(this->instance->GetConnection(), this->gcontext, XCB_GC_FOREGROUND, &c);
 }
 
 void PfGraphics::AssignComponent(Component* component)
