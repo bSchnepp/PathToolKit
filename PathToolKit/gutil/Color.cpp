@@ -174,4 +174,13 @@ Color* Color::InvertHue()
 	return this;
 }
 
+uint32_t Color::GenerateColor()
+{
+	uint32_t result = 0;
+	result += this->r << 16;
+	result += this->g << 8;
+	result += this->b;
+	return result;
+}
+
 } /* namespace Pathfinder */

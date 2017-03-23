@@ -92,6 +92,9 @@ public:
 	/** Gets the alpha (transparency) value of this Color */
 	uint16_t GetAlpha();
 
+	/** Converts the R, G, and B components into a single color. The alpha is ignored if we're not using Vulkan for rendering. */
+	uint32_t GenerateColor();
+
 	virtual ~Color();
 
 private:
@@ -99,8 +102,6 @@ private:
 	uint16_t b;
 	uint16_t g;
 	uint16_t a = 255;
-	uint32_t pixel;
-	bool initalized;
 };
 
 ///* Some template colors and whatnot. These color values are identical to Swing's. */
