@@ -29,6 +29,8 @@ public:
 	uint16_t GetNumPoints();
 	PTK_Point* GetPoints();
 
+	//TODO: allow positioning of other shapes based on midpoint of a line in this Shape. Lots of mess. Lots of fun.
+
 private:
 	uint16_t numPoints;
 	PTK_Point* points;

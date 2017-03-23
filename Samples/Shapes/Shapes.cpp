@@ -22,7 +22,7 @@ int RunShapesExample()
 	frame->CreateFrame();
 
 	// Make a color, assign it to the graphics context.
-	PathDraw::Color* color = new PathDraw::Color(0, 0, 0);
+	PathDraw::Color* color = new PathDraw::Color(255, 0, 0);
 	frame->GetGraphics()->AssignColor(color);
 
 	PathDraw::PTK_Point p1 = {0.1f, 0.2f};

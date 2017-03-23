@@ -19,25 +19,21 @@
 namespace PathDraw
 {
 
-PfGraphics::PfGraphics()
-{
-	this->gcontext = 0;
-	this->instance = nullptr;
-	this->component = nullptr;
-	this->mask = XCB_GC_FOREGROUND;
-	this->value = new uint32_t[2];
-	this->colormap = nullptr;
-}
-
 PfGraphics::PfGraphics(PfInstance* const instance)
 {
 	this->gcontext = 0;
-	this->instance = nullptr;
+	this->instance = instance;
 	this->component = nullptr;
 	this->mask = XCB_GC_FOREGROUND;
 	this->value = new uint32_t[2];
 	this->colormap = nullptr;
 	this->AssignInstance(instance);
+
+	uint32_t mask = XCB_GC_FOREGROUND;
+	uint32_t value[] =
+	{ this->instance->GetScreen()->black_pixel };
+	xcb_create_gc(this->instance->GetConnection(), this->gcontext, this->instance->GetScreen()->root,
+				mask, value);
 }
 
 void PfGraphics::AssignInstance(PfInstance* const instance)
@@ -59,22 +55,9 @@ void PfGraphics::AssignInstance(PfInstance* const instance)
 void PfGraphics::AssignColor(Color* color)
 {
 	xcb_connection_t* connection = this->instance->GetConnection();
-	xcb_alloc_color_reply_t* color_reply = xcb_alloc_color_reply(connection,
-			xcb_alloc_color(connection, *(this->colormap),
-					static_cast<uint16_t>(color->GetRed() << 0),
-					static_cast<uint16_t>(color->GetGreen() << 0),
-					static_cast<uint16_t>((color->GetBlue() << 0))),
-			NULL);
+	uint32_t c = color->GenerateColor();
+	xcb_change_gc(connection, this->gcontext, XCB_GC_FOREGROUND | XCB_GC_BACKGROUND, &c);
 
-	//TODO
-	free(color_reply);
-	//
-
-	uint32_t mask = XCB_GC_FOREGROUND;
-	uint32_t value[] =
-	{ this->instance->GetScreen()->black_pixel };
-	xcb_create_gc(connection, this->gcontext, this->instance->GetScreen()->root,
-			mask, value);
 }
 
 void PfGraphics::AssignComponent(Component* component)

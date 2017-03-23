@@ -29,9 +29,7 @@ class Frame;
 class PfGraphics
 {
 public:
-	PfGraphics();
-
-	/* Pre-assigns an instance to this graphics object. */
+	/** Default constructor. Required. */
 	PfGraphics(PfInstance* instance);
 
 	virtual ~PfGraphics();
