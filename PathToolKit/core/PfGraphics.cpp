@@ -22,7 +22,6 @@ namespace PathDraw
 PfGraphics::PfGraphics(PfInstance* const instance)
 {
 	this->gcontext = 0;
-	this->instance = instance;
 	this->component = nullptr;
 	this->mask = XCB_GC_FOREGROUND;
 	this->value = new uint32_t[2];
@@ -39,9 +38,6 @@ PfGraphics::PfGraphics(PfInstance* const instance)
 void PfGraphics::AssignInstance(PfInstance* const instance)
 {
 	this->instance = instance;
-	xcb_connection_t* id = this->instance->GetConnection();
-	this->gcontext = xcb_generate_id(id);
-
 	this->colormap = &(this->instance->GetScreen()->default_colormap);
 	*(this->colormap) = this->instance->GetScreen()->default_colormap;
 	xcb_create_colormap(this->instance->GetConnection(),

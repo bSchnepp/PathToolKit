@@ -2,10 +2,8 @@
 A simple drawing/widget toolkit, utilizing XCB.
 ___
 
-PathToolKit is meant to be a simple widget/drawing toolkit that I can just use.
-I tend to enjoy making things from scratch, this (as with almost everything else here) is a 'for fun project'.
-
-As usual, things are being designed in a fairly random and currently inconsistent order.
+PathToolKit is meant to be a simple-to-understand but deep in features widget/drawing toolkit that I can just use.
+It is a work in progress, with many features, ideas, anything being very fluid and subject to change rather rapdily.
 ___
 
 Core features (TODO):
@@ -18,12 +16,10 @@ Core features (TODO):
 	
 Completed features:
 
-	- Nothing!
+	- Colors. In a bad way.
 
 Roadmap:
-	
-	- Connect the color class to actually rendering colors shortly...
-	
+
 	- Within 4 months, start getting a Vulkan backend up.
 	
 	- Complete a real program with PathToolKit in 1 year!
@@ -31,5 +27,7 @@ ___
 PathToolKit also has a sample folder for some programs utilizing the library.
 These are located in the 'Samples' folder.
 If you're building PathToolKit to be used, you should build the PathToolKit directory by itself, and create a dynamic object from it.
+
+Some of those examples are expected to be broken as the library is changed over time, and will be updated whenever I can spare the time to fix them.
 
 (TODO: make this readme not awful later)

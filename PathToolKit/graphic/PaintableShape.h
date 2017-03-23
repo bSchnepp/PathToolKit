@@ -34,6 +34,7 @@ protected:
 	bool fill;
 	bool isArc = false;
 	bool isCircle = false;
+	PTK_Stroke* stroke;
 };
 
 } /* namespace Pathfinder */

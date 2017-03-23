@@ -86,7 +86,7 @@ public:
 protected:
 	uint32_t gcontext;
 
-	PfInstance* instance;
+	PfInstance* instance = nullptr;
 	Component* component;
 
 	uint32_t mask;

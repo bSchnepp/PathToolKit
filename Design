@@ -16,9 +16,15 @@ Aims:
 	- Easy to rewrite FreedomWriter using PathToolKit in C++ (since PTK is heavilly inspired by Swing, GTK, and in a way Vulkan, this shouldn't be too hard)
 	- Rewrite the GUIs for VulpineGE in PTK, in an effort to stay away from GTK, Cairo, Qt, etc. (Because custom everything is fun, I probably have severe NIHS or something haha.)
 	- Write a new graphics editing program, 3D modelling tool (and port Cycles to it), etc, aim to build a full desktop environment from self-created tools. Eventually.
-	- Write a new window manager that makes extensive use of Vulkan for rendering. (Disregard that Nouveau doesn't support it, whatever.)
+	- Write a new window manager that makes extensive use of Vulkan for rendering. (Disregard that Nouveau doesn't support it, whatever, by the time I'll get around to this, it probably will.)
 	- Eventually get around to making this not awful. Clean up code, make optimizations, avoid long branching conditions, etc.
 	
+	
+Changes TODO:
+-- Get away from rendering everything in a component/object as a single object, tie it to shapes instead.
+-- Implement 'Strokes' to do the above.
+-- Give the Component Serials a purpose again?
+-- Implement Vulkan support in the faaar future.
 __
 	
 Things to have:
