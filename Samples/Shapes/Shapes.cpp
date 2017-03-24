@@ -23,7 +23,8 @@ int RunShapesExample()
 
 	// Make a color, assign it to the graphics context.
 	PathDraw::Color* color = new PathDraw::Color(255, 0, 0);
-	frame->GetGraphics()->AssignColor(color);
+	//BUG, FIXME, Color doesn't work again!!!
+	PathDraw::Color* black = new PathDraw::Color(0, 0, 0);
 
 	PathDraw::PTK_Point p1 = {0.1f, 0.2f};
 	PathDraw::PTK_Point p2 = {0.4f, 0.2f};
@@ -35,11 +36,16 @@ int RunShapesExample()
 
 	PathDraw::Shape* shape = new PathDraw::Shape(array, 3); //TODO: add optimizations for rectangles, and other shapes.
 	shape->SetFill(true);
-
+	PathDraw::PTK_Stroke* stroke = new PathDraw::PTK_Stroke();
+	stroke->colors = color;
+	shape->SetStroke(stroke);
 
 	PathDraw::PTK_Point cp1 = {0.9f, 0.6f};
 	PathDraw::Circle* circle = new PathDraw::Circle(cp1, 80);
 	circle->SetFill(true);
+	PathDraw::PTK_Stroke* stroke2 = new PathDraw::PTK_Stroke();
+	stroke2->colors = black;
+	circle->SetStroke(stroke2);
 	frame->AddShape(shape);
 	frame->AddShape(circle);
 

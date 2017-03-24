@@ -6,8 +6,9 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
+#include <PathToolKit/graphic/gstructs.h>
 #include <PathToolKit/graphic/PaintableShape.h>
-#include "../gutil/Color.h"
+#include <PathToolKit/gutil/Color.h>
 #include <cstdlib>
 
 namespace PathDraw
@@ -38,7 +39,6 @@ uint16_t PaintableShape::GetNumPoints()
 PTK_Point* PaintableShape::GetPoints()
 {
 	//Circle/arc should return their single point as a pointer.
-	//Refactor later.
 	return nullptr;
 }
 
@@ -60,6 +60,23 @@ bool PaintableShape::IsArc()
 bool PaintableShape::IsCircle()
 {
 	return false;
+}
+
+void PaintableShape::SetStroke(PTK_Stroke* stroke)
+{
+	delete this->stroke;
+	this->stroke = stroke;
+}
+
+PTK_Stroke PaintableShape::GetStroke()
+{
+	return *(this->stroke);
+}
+
+void PaintableShape::SetSolidColor(Color* color)
+{
+	free(this->stroke->colors);
+	this->stroke->colors = color;
 }
 
 } /* namespace Pathfinder */

@@ -52,6 +52,7 @@ void PfGraphics::AssignColor(Color* color)
 {
 	uint32_t c = color->GenerateColor();
 	xcb_change_gc(this->instance->GetConnection(), this->gcontext, XCB_GC_FOREGROUND, &c);
+	xcb_flush(this->instance->GetConnection());
 }
 
 void PfGraphics::AssignComponent(Component* component)

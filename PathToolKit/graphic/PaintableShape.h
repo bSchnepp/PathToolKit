@@ -10,10 +10,13 @@
 #define PATHTOOLKIT_GRAPHIC_PAINTABLESHAPE_H_
 
 #include <cstdint>
-#include "gstructs.h"
+
 
 namespace PathDraw
 {
+struct PTK_Point;
+struct PTK_Stroke;
+class Color;
 
 class PaintableShape
 {
@@ -29,6 +32,11 @@ public:
 	virtual bool IsCircle();
 
 	virtual ~PaintableShape();
+
+	void SetStroke(PTK_Stroke* stroke);
+	PTK_Stroke GetStroke();
+
+	void SetSolidColor(Color* color);
 
 protected:
 	bool fill;

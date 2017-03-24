@@ -89,6 +89,8 @@ void Component::Repaint()
 {
 	for (PaintableShape* n : this->container->GetItems())
 	{
+		PTK_Stroke stroke = n->GetStroke();
+		this->graphics->AssignColor(stroke.colors);	//FIXME, gradients  + all
 		uint16_t pointCount = n->GetNumPoints();
 		int* xpoints = (int*) malloc(sizeof(int) * pointCount);
 		int* ypoints = (int*) malloc(sizeof(int) * pointCount);

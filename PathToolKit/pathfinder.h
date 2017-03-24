@@ -23,16 +23,19 @@
  **/
 
 /* Frames + other high-level stuff */
-
+#include <PathToolKit/graphic/Circle.h>
 #include <PathToolKit/graphic/gstructs.h>
+#include <PathToolKit/graphic/Shape.h>
 #include <PathToolKit/graphic/ShapeContainer.h>
 #include "component.h"
 #include "frame.h"
 
-#include "graphic/gstructs.h"
+#include <PathToolKit/PfGraphics.h>
+#include <PathToolKit/PfInstance.h>
+
 
 /* Drawing toolkity stuff */
-#include "gutil/Color.h"
+#include <PathToolKit/gutil/Color.h>
 #include "graphic/Shape.h"
 #include "PfInstance.h"
 #include "PfGraphics.h"
