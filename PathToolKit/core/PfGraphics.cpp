@@ -72,6 +72,7 @@ void PfGraphics::DrawArc(int x, int y, int width, int height, int startAngle,
 					<< 6) };
 	xcb_poly_arc(this->instance->GetConnection(), rootWindow, this->gcontext, 2,
 			&arc);
+	xcb_flush(this->instance->GetConnection());
 }
 
 void PfGraphics::FillArc(int x, int y, int width, int height, int startAngle,
@@ -89,6 +90,7 @@ void PfGraphics::FillArc(int x, int y, int width, int height, int startAngle,
 
 	xcb_poly_fill_arc(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &arc);
+	xcb_flush(this->instance->GetConnection());
 
 }
 
@@ -102,6 +104,7 @@ void PfGraphics::DrawRect(int x, int y, int width, int height)
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height) };
 	xcb_poly_rectangle(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &rectangle);
+	xcb_flush(this->instance->GetConnection());
 }
 
 void PfGraphics::FillRect(int x, int y, int width, int height)
@@ -113,6 +116,7 @@ void PfGraphics::FillRect(int x, int y, int width, int height)
 			static_cast<uint16_t>(width), static_cast<uint16_t>(height) };
 	xcb_poly_fill_rectangle(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &rectangle);
+	xcb_flush(this->instance->GetConnection());
 }
 
 void PfGraphics::DrawOval(int x, int y, int width, int height)
@@ -126,6 +130,7 @@ void PfGraphics::DrawOval(int x, int y, int width, int height)
 			static_cast<int16_t>(0 << 6), static_cast<int16_t>(360 << 6) };
 	xcb_poly_arc(this->instance->GetConnection(), rootWindow, this->gcontext, 2,
 			&arc);
+	xcb_flush(this->instance->GetConnection());
 }
 
 void PfGraphics::FillOval(int x, int y, int width, int height)
@@ -138,6 +143,7 @@ void PfGraphics::FillOval(int x, int y, int width, int height)
 			static_cast<int16_t>(0 << 6), static_cast<int16_t>(360 << 6) };
 	xcb_poly_fill_arc(this->instance->GetConnection(), rootWindow,
 			this->gcontext, 2, &arc);
+	xcb_flush(this->instance->GetConnection());
 }
 
 void PfGraphics::DrawPolygon(int* xpoints, int* ypoints, int npoints)
@@ -159,6 +165,7 @@ void PfGraphics::DrawPolygon(int* xpoints, int* ypoints, int npoints)
 	xcb_poly_line(this->instance->GetConnection(), XCB_COORD_MODE_ORIGIN,
 			rootWindow, this->gcontext, npoints + 1, pa);
 	delete points;
+	xcb_flush(this->instance->GetConnection());
 }
 
 void PfGraphics::FillPolygon(int* xpoints, int* ypoints, int npoints)
@@ -177,6 +184,7 @@ void PfGraphics::FillPolygon(int* xpoints, int* ypoints, int npoints)
 	xcb_fill_poly(this->instance->GetConnection(), rootWindow, this->gcontext,
 			XCB_POLY_SHAPE_COMPLEX, XCB_COORD_MODE_ORIGIN, npoints, pa);
 	delete points;
+	xcb_flush(this->instance->GetConnection());
 }
 
 void PfGraphics::Repaint()

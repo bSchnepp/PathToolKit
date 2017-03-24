@@ -151,7 +151,6 @@ void Component::Repaint()
 			{
 				this->graphics->DrawOval(x, y, rad, rad);
 			}
-
 		}
 		else
 		{
