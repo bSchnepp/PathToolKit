@@ -1,5 +1,5 @@
 // DISCOVERY THEME -- WRITTEN BY BRIAN SCHNEPP
-// PTK format uses a CSS-like syntax. (Real CSS is too complicated to get in, plus this is easier to process)
+// PTK format uses a CSS-like syntax. (Real CSS is too complicated to get in fast, plus this is easier to process)
 // The children of the node are declared with a newline and tab; if the first is unavailable, we use the second, and so on.
 // This is just an example, nothing to seriously use.
 //--------------------------------------------

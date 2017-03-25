@@ -27,48 +27,49 @@
 #include <PathToolKit/graphic/gstructs.h>
 #include <PathToolKit/graphic/Shape.h>
 #include <PathToolKit/graphic/ShapeContainer.h>
-#include "component.h"
-#include "frame.h"
+
+#include <PathToolKit/component.h>
+#include <PathToolKit/frame.h>
 
 #include <PathToolKit/PfGraphics.h>
 #include <PathToolKit/PfInstance.h>
 
 
 /* Drawing toolkity stuff */
-#include <PathToolKit/gutil/Color.h>
-#include "graphic/Shape.h"
-#include "PfInstance.h"
-#include "PfGraphics.h"
+#include <PathToolKit/graphic/Shape.h>
+#include <PathToolKit/PfInstance.h>
+#include <PathToolKit/PfGraphics.h>
 
 /* Events */
-#include "event/event.h"
-#include "event/ActionEvent.h"
-#include "event/ActionListener.h"
-#include "event/FrameEvent.h"
-#include "event/FrameListener.h"
+#include <PathToolKit/event/event.h>
+#include <PathToolKit/event/ActionEvent.h>
+#include <PathToolKit/event/ActionListener.h>
+#include <PathToolKit/event/FrameEvent.h>
+#include <PathToolKit/event/FrameListener.h>
 
 /* Layouts and whatnot. */
-#include "gutil/LayoutManager.h"
-#include "gutil/managers/BorderLayout.h"
+#include <PathToolKit/gutil/LayoutManager.h>
+#include <PathToolKit/gutil/managers/BorderLayout.h>
 
 /* Text and stuff */
-#include "font/Font.h"
+#include <PathToolKit/themes/Font.h>
 
 /* Images and icons */
-#include "image/Image.h"
+#include <PathToolKit/image/Image.h>
 
 /* Shapes */
 //TODO: Irregular circles and arcs!!
 //TODO: Dynamically painted objects
 //TODO: Dynamic objects
-//TODO: COLORS!!!!
-#include "graphic/Circle.h"
-#include "graphic/Arc.h"
+#include <PathToolKit/graphic/Circle.h>
+#include <PathToolKit/graphic/Arc.h>
+#include <PathToolKit/gutil/Color.h>
+
 
 //Extensions
 
 #ifdef PATHTOOLKIT_INCLUDE_EXTRAS
-#include "extra/BasicFrame.h"
+#include <PathToolKit/extra/BasicFrame.h>
 #endif
 
 /* Shapes and other graphical utilities */

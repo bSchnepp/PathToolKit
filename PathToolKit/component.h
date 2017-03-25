@@ -11,6 +11,7 @@
 
 #include <PathToolKit/event/Listener.h>
 #include <PathToolKit/structdefs.h>
+#include <PathToolKit/themes/Theme.h>
 #include <cstdint>
 #include <vector>
 
@@ -133,6 +134,8 @@ protected:
 	bool visible;
 	bool enabled;
 	bool valid = false;
+
+	Theme* theme;
 
 	/* Counter for the most recent item. */
 	unsigned long long int childrecentid = 0;

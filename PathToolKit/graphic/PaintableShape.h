@@ -30,6 +30,9 @@ public:
 
 	virtual bool IsArc();
 	virtual bool IsCircle();
+	virtual bool isRectangle();
+	virtual bool isIrregularArc();
+	virtual bool isIrregularCircle();
 
 	virtual ~PaintableShape();
 
@@ -37,6 +40,7 @@ public:
 	PTK_Stroke GetStroke();
 
 	void SetSolidColor(Color* color);
+	void SetLinearGradientColor(Color* color1, Color* color2);
 
 protected:
 	bool fill;

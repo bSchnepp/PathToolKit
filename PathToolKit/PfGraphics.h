@@ -80,10 +80,7 @@ public:
 	/** Plots a single pixel at the point (x, y) */
 	void FillPixel(int x, int y);
 
-	void Repaint();
-
-	/* I expect this to be subclassed for things like GraphicsBrushes and whatnot, so these are protected. */
-protected:
+private:
 	uint32_t gcontext;
 
 	PfInstance* instance = nullptr;

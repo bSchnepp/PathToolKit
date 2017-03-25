@@ -40,7 +40,6 @@ int RunExample()
 	{ 0, 3, 25, 100, 53, 1, 9 };
 	int numpoints = 7;
 	graphics->FillPolygon(xpoints, ypoints, numpoints);
-	graphics->Repaint();
 
 	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes. This should always be the last call of our program before cleanup and all.
 	instance->PfInit(frame);
