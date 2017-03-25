@@ -6,6 +6,7 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
+#include <PathToolKit/gutil/Color.h>
 #include <PathToolKit/themes/Theme.h>
 
 namespace PathDraw
@@ -13,8 +14,10 @@ namespace PathDraw
 
 Theme::Theme()
 {
-	// TODO Auto-generated constructor stub
-
+	this->control = new Color(0,0,0);
+	this->info = new Color(.3f, .3f, .3f);
+	this->motif = new Color(255, 0, 0);
+	//TODO, placeholder. Lots more are to be added.
 }
 
 Theme::~Theme()

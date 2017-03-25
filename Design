@@ -7,27 +7,34 @@ TODO things that would be nice:
 	- Make a ShapeFactory class.
 	- Support ellipses as a shape.
 	- Support a bunch of variations of shapes.
-	- Get around to adding colors other than black and white.
 	- Ensure this actually works on Linux. Like, real Linux, not WSL. Actual X out in the wild.
 	- Fix the window position thing? Is that a bug? I can't tell if it's just Xming + WSL or if it's me.
 	- Make widgets suuuper customizable, load a file from ~/Pathfinder/Theme/theme.ptk (or A:/Users/Brian/Pathfinder/Theme/theme.ptk when I do something with Waypoint beyond just a dummy kernel.)
 
 Aims:
-	- Easy to rewrite FreedomWriter using PathToolKit in C++ (since PTK is heavilly inspired by Swing, GTK, and in a way Vulkan, this shouldn't be too hard)
+	- Easy to rewrite FreedomWriter using PathToolKit in C++ (since PTK is heavilly inspired by Swing, but also GTK, and in a way Vulkan, this shouldn't be too hard)
 	- Rewrite the GUIs for VulpineGE in PTK, in an effort to stay away from GTK, Cairo, Qt, etc. (Because custom everything is fun, I probably have severe NIHS or something haha.)
 	- Write a new graphics editing program, 3D modelling tool (and port Cycles to it), etc, aim to build a full desktop environment from self-created tools. Eventually.
 	- Write a new window manager that makes extensive use of Vulkan for rendering. (Disregard that Nouveau doesn't support it, whatever, by the time I'll get around to this, it probably will.)
 	- Eventually get around to making this not awful. Clean up code, make optimizations, avoid long branching conditions, etc.
 	- Strong multithreading support, getting rid of the problem that Swing has.
-		(We should run every event on it's own thread or something, I don't know.)
+		(We should run every event on it's own thread or something, I don't know. Try really hard to really squeeze performance when we can.)
 	
 	
 Changes TODO:
--- Implement 'Strokes' to do gradients, fancy things, etc.
+-- Implement 'Strokes' to do gradients, fancy things, etc. We'll switch to X's render extension.
 -- Give the Component Serials a purpose again?
 -- Implement Vulkan support in the faaar future. Ideally as part of the library to create window managers using PTK.
 __
-	
+
+
+
+Thoughts on things:
+Implement a separate thread for all BasicFrames maybe?
+Definitely intend to make whatever makes sense to do syncronously as such.
+Multithreaded GUIs..? Worth the effort? For sure encouraged with each window, but after that..?
+
+__
 Things to have:
 
 PathButton

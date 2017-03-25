@@ -187,11 +187,6 @@ void PfGraphics::FillPolygon(int* xpoints, int* ypoints, int npoints)
 	xcb_flush(this->instance->GetConnection());
 }
 
-void PfGraphics::Repaint()
-{
-	xcb_flush(this->instance->GetConnection());
-}
-
 PfGraphics::~PfGraphics()
 {
 	free(this->colormap);

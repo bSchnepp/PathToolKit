@@ -14,6 +14,7 @@
 #include <PathToolKit/gutil/managers/BorderLayout.h>
 #include <PathToolKit/PfGraphics.h>
 #include <PathToolKit/PfInstance.h>
+#include <PathToolKit/themes/Theme.h>
 #include <stdlib.h>
 #include <iostream>
 
@@ -66,6 +67,8 @@ Component::Component(Component* parent)
 
 	this->maximumwidth = 65535;
 	this->maximumheight = 65535;
+
+	this->theme = nullptr; 		//temp, TODO
 }
 
 const std::vector<PF_COMPONENT_SERIAL> Component::GetChildren()
@@ -166,7 +169,11 @@ Frame* Component::GetRootFrame()
 
 void Component::OnGraphicsUpdate(PfGraphics* graphics)
 {
-	graphics->Repaint();
+	//TODO
+	if (graphics)
+	{
+		return;
+	}
 }
 
 PfInstance* Component::GetInstance()

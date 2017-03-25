@@ -23,6 +23,7 @@ private:
 	Color* info;
 	Color* motif;
 	//expect a mess of objects, ahhh!
+	//We'll have to do alll sorts of things ahhh
 
 	/*
 	 * TODO:
@@ -31,7 +32,7 @@ private:
 	 * Read a theme with the file specified
 	 *
 	 * Generate a tree of colors, theming, position, etc, and apply this to __all__ objects which don't opt-out of the theme.
-	 * PfInstance should bind this to it, blah blah blah.
+	 * Components should bind this to it, blah blah blah.
 	 */
 };
 

@@ -62,6 +62,21 @@ bool PaintableShape::IsCircle()
 	return false;
 }
 
+bool PaintableShape::isRectangle()
+{
+	return false;
+}
+
+bool PaintableShape::isIrregularArc()
+{
+	return false;
+}
+
+bool PaintableShape::isIrregularCircle()
+{
+	return false;
+}
+
 void PaintableShape::SetStroke(PTK_Stroke* stroke)
 {
 	delete this->stroke;
@@ -78,5 +93,20 @@ void PaintableShape::SetSolidColor(Color* color)
 	free(this->stroke->colors);
 	this->stroke->colors = color;
 }
+
+void PaintableShape::SetLinearGradientColor(Color* color1, Color* color2, float percent)
+{
+	free(this->stroke->colors);
+	Color colors[2] = new Color[2];
+	colors[0] = *color1;
+	colors[1] = *color2;
+	this->stroke->colors = colors;
+	free(this->stroke->colorChanges);
+	float* changes = static_cast<float*>(malloc(sizeof(float)));
+	*changes = percent;
+	this->stroke->colorChanges = changes;
+}
+
+//WE WANT GRADDDIIEEENNNTSS!!!
 
 } /* namespace Pathfinder */

@@ -16,8 +16,6 @@ class Color;
 
 namespace PathDraw
 {
-//Forward declaration because dependencies. My C++ is awful, and I'm used to Java for the longest time where this isn't a problem.
-class Shape;
 
 typedef enum class PTK_Cap_Style
 {
@@ -43,6 +41,7 @@ typedef struct PTK_Stroke
 	float width;
 	PTK_Join_Style joinstyle;
 	PTK_Cap_Style capstyle;
+	PTK_Point* points;
 } PTK_Stroke;
 
 }

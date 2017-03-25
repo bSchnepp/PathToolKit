@@ -8,7 +8,7 @@
 
 #define PATHTOOLKIT_INCLUDE_EXTRAS
 #define PATHTOOLKIT_USE_VULKAN
-#include <PathToolKit/pathfinder.h>
+#include <PathToolKit/ptk.h>
 
 #include <iostream>
 
