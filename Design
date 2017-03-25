@@ -18,13 +18,14 @@ Aims:
 	- Write a new graphics editing program, 3D modelling tool (and port Cycles to it), etc, aim to build a full desktop environment from self-created tools. Eventually.
 	- Write a new window manager that makes extensive use of Vulkan for rendering. (Disregard that Nouveau doesn't support it, whatever, by the time I'll get around to this, it probably will.)
 	- Eventually get around to making this not awful. Clean up code, make optimizations, avoid long branching conditions, etc.
+	- Strong multithreading support, getting rid of the problem that Swing has.
+		(We should run every event on it's own thread or something, I don't know.)
 	
 	
 Changes TODO:
--- Get away from rendering everything in a component/object as a single object, tie it to shapes instead.
--- Implement 'Strokes' to do the above.
+-- Implement 'Strokes' to do gradients, fancy things, etc.
 -- Give the Component Serials a purpose again?
--- Implement Vulkan support in the faaar future.
+-- Implement Vulkan support in the faaar future. Ideally as part of the library to create window managers using PTK.
 __
 	
 Things to have:
