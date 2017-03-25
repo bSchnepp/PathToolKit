@@ -101,8 +101,12 @@ void PaintableShape::SetLinearGradientColor(Color* color1, Color* color2)
 	colors[0] = *color1;
 	colors[1] = *color2;
 	this->stroke->colors = colors;
+	//Gradients can only be between two colors.
 }
 
-//WE WANT GRADDDIIEEENNNTSS!!!
+void PaintableShape::SetGradientRadial(bool val)
+{
+	this->stroke->radial = val;
+}
 
 } /* namespace Pathfinder */

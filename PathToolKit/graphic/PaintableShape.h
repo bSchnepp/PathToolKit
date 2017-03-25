@@ -41,6 +41,7 @@ public:
 
 	void SetSolidColor(Color* color);
 	void SetLinearGradientColor(Color* color1, Color* color2);
+	void SetGradientRadial(bool val);
 
 protected:
 	bool fill;
