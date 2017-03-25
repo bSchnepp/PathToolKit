@@ -1,0 +1,123 @@
+// DISCOVERY THEME -- WRITTEN BY BRIAN SCHNEPP
+// PTK format uses a CSS-like syntax. (Real CSS is too complicated to get in, plus this is easier to process)
+// The children of the node are declared with a newline and tab; if the first is unavailable, we use the second, and so on.
+// This is just an example, nothing to seriously use.
+//--------------------------------------------
+
+// This stuff here is really for the window manager (if it's built with the PTK-WinMan extension), although an application can still bundle these instructions in their own stuff, they just won't do anything.
+// Note that the buttons defined for the titlebar are completely up to the window manager to actually implement, use, etc.
+// Braces must __SURROUND__ the rule, with the name before the first brace.
+// Maybe figure out a way to just outright use CSS, like GTK/GNOME? (That would be nice, but I don't want to write a CSS interpretter.)
+// Note that this stuff is __probably__ going to require the Vulkan backend first for component and window rendering and all that fun stuff.
+// Why not use an API entirely not designed for what I'm using it for? :)
+// There's a couple of good ones out there that are open source, though I'd prefer to write all of it from scratch to ensure everything's under one, nice, clean license. (None of this GPL/MPL/LGPL/MIT/BSD mixing nonsense)
+
+root
+{
+	font-family:
+		"Liberation Sans";
+		sans-serif;
+	
+	background-color:
+		#FFFFFF;
+		
+	height:
+		42px;
+	
+	width:
+		100%;
+	
+	overflow:
+		hidden;	
+		
+	background-shadow:
+		4px;
+		
+	background-shadow-color:
+		#0000030;
+		
+	background-shadow-offset:
+		0px, 0px, 0px, 0px;
+}
+
+titlebar
+{
+	background-color:
+		#20402040;
+		#204020;
+}
+
+titlebar .close
+{
+	background-color:
+		#FF0000;
+	
+	shape:
+		circle(10);
+}
+
+titlebar .close : hover
+{
+	background-color:
+		#FF8080;
+}
+
+titlebar .maximize
+{
+	background-color:
+		#00FF00;
+}
+
+titlebar .maximize : hover
+{
+	background-color:
+		#80FF80;
+}
+
+titlebar .minimize
+{
+	background-color:
+		#0000FF;
+}
+
+titlebar .minimize : hover
+{
+	background-color:
+		#8080FF;
+}
+
+titlebar .resize
+{
+	background-color:
+		#202020;
+}
+
+titlebar .resize : hover
+{
+	background-color:
+		#404040;
+}
+
+titlebar .buttons
+{
+	align:
+		left;
+		right;
+}
+
+
+titlebar .title
+{
+	background-color:
+		#FFFFFFCC;
+		#FFFFFF;
+}
+
+titlebar .decoration
+{
+	width:
+		100%;
+		
+	height:
+		100%;
+}

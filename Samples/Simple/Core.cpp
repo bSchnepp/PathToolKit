@@ -26,7 +26,7 @@ int RunExample()
 
 	// Make a color, assign it to the graphics context.
 	PathDraw::Color* color = new PathDraw::Color(0, 0, 0);
-	graphics->AssignColor(color);
+	graphics->AssignColor(color);	//Noooo, this is bad, don't do this in production code. Will be removed later or something.
 	graphics->AssignComponent(frame);
 
 	// Draw some shapes! These are unsafe as they aren't dynamically re-rendered.
