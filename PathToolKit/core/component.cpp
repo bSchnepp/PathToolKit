@@ -41,7 +41,7 @@ Component::Component() :
 Component::Component(Component* parent)
 {
 
-	this->children = new std::vector<PF_COMPONENT_SERIAL>();
+	this->children = new std::vector<Component>();
 	this->listeners = new std::vector<PathEvent::Listener*>();
 
 	this->xpos = 0;
@@ -71,7 +71,7 @@ Component::Component(Component* parent)
 	this->theme = nullptr; 		//temp, TODO
 }
 
-const std::vector<PF_COMPONENT_SERIAL> Component::GetChildren()
+const std::vector<Component> Component::GetChildren()
 {
 	return *(this->children);
 }

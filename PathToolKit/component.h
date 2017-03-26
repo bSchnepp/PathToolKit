@@ -10,7 +10,6 @@
 #define COMPONENT_H_
 
 #include <PathToolKit/event/Listener.h>
-#include <PathToolKit/structdefs.h>
 #include <PathToolKit/themes/Theme.h>
 #include <cstdint>
 #include <vector>
@@ -41,21 +40,9 @@ public:
 	virtual ~Component();
 
 	/**
-	 * @Deprecated
-	 * Gets this component's ID. Expect to be totally removed shortly.
+	 * Gets the children of this component.
 	 */
-	void GetComponentID();
-
-	/**
-	 * @Deprecated
-	 * Grabs a child of this component by ID. Expect to be replaced soon.
-	 */
-	Component* GetChild(unsigned long long int id);
-
-	/**
-	 * Gets the children of this component, by their serials.
-	 */
-	const std::vector<PF_COMPONENT_SERIAL> GetChildren();
+	const std::vector<Component> GetChildren();
 
 	/** Adds a listener to this component, in which it will do something if something is done to the component. */
 	void AssignListener(PathEvent::Listener* listener);
@@ -139,7 +126,7 @@ protected:
 
 	/* Counter for the most recent item. */
 	unsigned long long int childrecentid = 0;
-	std::vector<PF_COMPONENT_SERIAL>* children;
+	std::vector<Component>* children;
 	std::vector<PathEvent::Listener*>* listeners;
 
 	ShapeContainer* container;

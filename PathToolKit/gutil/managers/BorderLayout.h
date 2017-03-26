@@ -11,7 +11,6 @@
 
 #include <cstdint>
 
-#include "../../structdefs.h"
 #include "../LayoutManager.h"
 
 namespace PathDraw
@@ -28,10 +27,12 @@ public:
 	BorderLayout();
 	BorderLayout(uint16_t hgap, uint16_t vgap);
 
-	//void Add(Component* component, int position);
+	void Add(Component* component, int position);
+	Component* Unbind(int position);
+	Component Get(int position);
+
 
 	virtual ~BorderLayout();
-	void Update(Component* root);
 
 	/* Pathfinder specifications:
 	 * These are the values for what this LayoutManager should ask for.
@@ -47,7 +48,9 @@ private:
 	uint16_t* xgap;
 	uint16_t* ygap;
 
-	PF_COMPONENT_SERIAL components[5];
+	Component* components[5];
+
+	void Update(Component* root);
 };
 
 } /* namespace Pathfinder */
