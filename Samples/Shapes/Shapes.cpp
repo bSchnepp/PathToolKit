@@ -23,8 +23,8 @@ int RunShapesExample()
 
 	// Make a color, assign it to the graphics context.
 	PathDraw::Color* color = new PathDraw::Color(255, 0, 0);
-	//BUG, FIXME, Color doesn't work again!!!
 	PathDraw::Color* black = new PathDraw::Color(0, 0, 0);
+	PathDraw::Color* rectColor = new PathDraw::Color(73, 17, 92);
 
 	PathDraw::PTK_Point p1 = {0.1f, 0.2f};
 	PathDraw::PTK_Point p2 = {0.4f, 0.2f};
@@ -42,12 +42,20 @@ int RunShapesExample()
 
 	PathDraw::PTK_Point cp1 = {0.9f, 0.6f};
 	PathDraw::Circle* circle = new PathDraw::Circle(cp1, 80);
-	circle->SetFill(true);
+	circle->SetFill(true);	//Implicit usually.
 	PathDraw::PTK_Stroke* stroke2 = new PathDraw::PTK_Stroke();
 	stroke2->colors = black;
 	circle->SetStroke(stroke2);
+
+	PathDraw::PTK_Point rp1 = {0.5f, 0.2f};	//This is currently unintended behavior. Fixme.
+	PathDraw::Rectangle* rect = new PathDraw::Rectangle(rp1, .4f, .6f);
+	PathDraw::PTK_Stroke* stroke3 = new PathDraw::PTK_Stroke();
+	stroke3->colors = rectColor;
+	rect->SetStroke(stroke3);
+
 	frame->AddShape(shape);
 	frame->AddShape(circle);
+	frame->AddShape(rect);
 
 	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes.
 	frame->GetInstance()->PfInit(frame);

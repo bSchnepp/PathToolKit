@@ -26,6 +26,7 @@
 #include <PathToolKit/graphic/Circle.h>
 #include <PathToolKit/graphic/gstructs.h>
 #include <PathToolKit/graphic/Shape.h>
+#include <PathToolKit/graphic/Rectangle.h>
 #include <PathToolKit/graphic/ShapeContainer.h>
 
 #include <PathToolKit/component.h>

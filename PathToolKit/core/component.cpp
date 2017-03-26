@@ -10,11 +10,11 @@
 #include <PathToolKit/graphic/Arc.h>
 #include <PathToolKit/graphic/Circle.h>
 #include <PathToolKit/graphic/gstructs.h>
+#include <PathToolKit/graphic/Rectangle.h>
 #include <PathToolKit/graphic/ShapeContainer.h>
 #include <PathToolKit/gutil/managers/BorderLayout.h>
 #include <PathToolKit/PfGraphics.h>
 #include <PathToolKit/PfInstance.h>
-#include <PathToolKit/themes/Theme.h>
 #include <stdlib.h>
 #include <iostream>
 
@@ -106,13 +106,9 @@ void Component::Repaint()
 				ypoints[i] = static_cast<int>(this->height * points[i].posy);
 			}
 			if (n->GetFill())
-			{
 				this->graphics->FillPolygon(xpoints, ypoints, pointCount);
-			}
 			else
-			{
 				this->graphics->DrawPolygon(xpoints, ypoints, pointCount);
-			}
 		}
 		else if (n->IsArc())
 		{
@@ -121,21 +117,17 @@ void Component::Repaint()
 			uint16_t arcAngle = arc->GetArcAngle();
 			uint16_t radius = arc->GetRadius();
 			if (n->GetFill())
-			{
 				this->graphics->FillArc(
 						static_cast<int>(this->width * points->posx),
 						static_cast<int>(this->width * points->posy), radius,
 						radius, static_cast<int>(arcStart),
 						static_cast<int>(arcAngle));
-			}
 			else
-			{
 				this->graphics->DrawArc(
 						static_cast<int>(this->width * points->posx),
 						static_cast<int>(this->width * points->posy), radius,
 						radius, static_cast<int>(arcStart),
 						static_cast<int>(arcAngle));
-			}
 		}
 		else if (n->IsCircle())
 		{
@@ -147,13 +139,23 @@ void Component::Repaint()
 			int x = static_cast<int>(points->posx * this->width);
 			int y = static_cast<int>(points->posy * this->height);
 			if (n->GetFill())
-			{
 				this->graphics->FillOval(x, y, rad, rad);
-			}
 			else
-			{
 				this->graphics->DrawOval(x, y, rad, rad);
-			}
+		}
+		else if (n->isRectangle())
+		{
+			Rectangle* rect = static_cast<Rectangle*>(n);
+			int x = static_cast<int>(points->posx * this->width);
+			int y = static_cast<int>(points->posy * this->height);
+
+			int width = static_cast<int>(rect->getWidth() * this->width);
+			int height = static_cast<int>(rect->getHeight() * this->height);
+
+			if (n->GetFill())
+				this->graphics->FillRect(x, y, width, height);
+			else
+				this->graphics->DrawRect(x, y, width, height);
 		}
 		else
 		{

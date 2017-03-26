@@ -25,6 +25,8 @@ public:
 	bool IsArc();
 	bool IsCircle();
 
+	void SetRelativeToBounds(bool val);
+
 	uint16_t GetRadius();
 
 	PTK_Point* GetPoints();
@@ -33,6 +35,8 @@ public:
 private:
 	PTK_Point center;
 	uint16_t radius;
+
+	bool dynamic;	//Problem with circle is that we can have irregular frames.
 };
 
 } /* namespace Pathfinder */
