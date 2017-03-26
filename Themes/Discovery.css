@@ -1,0 +1,56 @@
+/* Core colors */
+/* Our variant of CSS requires that these definitions match, and are at the __start__ of the file (ignoring comments) */
+@define-color theme_fg_color #5c5c5c;
+@define-color theme_bg_color #f5f5f5;
+@define-color theme_base_color #ffffff;
+@define-color theme_selected_bg_color #5592e2;
+@define-color theme_selected_fg_color #ffffff;
+@define-color theme_text_color #e1e5ef;
+
+@define-color theme_unfocused_fg_color #5c5c5c;
+@define-color theme_unfocused_bg_color #e5e6e7;
+@define-color theme_unfocused_text_color #5c5c5c;
+@define-color theme_unfocused_base_color #ffffff;
+
+@define-color fg_color #5c5c5c;
+@define-color text_color #5c5c5c;
+@define-color bg_color #e5e6e7;
+@define-color base_color #ffffff;
+@define-color selected_bg_color #5592e2;
+@define-color selected_fg_color #ffffff;
+
+@define-color disabled_bg_color #fbfbfb;
+@define-color disabled_fg_color alpha(#5592e2, 0.5);
+@define-color disabled_base_color #ffffff;
+
+@define-color borders #e1e5ef;
+@define-color unfocused_borders #d1d5df;
+@define-color warning_color #f13535;
+@define-color error_color #fc3737;
+@define-color success_color #75e00d;
+@define-color link_color #207ae5;
+@define-color content_view_bg #ffffff;
+
+/* For window managers which use PathToolKit */
+@define-color winman_title_bar alpha(#bed4e0, 0.75);
+@define-color winman_unfocused_title_bar alpha(#bed4e0, 0.40);
+@define-color winman_bg_color #252726;
+@define-color winman_unfocused_bg_color #3a3a3a;
+@define-color winman_highlight_color ##363b48;
+@define-color winman_shadow_color alpha(#000, 0.3);
+
+@define-color winman_button_close_bg_color #f2656c;
+@define-color winman_button_close_hover_bg_color #ff6073;
+@define-color winman_button_close_active_bg_color #ba1f2a;
+@define-color winman_icon_close_bg_color #30343d;
+
+@define-color winman_button_bg_color #444d5d;
+@define-color winman_button_active_bg #5592e2;
+@define-color winman_button_hover_border_color #253033;
+@define-color winman_icon_bg_color #90959C;
+@define-color winman_icon_unfocused_bg #776D77;
+@define-color winman_icon_hover_bg_color #ccced1;
+@define-color winman_icon_active_bg_color #ffffff;
+
+/* TODO: Write it all. */
+

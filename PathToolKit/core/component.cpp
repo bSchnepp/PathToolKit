@@ -156,6 +156,8 @@ void Component::Repaint()
 				this->graphics->FillRect(x, y, width, height);
 			else
 				this->graphics->DrawRect(x, y, width, height);
+
+			free(points);	//In this case it's a memory leak to _not_ free it.
 		}
 		else
 		{

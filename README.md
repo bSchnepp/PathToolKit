@@ -8,7 +8,7 @@ ___
 
 Core features (TODO):
 
-	- Vector-based graphics.
+	- Vector-based graphics. (Currently sort-of supported in a terrible manner.)
 
 	- Support for raster graphics if you really want it.
 
@@ -17,12 +17,13 @@ Core features (TODO):
 Completed features:
 
 	- Colors. In a bad way.
+	- Some shapes. Not all. Not enough.
 
 Roadmap:
 
 	- Within 4 months, start getting a Vulkan backend up.
 	
-	- Complete a real program with PathToolKit in 1 year!
+	- Complete a real program with PathToolKit in 1 year.
 ___
 PathToolKit also has a sample folder for some programs utilizing the library.
 These are located in the 'Samples' folder.

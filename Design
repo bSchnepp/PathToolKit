@@ -18,9 +18,15 @@ Aims:
 	- Write a new window manager that makes extensive use of Vulkan for rendering. (Disregard that Nouveau doesn't support it, whatever, by the time I'll get around to this, it probably will.)
 	- Eventually get around to making this not awful. Clean up code, make optimizations, avoid long branching conditions, etc.
 	- Strong multithreading support, getting rid of the problem that Swing has.
-		(We should run every event on it's own thread or something, I don't know. Try really hard to really squeeze performance when we can.)
-	
-	
+		(We should run every event on it's own thread or something, I don't know. Try really hard to really squeeze performance when we can.)	
+
+BUGS:
+__
+
+Sometimes circles insist on randomly disappearing.
+Looking into it.
+
+__
 Changes TODO:
 -- Implement 'Strokes' to do gradients, fancy things, etc. We'll switch to X's render extension.
 -- Give the Component Serials a purpose again?

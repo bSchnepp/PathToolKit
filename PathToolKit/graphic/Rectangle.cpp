@@ -28,6 +28,7 @@ bool Rectangle::isRectangle()
 
 PTK_Point* Rectangle::GetPoints()
 {
+	//Naughty naughty, you shouldn't use this and just use the width and height from origin. This is wrong and I'm not going to bother fixing it for a while.
 	PTK_Point* array = static_cast<PTK_Point*>(malloc(sizeof(PTK_Point) * 4));
 	array[0] = this->origin;
 

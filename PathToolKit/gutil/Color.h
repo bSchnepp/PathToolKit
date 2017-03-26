@@ -10,6 +10,7 @@
 #define COLOR_H_
 
 #include <cstdint>
+#include <string>
 
 namespace PathDraw
 {
@@ -17,6 +18,9 @@ namespace PathDraw
 class Color
 {
 public:
+
+	// I'm dumb and put this all in the header and not in the main source, fixing it later.
+	// Rush rush rush, make something useful __now__.
 
 	/** Creates a black color. */
 	Color();
@@ -67,6 +71,9 @@ public:
 
 	/** Creates a new color based on 3 floats for the values. */
 	Color(float r, float g, float b);
+
+	/** Generates color based on the hexadecimal value. Expects the '#' symbol first. */
+	Color(std::string hex);
 
 	/** Returns a copied color with the values darkened. */
 	Color* Darker();

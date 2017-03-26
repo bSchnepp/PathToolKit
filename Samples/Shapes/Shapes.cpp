@@ -47,8 +47,8 @@ int RunShapesExample()
 	stroke2->colors = black;
 	circle->SetStroke(stroke2);
 
-	PathDraw::PTK_Point rp1 = {0.5f, 0.2f};	//This is currently unintended behavior. Fixme.
-	PathDraw::Rectangle* rect = new PathDraw::Rectangle(rp1, .4f, .6f);
+	PathDraw::PTK_Point rp1 = {0.5f, 0.2f};	//This is currently unintended behavior. Fixme
+	PathDraw::Rectangle* rect = new PathDraw::Rectangle(rp1, .4f, .1f);
 	PathDraw::PTK_Stroke* stroke3 = new PathDraw::PTK_Stroke();
 	stroke3->colors = rectColor;
 	rect->SetStroke(stroke3);
