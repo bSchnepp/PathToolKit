@@ -45,12 +45,12 @@ public:
 	const static int WEST = 4;
 
 private:
-	uint16_t* xgap;
-	uint16_t* ygap;
+	uint16_t xgap;
+	uint16_t ygap;
 
 	Component* components[5];
 
-	void Update(Component* root);
+	void Update(Component* root);	//We'll need to decide how exactly this class gets to position this stuff later... hm.
 };
 
 } /* namespace Pathfinder */

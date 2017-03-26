@@ -134,7 +134,8 @@ void Component::Repaint()
 			//TODO, FIXME LATER
 			Circle* circle = static_cast<Circle*>(n);
 			uint16_t radius = circle->GetRadius();
-			int rad = static_cast<int>(radius);	//Get the width and height of the circle. Radius here is absolute, include setting for relative and for relative only when could be cut off later. TODO
+			int rad = static_cast<int>(radius);
+			//Get the width and height of the circle. Radius here is absolute, include setting for relative and for relative only when could be cut off later. TODO
 
 			int x = static_cast<int>(points->posx * this->width);
 			int y = static_cast<int>(points->posy * this->height);
@@ -218,5 +219,8 @@ uint16_t Component::GetWidth()
 void Refresh()
 {
 	//TODO
+	//Size cannot ever be more than it's maximum sizes, nor smaller than it's minimum sizes.
+	//Leave it up to the layout manager to handle where things are positioned.
 }
+
 } /* namespace Pathfinder */
