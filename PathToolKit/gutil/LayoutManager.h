@@ -11,11 +11,7 @@
 
 namespace PathDraw
 {
-struct PF_COMPONENT_SERIAL;
-} /* namespace PathDraw */
-
-namespace PathDraw
-{
+class Component;
 
 class LayoutManager
 {
@@ -24,7 +20,13 @@ public:
 	LayoutManager();
 	virtual ~LayoutManager();
 
-	void Add(PF_COMPONENT_SERIAL* component);
+	void Add(Component* component);
+	virtual void UpdateSize(int width, int height);
+
+private:
+	int width;
+	int height;
+	//Partition the sizes based on the stuff here.
 };
 
 } /* namespace Pathfinder */

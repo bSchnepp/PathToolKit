@@ -93,6 +93,14 @@ public:
 	uint16_t GetHeight();
 	uint16_t GetWidth();
 
+	uint16_t GetMinHeight();
+	uint16_t GetMinWidth();
+
+	uint16_t GetMaxHeight();
+	uint16_t GetMaxWidth();
+
+
+
 	PfInstance* GetInstance();
 
 protected:
@@ -108,9 +116,6 @@ protected:
 
 	uint16_t width;
 	uint16_t height;
-
-	uint16_t preferredwidth;
-	uint16_t preferredheight;
 
 	uint16_t minimumwidth;
 	uint16_t minimumheight;

@@ -13,8 +13,15 @@ namespace PathDraw
 
 LayoutManager::LayoutManager()
 {
-	// TODO Auto-generated constructor stub
+	this->height = 10000;
+	this->width = 10000;	//TODO
+}
 
+void LayoutManager::UpdateSize(int width, int height)
+{
+	this->height = height;
+	this->width = width;
+	//Subclasses should then resize components and all.
 }
 
 LayoutManager::~LayoutManager()

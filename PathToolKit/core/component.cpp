@@ -59,9 +59,6 @@ Component::Component(Component* parent)
 	this->container = new ShapeContainer();
 	this->graphics = nullptr;
 
-	this->preferredwidth = 10;
-	this->preferredheight = 10;
-
 	this->minimumwidth = 0;
 	this->minimumheight = 0;
 
@@ -216,11 +213,38 @@ uint16_t Component::GetWidth()
 	return this->width;
 }
 
+void Component::AssignLayout(LayoutManager* layout)
+{
+	delete this->manager;
+	this->manager = layout;
+}
+
 void Refresh()
 {
 	//TODO
-	//Size cannot ever be more than it's maximum sizes, nor smaller than it's minimum sizes.
-	//Leave it up to the layout manager to handle where things are positioned.
+	//Size cannot ever be more than it's maximum size,
+	//Cannot be less than it's minimum size,
+	//And we'll actually enforce this: undefined behavior if a component can't fit.
+}
+
+uint16_t Component::GetMinHeight()
+{
+	return this->minimumheight;
+}
+
+uint16_t Component::GetMinWidth()
+{
+	return this->minimumwidth;
+}
+
+uint16_t Component::GetMaxHeight()
+{
+	return this->maximumheight;
+}
+
+uint16_t Component::GetMaxWidth()
+{
+	return this->maximumwidth;
 }
 
 } /* namespace Pathfinder */

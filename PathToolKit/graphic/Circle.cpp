@@ -16,6 +16,7 @@ Circle::Circle(PTK_Point center, uint16_t radius)
 	this->center = center;
 	this->radius = radius;
 	this->isCircle = true;
+	this->dynamic = false;
 }
 
 bool Circle::IsArc()

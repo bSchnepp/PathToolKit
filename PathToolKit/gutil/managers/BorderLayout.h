@@ -31,6 +31,7 @@ public:
 	Component* Unbind(int position);
 	Component Get(int position);
 
+	void UpdateSize(int width, int height);
 
 	virtual ~BorderLayout();
 

@@ -10,20 +10,20 @@ Core features (TODO):
 
 	- Vector-based graphics. (Currently sort-of supported in a terrible manner.)
 
-	- Support for raster graphics if you really want it.
-
 	- Preference to render surfaces in Vulkan/OpenGL whenever possible.
+	
+	- Themes based on CSS3, allowing for customization of almost everything.
 	
 Completed features:
 
-	- Colors. In a bad way.
-	- Some shapes. Not all. Not enough.
+	- Colors. That's really about it. No gradient support yet.
+	- Drawing of some shapes is supported, more being added.
 
 Roadmap:
 
-	- Within 4 months, start getting a Vulkan backend up.
+	- Within 4 months, start getting a Vulkan backend up (to do rendering of components before putting them on the X window).
 	
-	- Complete a real program with PathToolKit in 1 year.
+	- Complete a real program with PathToolKit in 1 year. [A rewrite of FreedomWriter or basic file manager or something.]
 ___
 PathToolKit also has a sample folder for some programs utilizing the library.
 These are located in the 'Samples' folder.
@@ -32,3 +32,7 @@ If you're building PathToolKit to be used, you should build the PathToolKit dire
 Some of those examples are expected to be broken as the library is changed over time, and will be updated whenever I can spare the time to fix them.
 
 (TODO: make this readme not awful later)
+
+___
+
+Suggestions are welcome, commits are welcome as long as all changes are under the same license and the commit message is descriptive of changes.

@@ -9,9 +9,10 @@
 // I build this in Eclipse, so this file is created so that I can test the demos and stuff.
 #include "Simple/Simple.h"
 #include "Shapes/Shapes.h"
+#include "Managed/Managed.h"
 
 int main()
 {
-	return RunShapesExample();
+	return RunManagedExample();
 }
 

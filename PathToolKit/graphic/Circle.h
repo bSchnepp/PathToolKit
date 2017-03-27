@@ -26,6 +26,7 @@ public:
 	bool IsCircle();
 
 	void SetRelativeToBounds(bool val);
+	bool GetRelativeToBounds();
 
 	uint16_t GetRadius();
 
