@@ -43,6 +43,8 @@ VulkanContext::VulkanContext()
 	this->device = nullptr;
 	this->pdevices = nullptr;
 	this->color = nullptr;
+
+	//Figure out why this isn't working later. For now, implement components with mapping windows and all.
 }
 
 VulkanContext::~VulkanContext()
