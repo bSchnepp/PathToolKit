@@ -24,12 +24,6 @@
 //We'll abstract away the actual API itself **anyway** so might as well try.
 #endif
 
-#ifdef PATHTOOLKIT_USE_VULKAN
-//Do things with managing the actual context as items in a Vulkan instance.
-#else
-//Otherwise, we reply on the X server to do all the hard work.
-#endif
-
 namespace PathDraw
 {
 
@@ -92,8 +86,8 @@ void Component::Repaint()
 		PTK_Stroke stroke = n->GetStroke();
 		this->graphics->AssignColor(stroke.colors);	//FIXME, gradients  + all
 		uint16_t pointCount = n->GetNumPoints();
-		int* xpoints = (int*) malloc(sizeof(int) * pointCount);
-		int* ypoints = (int*) malloc(sizeof(int) * pointCount);
+		int* xpoints = static_cast<int*>(malloc(sizeof(int) * pointCount));
+		int* ypoints = static_cast<int*>(malloc(sizeof(int) * pointCount));
 		PTK_Point* points = n->GetPoints();
 		if (!n->IsArc() && !n->IsCircle())
 		{

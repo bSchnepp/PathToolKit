@@ -14,6 +14,7 @@
 
 #include "component.h"
 #include "frame.h"
+#include <PathToolKit/extra/gback/VulkanContext.h>
 /**
  * Simple instance of creating a connection to X.
  * You need a PfInstance to do anything with Pathfinder -- we're implementing this initially in XCB, but it should carry over to Waypoint when it's a usable OS. (ie, 10 - 25 years?? Ever??)
@@ -68,6 +69,8 @@ private:
 	const xcb_setup_t* setup;
 
 	Frame* root;
+
+	PathRender::VulkanContext* vulkan;
 };
 }
 

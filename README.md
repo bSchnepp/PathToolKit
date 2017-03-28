@@ -8,11 +8,13 @@ ___
 
 Core features (TODO):
 
-	- Vector-based graphics. (Currently sort-of supported in a terrible manner.)
+	- Vector-based graphics. (Currently sort-of supported in a terrible manner, Right now, we just render based on the component's x and y and points relative to those bounds.)
 
 	- Preference to render surfaces in Vulkan/OpenGL whenever possible.
 	
 	- Themes based on CSS3, allowing for customization of almost everything.
+	
+	- Offscreen rendering of all components, which are then rendered to the window as an image, and events manually managed. Figure out a better way to do this later.
 	
 Completed features:
 

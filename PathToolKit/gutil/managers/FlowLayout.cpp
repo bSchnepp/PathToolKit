@@ -13,13 +13,21 @@ namespace PathDraw
 
 FlowLayout::FlowLayout()
 {
-	// TODO Auto-generated constructor stub
+	this->components = new std::vector<Component>();
+	this->xgap = 0;
+	this->ygap = 0;
+}
 
+void FlowLayout::UpdateSize(int width, int height)
+{
+	width++;
+	height++;
+	//TODO
 }
 
 FlowLayout::~FlowLayout()
 {
-	// TODO Auto-generated destructor stub
+	delete this->components;
 }
 
 } /* namespace PathDraw */

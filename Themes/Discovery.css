@@ -1,9 +1,20 @@
-/* Our variant of CSS requires that these definitions match, and are at the __start__ of the file (ignoring comments) 
+/* Our implementation of CSS requires that these definitions match, and are at the __start__ of the file (ignoring comments) 
+ * This is for coloring and all that stuff.
  * To do this, a new file is automagically generated where anything after // and the multiline characters is removed.
  * Of course, there's a performance hit with doing so, but super fast GUIs aren't a concern right now until later.
+ * I'm not the greatest at CSS in the first place, this is done just to make development/porting and all that much easier. (no more rc files!!!!0
+ *
+ * Yes yes, it's non-standard and thus technically not CSS and all, this is just to save time and is a restriction I'll remove later.
  *
  * Trying very hard to keep some compatibility with GTK themes, and make it __easy__ to port over.
  * The define-color directive is for PathToolKit's use to generate colors for applications.
+ *
+ * This will be the default theme used by PTK, so that anything referencing PTK has something to fall back to if not overwritten.
+ * It's called "Discovery".
+ *
+ * Anything PTK-specific will be prefixed with "-path", for example "-path-action-stop-color" 
+ *
+ * The define-color directives below are to catch anything not covered by the CSS as a last resort: all rules defined will override them.
  */
  
 /* Core colors */
@@ -59,12 +70,18 @@
 @define-color winman_icon_hover_bg_color #ccced1;
 @define-color winman_icon_active_bg_color #ffffff;
 
+/* Defines a name which PathToolKit will refer to this theme with. */
+@define-name Discovery
+
 /* TODO: Write it all. */
 
 *
 {
 	color: #ffffff;
 	background-color: #303030;
+	
+  	font-weight: 400;
+  	font-style: normal;
 }
 
 *:disabled
@@ -72,47 +89,147 @@
 	
 }
 
-
+/* This only occurs if it's an object which cares that it's hovered over. */
 *:hover
 {
 	
 }
 
+/* This only occurs if it's an object which cares that it's selected. */
 *:selected
 {
 	
 }
 
+/* This only occurs if it's an object which cares that it's unfocused. */
 *:unfocused
 {
 	
 }
 
-winman
+PathButton
 {
 	
 }
 
+PathButton:disabled
+{
+	
+}
+
+PathRadioButton
+{
+	
+}
+
+PathRadioButton:disabled
+{
+	
+}
+
+PathCheckBox
+{
+	
+}
+
+PathTable
+{
+	
+}
+
+PathTable.row
+{
+	
+}
+
+PathTable.col
+{
+	
+}
+
+PathTable.row:hovered
+{
+	-path-shadow:	rgba(232, 248, 255, 44);
+}
+
+PathTable.cell:hovered
+{
+	-path-shadow:	rgba(212, 228, 255, 88);
+}
+
+PathSwitch
+{
+	background-color: #1e90ff;
+	color:	#ffffff;
+}
+
+PathSwitch:disabled
+{
+	background-color: #777777;
+	color:	#ffffff;
+}
+
+PathTextArea
+{
+	border-style:	solid;
+	border-color:	#bbb;
+	border-width:	1px;
+}
+
+PathTextArea:hover,
+PathTextArea:selected
+{
+	border-color:	#777;
+}
+
+PathMenuBar
+{
+	background-color: black;
+	color: white;
+}
+
+
+
+/* For window managers utilizing PathToolKit's themes. */
+
 winman.window
 {
-	box-shadow:	0px 0px 5px #0000ff; 
+	box-shadow:	0px 0px 15px rgba(0, 0, 0, 64);	
+	background-color: 000;
+	color:	#fff;
+}
+
+winman.window:selected
+{
+	border-style:	solid;
+	border-color:	#0000ff;
+	border-width:	1px;
+}
+
+winman.window.unresponsive
+{
+	-path-shadow:	rgba(30, 30, 30, 128);	/* For every pixel, we draw that color over it. */
 }
 
 winman.title
 {
-	font-family: "Liberation Sans", sans-serif;
+	font-family: "Open Sans", "Liberation Sans", sans-serif;
 	color: #ffffff;
 	background-color: #303030;
-	text-align:	center;
+	text-align:	left;
+	
+	/* 
+	 * We'll allow window managers to have title bars below, on the side, etc, if you really wanted to. I think it's a stupid idea, but maybe a UX designer can make it work. 
+	 * Add features by not putting limitations in the first place.
+	 */
+	-path-title-position:	top;
+	-path-title-text--glow:	1px, #fff;
 }
 
-button
+winman.title.buttons
 {
-	
-}
-
-h1
-{
-	
+	-path-align-title-buttons: right;	/* Either left or right. If on the side, left is down, and right is up. Center is something I'd like to try sometime though.*/
+	margin-left: 2%;
+	margin-right: 2%;
 }
 

@@ -30,7 +30,9 @@ __
 Changes TODO:
 -- Implement 'Strokes' to do gradients, fancy things, etc. We'll switch to X's render extension.
 -- Give the Component Serials a purpose again?
--- Implement Vulkan support in the faaar future. Ideally as part of the library to create window managers using PTK.
+-- Completely chuck out the window all the software rendering, and get Vulkan to render everything to an off-screen buffer which is loaded as an image over an X window.
+	-- It's a dirty hack, but it works.
+-- Support things like splines, beizer curves, etc. etc. Right now, we just render based on the component's x and y and points relative to those bounds.
 __
 
 

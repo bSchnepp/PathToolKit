@@ -20,7 +20,7 @@ public:
 	LayoutManager();
 	virtual ~LayoutManager();
 
-	void Add(Component* component);
+	virtual void Add(Component* component);
 	virtual void UpdateSize(int width, int height);
 
 private:

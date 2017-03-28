@@ -29,4 +29,18 @@ LayoutManager::~LayoutManager()
 	// TODO Auto-generated destructor stub
 }
 
+void LayoutManager::Add(Component* component)
+{
+	if (component)
+	{
+		//Yay! Component exists!
+	}
+	else
+	{
+		return;
+	}
+}
+
 } /* namespace Pathfinder */
+
+
