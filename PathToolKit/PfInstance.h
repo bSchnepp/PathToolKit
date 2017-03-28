@@ -70,7 +70,7 @@ private:
 
 	Frame* root;
 
-	PathRender::VulkanContext* vulkan;
+	PathRender::VulkanContext* vulkan = nullptr;
 };
 }
 

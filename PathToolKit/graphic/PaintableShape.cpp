@@ -18,7 +18,8 @@ PaintableShape::PaintableShape()
 {
 	this->fill = true;
 	this->stroke = static_cast<PTK_Stroke*>(malloc(sizeof(PTK_Stroke)));
-	this->stroke->colors = {new Color(0,0,0)};
+	this->stroke->colors =
+	{	new Color(0,0,0)};
 	this->stroke->joinstyle = PTK_Join_Style::JOIN_MITER;
 	this->stroke->capstyle = PTK_Cap_Style::CAP_BUTT;
 }

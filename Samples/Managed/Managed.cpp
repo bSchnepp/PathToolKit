@@ -60,6 +60,8 @@ int RunManagedExample()
 
 	PathDraw::Component* component1 = new PathDraw::Component();
 
+	PathRender::VulkanContext* vk = new PathRender::VulkanContext();
+
 	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes.
 	frame->GetInstance()->PfInit(frame);
 
@@ -69,6 +71,7 @@ int RunManagedExample()
 	delete shape;
 	delete color;
 	delete rect;
+	delete vk;
 
 	return 0;
 }

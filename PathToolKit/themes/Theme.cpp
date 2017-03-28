@@ -14,7 +14,7 @@ namespace PathDraw
 
 Theme::Theme()
 {
-	this->control = new Color(0,0,0);
+	this->control = new Color(0, 0, 0);
 	this->info = new Color(.3f, .3f, .3f);
 	this->motif = new Color(255, 0, 0);
 	//TODO, placeholder. Lots more are to be added.

@@ -29,20 +29,17 @@ void BorderLayout::UpdateSize(int width, int height)
 	LayoutManager::UpdateSize(width, height);
 	//BorderLayout disregards maximum size entirely.
 
-
 	//Center
 	uint16_t cwidth, cheight;
 
-
-
 	//Min check
 	width > this->components[this->CENTER]->GetMinWidth() ?
-			cwidth = static_cast<uint16_t>(width) :
-			cwidth = this->components[this->CENTER]->GetMinWidth();
+			cwidth = static_cast<uint16_t>(width) : cwidth =
+					this->components[this->CENTER]->GetMinWidth();
 
 	height > this->components[this->CENTER]->GetMinHeight() ?
-			cheight = static_cast<uint16_t>(height) :
-			cheight = this->components[this->CENTER]->GetMinHeight();
+			cheight = static_cast<uint16_t>(height) : cheight =
+					this->components[this->CENTER]->GetMinHeight();
 
 	this->components[this->CENTER]->SetHeight(cheight);
 	this->components[this->CENTER]->SetWidth(cwidth);
@@ -62,7 +59,6 @@ void BorderLayout::UpdateSize(int width, int height)
 	nheight = this->components[this->NORTH]->GetMinHeight();
 	sheight = this->components[this->SOUTH]->GetMinHeight();
 
-
 	this->components[this->WEST]->SetWidth(wwidth);
 	this->components[this->EAST]->SetWidth(ewidth);
 
@@ -74,11 +70,15 @@ void BorderLayout::UpdateSize(int width, int height)
 	//uint16_t nsheight = this->components[this->NORTH]->GetHeight() > this->components[this->SOUTH]->GetHeight() ? this->components[this->NORTH]->GetHeight() : this->components[this->SOUTH]->GetHeight();
 	//uint16_t wewidth = ;	TODO
 
-	this->components[this->WEST]->SetHeight(static_cast<uint16_t>((height - cheight) / 2));
-	this->components[this->EAST]->SetHeight(static_cast<uint16_t>((height - cheight) / 2));
+	this->components[this->WEST]->SetHeight(
+			static_cast<uint16_t>((height - cheight) / 2));
+	this->components[this->EAST]->SetHeight(
+			static_cast<uint16_t>((height - cheight) / 2));
 
-	this->components[this->NORTH]->SetWidth(static_cast<uint16_t>((width - cwidth) / 2));
-	this->components[this->SOUTH]->SetWidth(static_cast<uint16_t>((width - cwidth) / 2));
+	this->components[this->NORTH]->SetWidth(
+			static_cast<uint16_t>((width - cwidth) / 2));
+	this->components[this->SOUTH]->SetWidth(
+			static_cast<uint16_t>((width - cwidth) / 2));
 
 	//TODO: placement of components, ahhh this'll be fun...
 }

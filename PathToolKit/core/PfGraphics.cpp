@@ -31,8 +31,8 @@ PfGraphics::PfGraphics(PfInstance* const instance)
 	uint32_t mask = XCB_GC_FOREGROUND;
 	uint32_t value[] =
 	{ this->instance->GetScreen()->black_pixel };
-	xcb_create_gc(this->instance->GetConnection(), this->gcontext, this->instance->GetScreen()->root,
-				mask, value);
+	xcb_create_gc(this->instance->GetConnection(), this->gcontext,
+			this->instance->GetScreen()->root, mask, value);
 }
 
 void PfGraphics::AssignInstance(PfInstance* const instance)
@@ -51,7 +51,8 @@ void PfGraphics::AssignInstance(PfInstance* const instance)
 void PfGraphics::AssignColor(Color* color)
 {
 	uint32_t c = color->GenerateColor();
-	xcb_change_gc(this->instance->GetConnection(), this->gcontext, XCB_GC_FOREGROUND, &c);
+	xcb_change_gc(this->instance->GetConnection(), this->gcontext,
+			XCB_GC_FOREGROUND, &c);
 	xcb_flush(this->instance->GetConnection());
 }
 

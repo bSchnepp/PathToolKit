@@ -13,13 +13,15 @@
 #include <sstream>
 #include <string>
 
-/* This had to be created because for whatever reason, to_string wasn't available in C++14 or something? Dirty hack. Blame G++. Probably fixed by now, not compiling GCC over again.*/
-template<typename T> std::string to_string(const T& n)
-{
-	std::ostringstream stm;
-	stm << n;
-	return stm.str();
-}
+///* This had to be created because for whatever reason, to_string wasn't available in C++14 or something? Dirty hack. Blame G++. Probably fixed by now, not compiling GCC over again.*/
+//template<typename T> std::string to_string(const T& n)
+//{
+//	std::ostringstream stm;
+//	stm << n;
+//
+//
+//	return stm.str();
+//}
 
 namespace PathDraw
 {
@@ -30,6 +32,7 @@ PfInstance::PfInstance()
 	this->iterator = xcb_setup_roots_iterator(setup);
 	this->screen = iterator.data;
 	this->root = nullptr;
+	this->vulkan = new PathRender::VulkanContext();
 }
 
 /* Delete frames first... */
@@ -37,6 +40,7 @@ PfInstance::~PfInstance()
 {
 	xcb_disconnect(this->connection);
 	delete this->screen;
+	delete this->vulkan;
 
 }
 

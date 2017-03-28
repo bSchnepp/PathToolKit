@@ -14,7 +14,7 @@
 namespace PathDraw
 {
 
-class Rectangle : public PaintableShape
+class Rectangle: public PaintableShape
 {
 public:
 	Rectangle(PTK_Point origin, float width, float height);

@@ -6,16 +6,15 @@
  *      License: See 'LICENSE' in root of this repository.
  */
 
-#ifndef PATHTOOLKIT_EXTRA_GBACK_VULKANCONTEXT_H_
-#define PATHTOOLKIT_EXTRA_GBACK_VULKANCONTEXT_H_
+#pragma once
 
 #include <vulkan/vulkan.h>
+#include <string>
 
 namespace PathDraw
 {
 class Color;
 } /* namespace PathDraw */
-
 
 //If not... try to do weird hacks with OpenGL I guess. Or have a fallback option to software rendering of components (as is normal right now).
 //This will probably totally replace the old graphics context stuff because we need hardware acceleration and compositing.
@@ -27,6 +26,9 @@ class VulkanContext
 {
 public:
 	VulkanContext();
+	VulkanContext(VkApplicationInfo info);
+	VulkanContext(std::string name);
+
 	virtual ~VulkanContext();
 
 	//TODO
@@ -39,8 +41,9 @@ private:
 	VkDevice* device;
 	VkPhysicalDevice* pdevices;
 
+	VkApplicationInfo info;
+	VkInstanceCreateInfo cinfo;
+
 };
 
 } /* namespace PathWidget */
-
-#endif /* PATHTOOLKIT_EXTRA_GBACK_VULKANCONTEXT_H_ */
