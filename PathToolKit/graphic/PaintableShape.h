@@ -11,7 +11,6 @@
 
 #include <cstdint>
 
-
 namespace PathDraw
 {
 struct PTK_Point;

@@ -43,4 +43,3 @@ void LayoutManager::Add(Component* component)
 
 } /* namespace Pathfinder */
 
-

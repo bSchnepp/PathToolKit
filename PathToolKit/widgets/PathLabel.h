@@ -22,7 +22,7 @@ public:
 	virtual ~PathLabel();
 
 private:
-	std::string label;	//PathLabels _only_ support Strings. For image components, there's a todo PathImageLabel class.
+	std::string label;//PathLabels _only_ support Strings. For image components, there's a todo PathImageLabel class.
 };
 
 } /* namespace PathWidget */

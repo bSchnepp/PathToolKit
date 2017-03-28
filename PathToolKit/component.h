@@ -99,8 +99,6 @@ public:
 	uint16_t GetMaxHeight();
 	uint16_t GetMaxWidth();
 
-
-
 	PfInstance* GetInstance();
 
 protected:

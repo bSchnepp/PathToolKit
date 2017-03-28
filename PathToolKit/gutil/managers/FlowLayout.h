@@ -31,7 +31,6 @@ public:
 
 	virtual ~FlowLayout();
 
-
 	/* Pathfinder specifications:
 	 * These are the values for what this LayoutManager should ask for.
 	 * Components in these indices should order in their respective parts of the Component.

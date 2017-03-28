@@ -35,7 +35,6 @@
 #include <PathToolKit/PfGraphics.h>
 #include <PathToolKit/PfInstance.h>
 
-
 /* Drawing toolkity stuff */
 #include <PathToolKit/graphic/Shape.h>
 #include <PathToolKit/PfInstance.h>
@@ -65,7 +64,6 @@
 #include <PathToolKit/graphic/Circle.h>
 #include <PathToolKit/graphic/Arc.h>
 #include <PathToolKit/gutil/Color.h>
-
 
 //Extensions
 

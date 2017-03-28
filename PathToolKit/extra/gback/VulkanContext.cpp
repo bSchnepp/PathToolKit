@@ -9,24 +9,27 @@
 #include <dlfcn.h>
 #include <PathToolKit/extra/gback/VulkanContext.h>
 #include <stdlib.h>
-#include <iostream>
+
 
 #include <vulkan/vulkan.h>	//Really really really safely dynamically load this later -- too much work right now.
 
 #ifdef _WIN32	//for WINE/ReactOS/Windows support if I ever bother.
 #define LoadSharedObject LoadLibrary
-#define VulkanLibrary "vulkan-1.dll"
 #else
 #define LoadSharedObject dlopen
-#define VulkanLibrary "libvulkan.so", RTLD_NOW
 #endif
+
+#include <iostream>
 
 namespace PathRender
 {
 
 VulkanContext::VulkanContext()
 {
-	this->vulkanlib = LoadSharedObject(VulkanLibrary);
+	//** SOMETHING'S WRONG WITH THIS AND I CAN'T FIND IT. This is actually utterly baffling. Not calling the constructor, not doing _anything_ with this. Huh?**//
+
+	std::cout << "Hey! This works!" << std::endl;	//It's not even calling this? Huh?
+	this->vulkanlib = dlopen("libvulkan.so", RTLD_NOW);
 
 	if (this->vulkanlib == nullptr)
 	{
@@ -36,7 +39,20 @@ VulkanContext::VulkanContext()
 				<< std::endl;
 		exit(-2);
 	}
+	else
+	{
+		std::cout << "Vulkan loaded sucessfully!" << std::endl;
+	}
 
+	this->info.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+	this->info.pApplicationName = "PathToolKit Vulkan Context";
+	this->info.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
+	this->info.pEngineName = "PathToolKit Compositor";
+	this->info.engineVersion = VK_MAKE_VERSION(1, 0, 0);
+	this->info.apiVersion = VK_API_VERSION_1_0;
+
+	this->cinfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+	this->cinfo.pApplicationInfo = &(this->info);
 
 	//TODO
 	this->instance = nullptr;
@@ -44,7 +60,17 @@ VulkanContext::VulkanContext()
 	this->pdevices = nullptr;
 	this->color = nullptr;
 
-	//Figure out why this isn't working later. For now, implement components with mapping windows and all.
+	VkResult makeInstance = vkCreateInstance(&(this->cinfo), nullptr,
+			this->instance);
+	if (makeInstance == VK_SUCCESS)
+	{
+		std::cout << "Instance creation success!" << std::endl;
+	}
+	else
+	{
+		std::cout << "Something went wrong with setting up Vulkan."
+				<< std::endl;
+	}
 }
 
 VulkanContext::~VulkanContext()
