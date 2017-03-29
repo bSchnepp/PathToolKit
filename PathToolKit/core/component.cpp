@@ -89,6 +89,9 @@ void Component::Repaint()
 		int* xpoints = static_cast<int*>(malloc(sizeof(int) * pointCount));
 		int* ypoints = static_cast<int*>(malloc(sizeof(int) * pointCount));
 		PTK_Point* points = n->GetPoints();
+
+		//Can we get rid of these with dynamic_casts?
+
 		if (!n->IsArc() && !n->IsCircle())
 		{
 			for (int i = 0; i < pointCount; i++)
@@ -213,12 +216,14 @@ void Component::AssignLayout(LayoutManager* layout)
 	this->manager = layout;
 }
 
-void Refresh()
+void Component::Refresh()
 {
 	//TODO
 	//Size cannot ever be more than it's maximum size,
 	//Cannot be less than it's minimum size,
 	//And we'll actually enforce this: undefined behavior if a component can't fit.
+	this->manager->UpdateSize(this->width, this->height);
+	//Use private variables to check the width and height on the previous refresh call: if they're different, go through the list of listeners and fire all ComponentResized events.
 }
 
 uint16_t Component::GetMinHeight()
@@ -239,6 +244,25 @@ uint16_t Component::GetMaxHeight()
 uint16_t Component::GetMaxWidth()
 {
 	return this->maximumwidth;
+}
+
+void Component::SetParent(Component* component)
+{
+	//Unbind if the parent is not nullptr, skip and just bind if it is.
+	if (component->GetParent() != nullptr)
+	{
+
+	}
+
+	//Add the component as a child of the component...
+
+
+	//Map the window...
+}
+
+Component* Component::GetParent()
+{
+	return this->parent;
 }
 
 } /* namespace Pathfinder */

@@ -9,9 +9,9 @@
 #include <dlfcn.h>
 #include <PathToolKit/extra/gback/VulkanContext.h>
 #include <stdlib.h>
+#include <iostream>
 
-
-#include <vulkan/vulkan.h>	//Really really really safely dynamically load this later -- too much work right now.
+#include <vulkan/vulkan.h>
 
 #ifdef _WIN32	//for WINE/ReactOS/Windows support if I ever bother.
 #define LoadSharedObject LoadLibrary
@@ -19,16 +19,12 @@
 #define LoadSharedObject dlopen
 #endif
 
-#include <iostream>
-
 namespace PathRender
 {
 
 VulkanContext::VulkanContext()
 {
-	//** SOMETHING'S WRONG WITH THIS AND I CAN'T FIND IT. This is actually utterly baffling. Not calling the constructor, not doing _anything_ with this. Huh?**//
-
-	std::cout << "Hey! This works!" << std::endl;	//It's not even calling this? Huh?
+	//Instead of trying to solve the problem of "success" but not doing anything (or even calling the class!), we'll conveniently ignore it until we need to care!
 	this->vulkanlib = dlopen("libvulkan.so", RTLD_NOW);
 
 	if (this->vulkanlib == nullptr)
@@ -38,10 +34,6 @@ VulkanContext::VulkanContext()
 				<< "Please install a compatible driver which supports Vulkan in order to use PathToolKit."
 				<< std::endl;
 		exit(-2);
-	}
-	else
-	{
-		std::cout << "Vulkan loaded sucessfully!" << std::endl;
 	}
 
 	this->info.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
@@ -62,14 +54,9 @@ VulkanContext::VulkanContext()
 
 	VkResult makeInstance = vkCreateInstance(&(this->cinfo), nullptr,
 			this->instance);
-	if (makeInstance == VK_SUCCESS)
+	if (makeInstance != VK_SUCCESS)
 	{
-		std::cout << "Instance creation success!" << std::endl;
-	}
-	else
-	{
-		std::cout << "Something went wrong with setting up Vulkan."
-				<< std::endl;
+		exit(-2);
 	}
 }
 

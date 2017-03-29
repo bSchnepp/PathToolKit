@@ -90,6 +90,14 @@ public:
 
 	void SetWidth(uint16_t width);
 	void SetHeight(uint16_t height);
+
+	void SetParent(Component* component);
+	void SetVisible(bool visibile);
+
+	bool GetVisible();
+	Component* GetParent();
+	void AddChild(Component* component);
+
 	uint16_t GetHeight();
 	uint16_t GetWidth();
 
@@ -100,6 +108,9 @@ public:
 	uint16_t GetMaxWidth();
 
 	PfInstance* GetInstance();
+
+	//Completely gets rid of this component, it's children, and their children recursively.
+	void Destroy();
 
 protected:
 	virtual void OnGraphicsUpdate(PfGraphics* graphics);
