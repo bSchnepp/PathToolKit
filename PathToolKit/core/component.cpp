@@ -28,11 +28,18 @@
 namespace PathDraw
 {
 
+/**
+ * Creates a new component with no parent.
+ */
 Component::Component() :
 		Component(nullptr)
 {
 }
 
+/*
+ * Creates a component with a parent.
+ * @param parent: the component that this is a child of.
+ */
 Component::Component(Component* parent)
 {
 
@@ -92,7 +99,7 @@ void Component::Repaint()
 		int* ypoints = static_cast<int*>(malloc(sizeof(int) * pointCount));
 		PTK_Point* points = n->GetPoints();
 
-		//Can we get rid of these with dynamic_casts? Below is the start of that... test later. No need to worry about branches for now, this is small and all right now.
+		//Uses more memory, but is faster. Overall better code anyway. Why not.
 		Arc* arc = dynamic_cast<Arc*>(n);
 		if (!(arc == nullptr))
 		{
@@ -164,6 +171,8 @@ void Component::Repaint()
 							this->graphics->DrawPolygon(xpoints, ypoints, pointCount);
 						continue;
 		}
+		free(xpoints);
+		free(ypoints);
 #if 0
 
 		if (!n->IsArc() && !n->IsCircle())
