@@ -24,7 +24,6 @@ Frame::Frame(std::string title) :
 		Component::Component()
 {
 	this->title = title;
-	this->window = 0;
 	this->frame = 0;
 	this->bwidth = 0;
 	this->width = 800;
@@ -103,7 +102,7 @@ void Frame::CreateFrame()
 	xcb_window_t root = screen->root;
 	xcb_visualid_t visual = screen->root_visual;
 
-	uint32_t window = this->GetWindow();
+	uint32_t window = this->window;
 
 	uint32_t mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
 

@@ -148,6 +148,7 @@ protected:
 
 	PfInstance* instance;
 	PfGraphics* graphics;
+	uint32_t window;
 };
 
 } /* namespace Pathfinder */

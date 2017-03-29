@@ -11,12 +11,13 @@
 #include <PathToolKit/graphic/Circle.h>
 #include <PathToolKit/graphic/gstructs.h>
 #include <PathToolKit/graphic/Rectangle.h>
+#include <PathToolKit/graphic/Shape.h>
 #include <PathToolKit/graphic/ShapeContainer.h>
 #include <PathToolKit/gutil/managers/BorderLayout.h>
 #include <PathToolKit/PfGraphics.h>
 #include <PathToolKit/PfInstance.h>
 #include <stdlib.h>
-#include <iostream>
+#include <xcb/xproto.h>
 
 #ifdef PATHTOOLKIT_CREATE_WINDOW_MANAGER
 //Include some stuff to help manage window management, Vulkan instances, all sorts of fun stuff. Requires a recent AMD graphics card, Intel iGPU, or proprietary NVIDIA drivers.
@@ -60,6 +61,7 @@ Component::Component(Component* parent)
 	this->maximumheight = 65535;
 
 	this->theme = nullptr; 		//temp, TODO
+	this->window = 0;	//In X, a Window is the same thing as a component: all things drawn to screen are windows.
 }
 
 const std::vector<Component> Component::GetChildren()
@@ -90,7 +92,79 @@ void Component::Repaint()
 		int* ypoints = static_cast<int*>(malloc(sizeof(int) * pointCount));
 		PTK_Point* points = n->GetPoints();
 
-		//Can we get rid of these with dynamic_casts?
+		//Can we get rid of these with dynamic_casts? Below is the start of that... test later. No need to worry about branches for now, this is small and all right now.
+		Arc* arc = dynamic_cast<Arc*>(n);
+		if (!(arc == nullptr))
+		{
+			uint16_t arcStart = arc->GetStartAngle();
+						uint16_t arcAngle = arc->GetArcAngle();
+						uint16_t radius = arc->GetRadius();
+						if (n->GetFill())
+							this->graphics->FillArc(
+									static_cast<int>(this->width * points->posx),
+									static_cast<int>(this->width * points->posy), radius,
+									radius, static_cast<int>(arcStart),
+									static_cast<int>(arcAngle));
+						else
+							this->graphics->DrawArc(
+									static_cast<int>(this->width * points->posx),
+									static_cast<int>(this->width * points->posy), radius,
+									radius, static_cast<int>(arcStart),
+									static_cast<int>(arcAngle));
+						continue;
+		}
+
+		Circle* circle = dynamic_cast<Circle*>(n);
+		if (!(circle == nullptr))
+		{
+			//TODO, FIXME LATER
+						Circle* circle = static_cast<Circle*>(n);
+						uint16_t radius = circle->GetRadius();
+						int rad = static_cast<int>(radius);
+						//Get the width and height of the circle. Radius here is absolute, include setting for relative and for relative only when could be cut off later. TODO
+
+						int x = static_cast<int>(points->posx * this->width);
+						int y = static_cast<int>(points->posy * this->height);
+						if (n->GetFill())
+							this->graphics->FillOval(x, y, rad, rad);
+						else
+							this->graphics->DrawOval(x, y, rad, rad);
+						continue;
+		}
+
+		Rectangle* rect = dynamic_cast<Rectangle*>(n);
+		if (!(rect == nullptr))
+		{
+			int x = static_cast<int>(points->posx * this->width);
+						int y = static_cast<int>(points->posy * this->height);
+
+						int width = static_cast<int>(rect->getWidth() * this->width);
+						int height = static_cast<int>(rect->getHeight() * this->height);
+
+						if (n->GetFill())
+							this->graphics->FillRect(x, y, width, height);
+						else
+							this->graphics->DrawRect(x, y, width, height);
+
+						free(points);	//In this case it's a memory leak to _not_ free it.
+						continue;
+		}
+
+		Shape* shape = dynamic_cast<Shape*>(n);
+		if (!(shape == nullptr))
+		{
+			for (int i = 0; i < pointCount; i++)
+						{
+							xpoints[i] = static_cast<int>(this->width * points[i].posx);
+							ypoints[i] = static_cast<int>(this->height * points[i].posy);
+						}
+						if (n->GetFill())
+							this->graphics->FillPolygon(xpoints, ypoints, pointCount);
+						else
+							this->graphics->DrawPolygon(xpoints, ypoints, pointCount);
+						continue;
+		}
+#if 0
 
 		if (!n->IsArc() && !n->IsCircle())
 		{
@@ -158,6 +232,7 @@ void Component::Repaint()
 		{
 			std::cerr << "Invalid shape attempted to be drawn." << std::endl;
 		}
+#endif
 	}
 }
 
@@ -251,7 +326,8 @@ void Component::SetParent(Component* component)
 	//Unbind if the parent is not nullptr, skip and just bind if it is.
 	if (component->GetParent() != nullptr)
 	{
-
+		//xcb_destroy_window(this->GetInstance()->GetConnection(), this->window);
+		xcb_unmap_window(this->GetInstance()->GetConnection(), this->window);
 	}
 
 	//Add the component as a child of the component...

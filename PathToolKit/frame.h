@@ -73,7 +73,6 @@ protected:
 	uint32_t frame;
 	std::string title;
 	PfInstance* instance;
-	uint32_t window;
 
 private:
 	int bwidth;
