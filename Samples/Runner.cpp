@@ -10,9 +10,13 @@
 #include "Simple/Simple.h"
 #include "Shapes/Shapes.h"
 #include "Managed/Managed.h"
+#include <iostream>
 
 int main()
 {
+	int in;
+	std::cin >> in;
+	std::cout << "Hello!" << std::endl;
 	return RunManagedExample();
 }
 

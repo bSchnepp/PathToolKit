@@ -17,7 +17,10 @@
 #include <PathToolKit/PfGraphics.h>
 #include <PathToolKit/PfInstance.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <xcb/xcb.h>
 #include <xcb/xproto.h>
+#include <iostream>
 
 #ifdef PATHTOOLKIT_CREATE_WINDOW_MANAGER
 //Include some stuff to help manage window management, Vulkan instances, all sorts of fun stuff. Requires a recent AMD graphics card, Intel iGPU, or proprietary NVIDIA drivers.
@@ -245,6 +248,36 @@ void Component::Repaint()
 	}
 }
 
+void Component::Create()
+{
+	xcb_screen_t* screen = this->instance->GetScreen();
+	xcb_connection_t* connection = this->instance->GetConnection();
+
+	xcb_visualid_t visual = screen->root_visual;
+
+	this->window = xcb_generate_id(this->instance->GetConnection());
+
+	uint32_t mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
+
+	uint32_t values[2] =
+	{ screen->white_pixel, XCB_EVENT_MASK_EXPOSURE | XCB_EVENT_MASK_BUTTON_PRESS
+			| XCB_EVENT_MASK_BUTTON_RELEASE | XCB_EVENT_MASK_POINTER_MOTION
+			| XCB_EVENT_MASK_ENTER_WINDOW | XCB_EVENT_MASK_LEAVE_WINDOW
+			| XCB_EVENT_MASK_KEY_PRESS | XCB_EVENT_MASK_KEY_RELEASE };
+
+	xcb_create_window(connection, static_cast<uint8_t>(XCB_COPY_FROM_PARENT),
+			this->window, this->parent->GetWindow(), static_cast<int16_t>(this->xpos),
+			static_cast<int16_t>(this->ypos),
+			static_cast<uint16_t>(this->GetWidth()),
+			static_cast<uint16_t>(this->GetHeight()),
+			static_cast<uint16_t>(0),
+			static_cast<uint16_t>(XCB_WINDOW_CLASS_INPUT_OUTPUT), visual, mask,
+			values);
+
+	xcb_map_window(this->instance->GetConnection(), this->window);
+	xcb_flush(this->instance->GetConnection());
+}
+
 Frame* Component::GetRootFrame()
 {
 	return this->instance->GetRoot();
@@ -330,19 +363,19 @@ uint16_t Component::GetMaxWidth()
 	return this->maximumwidth;
 }
 
+uint32_t Component::GetWindow()
+{
+	return this->window;
+}
+
+uint32_t Component::GetParentWindow()
+{
+	return this->parent->GetWindow();
+}
+
 void Component::SetParent(Component* component)
 {
-	//Unbind if the parent is not nullptr, skip and just bind if it is.
-	if (component->GetParent() != nullptr)
-	{
-		//xcb_destroy_window(this->GetInstance()->GetConnection(), this->window);
-		xcb_unmap_window(this->GetInstance()->GetConnection(), this->window);
-	}
-
-	//Add the component as a child of the component...
-
-
-	//Map the window...
+	xcb_reparent_window(this->GetInstance()->GetConnection(), this->window, component->GetWindow(), this->xpos, this->ypos);
 }
 
 Component* Component::GetParent()

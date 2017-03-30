@@ -58,7 +58,13 @@ int RunManagedExample()
 	frame->AddShape(circle);
 	frame->AddShape(rect);
 
-	PathDraw::Component* component1 = new PathDraw::Component();
+	PathDraw::Component* component1 = new PathDraw::Component(frame);
+	component1->SetWidth(200);
+	component1->SetWidth(600);
+	component1->Create();
+	component1->AddShape(rect);
+
+	frame->SetTitle("Hello, world!");
 
 	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes.
 	frame->GetInstance()->PfInit(frame);

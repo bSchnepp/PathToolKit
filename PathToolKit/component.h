@@ -92,7 +92,10 @@ public:
 	void SetHeight(uint16_t height);
 
 	void SetParent(Component* component);
+	uint32_t GetParentWindow();
 	void SetVisible(bool visibile);
+
+	void Create();
 
 	bool GetVisible();
 	Component* GetParent();
@@ -108,6 +111,8 @@ public:
 	uint16_t GetMaxWidth();
 
 	PfInstance* GetInstance();
+
+	uint32_t GetWindow();
 
 	//Completely gets rid of this component, it's children, and their children recursively.
 	void Destroy();
