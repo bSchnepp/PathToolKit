@@ -28,6 +28,10 @@
 //We'll abstract away the actual API itself **anyway** so might as well try.
 #endif
 
+/*
+ * Refactor things from Frame, move them in here.
+ */
+
 namespace PathDraw
 {
 
