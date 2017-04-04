@@ -54,9 +54,6 @@ public:
 	/** Gets the border width of this frame */
 	int GetBorderWidth();
 
-	/** Reassigns a PfInstance to this frame. Note that by default, there is none. This should be called by the PfInstance, so don't worry about this. */
-	void AssignInstance(PfInstance* instance);
-
 	/** Gets the currently used instance by this frame. */
 	PfInstance* GetInstance();
 

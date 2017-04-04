@@ -258,10 +258,11 @@ void Component::Create()
 	xcb_connection_t* connection = this->instance->GetConnection();
 
 	xcb_visualid_t visual = screen->root_visual;
-
-	this->window = xcb_generate_id(this->instance->GetConnection());
+	this->window = xcb_generate_id(connection);
 
 	uint32_t mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
+
+	Component* root = this->parent == nullptr ? this->GetInstance()->GetRoot() : this->parent;
 
 	uint32_t values[2] =
 	{ screen->white_pixel, XCB_EVENT_MASK_EXPOSURE | XCB_EVENT_MASK_BUTTON_PRESS
@@ -270,7 +271,7 @@ void Component::Create()
 			| XCB_EVENT_MASK_KEY_PRESS | XCB_EVENT_MASK_KEY_RELEASE };
 
 	xcb_create_window(connection, static_cast<uint8_t>(XCB_COPY_FROM_PARENT),
-			this->window, this->parent->GetWindow(), static_cast<int16_t>(this->xpos),
+			this->window, root->GetWindow(), static_cast<int16_t>(this->xpos),
 			static_cast<int16_t>(this->ypos),
 			static_cast<uint16_t>(this->GetWidth()),
 			static_cast<uint16_t>(this->GetHeight()),
@@ -282,7 +283,7 @@ void Component::Create()
 	xcb_flush(this->instance->GetConnection());
 }
 
-Frame* Component::GetRootFrame()
+Component* Component::GetRootFrame()
 {
 	return this->instance->GetRoot();
 }

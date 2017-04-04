@@ -88,7 +88,6 @@ PfInstance* Frame::GetInstance()
 
 void Frame::SetTitle(const char* newTitle)
 {
-	std::cout << "Changing title..." << std::endl;
 	this->title = newTitle;
 	xcb_change_property(this->instance->GetConnection(), XCB_PROP_MODE_REPLACE,
 			window, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, 8,
@@ -98,7 +97,7 @@ void Frame::SetTitle(const char* newTitle)
 void Frame::CreateFrame()
 {
 	this->Create();
-	this->SetTitle(this->title.c_str());
+	this->SetTitle(this->title.c_str()); //FIXME
 
 	//?????
 	// Why isn't this moving the window..?
@@ -106,10 +105,5 @@ void Frame::CreateFrame()
 	{ static_cast<uint32_t>(this->xpos), static_cast<uint32_t>(this->ypos) };
 	xcb_configure_window(this->GetInstance()->GetConnection(), this->window,
 			XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, posxy);
-}
-
-void Frame::AssignInstance(PfInstance* const instance)
-{
-	this->instance = instance;
 }
 }

@@ -19,7 +19,6 @@ int RunManagedExample()
 			"Managed Example");
 	frame->CreateFrame();
 
-
 	// Make a color, assign it to the graphics context.
 	PathDraw::Color* color = new PathDraw::Color(255, 0, 0);
 	PathDraw::Color* black = new PathDraw::Color(0, 0, 0);
@@ -66,6 +65,7 @@ int RunManagedExample()
 	component1->AddShape(rect);
 
 	frame->SetTitle("Hello, world!");
+
 
 	// This is the main loop.Once this fires, everything must pass as an event to the main loop to do any GUI changes.
 	frame->GetInstance()->PfInit(frame);

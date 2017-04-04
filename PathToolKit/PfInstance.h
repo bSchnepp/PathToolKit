@@ -59,7 +59,7 @@ public:
 
 	void PfInit(Component* root);
 
-	Frame* GetRoot();
+	Component* GetRoot();
 
 private:
 	xcb_connection_t* connection;
@@ -68,9 +68,9 @@ private:
 	xcb_screen_iterator_t iterator;
 	const xcb_setup_t* setup;
 
-	Frame* root;
+	Component* root;
 
-	PathRender::VulkanContext* vulkan = nullptr;
+	//PathRender::VulkanContext* vulkan = nullptr;
 };
 }
 

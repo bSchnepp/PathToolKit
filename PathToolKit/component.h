@@ -82,7 +82,7 @@ public:
 	/** Reassigns a PfInstance to this component. Note that by default, there is none. This should be called by the PfInstance, so don't worry about this. */
 	virtual void AssignInstance(PfInstance* instance);
 
-	Frame* GetRootFrame();
+	Component* GetRootFrame();
 
 	void SetGraphics(PfGraphics* gfx);
 

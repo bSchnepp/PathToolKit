@@ -1,0 +1,46 @@
+-- Gotta ensure this works with everything. May include an option 'Be mean to non-open source' later, haha.
+LXSS [Windows 10] + Xming
+	- Works fine, though positioning and circles may do weird things.
+		- This my fault or..?
+		- Probably has to do with the aquisition of the Catholic Church by Microsoft.
+				- I'm sorry, it's a late april fools joke ):
+		
+Debian 8 [Jesse]:
+	- Not even starting up, exit code 254.
+		- Looking into it...
+		
+Ubuntu [16.04 LTS]:
+	- Not even starting up, exit code 254.
+		- Looking into it...
+		
+Arch Linux:
+	[Untested]
+	
+Fedora Linux:
+	[Untested]
+	
+macOS Sierra with XQuartz
+	[Untested and unlikely to ever be tested]
+	
+Gentoo Linux:
+	[Untested]
+	
+openSUSE Tumblweed:
+	[Untested]
+	
+ReactOS:
+	[Untested, can we play with the X server on ReactOS directly?]
+	
+FreeBSD, OpenBSD, NetBSD, DragonflyBSD, PC-BSD, etc:
+	[Untested]
+	
+Hannah Montanna Linux:
+	[Success! No.]	
+
+GNU/HURD:
+	[Should we care?]
+	
+Cygwin [Windows]:
+	[Untested, should we care?]
+	
+//promise I'll be serious after this :)

@@ -10,6 +10,8 @@
 #include <PathToolKit/PfGraphics.h>
 #include <PathToolKit/PfInstance.h>
 
+#include <iostream>
+
 namespace PathExtension
 {
 
@@ -19,6 +21,7 @@ BasicFrame::BasicFrame() :
 	this->instance = new PathDraw::PfInstance();
 	this->graphics = new PathDraw::PfGraphics(this->instance);
 	this->graphics->AssignComponent(this);
+	this->AssignInstance(this->instance);
 	this->instance->MakeFrame(this);
 }
 
@@ -29,6 +32,7 @@ BasicFrame::BasicFrame(std::string title) :
 	this->instance = new PathDraw::PfInstance();
 	this->graphics = new PathDraw::PfGraphics(this->instance);
 	this->graphics->AssignComponent(this);
+	this->AssignInstance(this->instance);
 	this->instance->MakeFrame(this);
 }
 
