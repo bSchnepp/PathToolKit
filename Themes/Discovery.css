@@ -132,6 +132,16 @@ PathCheckBox
 	
 }
 
+PathCheckBox:selected
+{
+	
+}
+
+PathCheckBox:disabled
+{
+	
+}
+
 PathTable
 {
 	

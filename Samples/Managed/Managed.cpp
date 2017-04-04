@@ -19,6 +19,7 @@ int RunManagedExample()
 			"Managed Example");
 	frame->CreateFrame();
 
+
 	// Make a color, assign it to the graphics context.
 	PathDraw::Color* color = new PathDraw::Color(255, 0, 0);
 	PathDraw::Color* black = new PathDraw::Color(0, 0, 0);

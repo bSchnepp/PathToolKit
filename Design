@@ -25,10 +25,11 @@ __
 
 Sometimes circles insist on randomly disappearing.
 Looking into it.
+[Windows 10 LXSS]
 
 __
 Changes TODO:
--- Implement 'Strokes' to do gradients, fancy things, etc. We'll switch to X's render extension.
+-- Implement 'Strokes' to do gradients, fancy things, etc.
 -- Give the Component Serials a purpose again?
 -- Completely chuck out the window all the software rendering, and get Vulkan to render everything to an off-screen buffer which is loaded as an image over an X window.
 	-- It's a dirty hack, but it works.

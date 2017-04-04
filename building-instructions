@@ -1,0 +1,20 @@
+I'm **really** lazy with makefiles.
+Thus, I build in Eclipse.
+I know, vim and gedit and emacs and all, too lazy to bother with a simple project
+that's not going anywhere anyway.
+
+So just do this:
+	-Load the repo as the source folder in a new project.
+	-Set the standard to c++14. (c++1y if your GCC is outdated)
+	-Install the following packages:
+		-xcb
+		-libvulkan-dev
+	-Right click on the new project, and link with:
+		-xcb
+		-vulkan
+		-dl	[This is a Linux module which should already be present.]
+	- Under the menus where you change the compiler's warning settings, enable all of them except -w (which is the root of all evil), and syntax only.
+	- Ensure the option for position independant code is enabled.
+	- I optimize with -O3, I'm not fully sure how life works with a different setting.
+	
+	- Build and work with it.
