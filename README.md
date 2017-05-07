@@ -1,5 +1,7 @@
 # PathToolKit
 A simple drawing/widget toolkit, utilizing XCB.
+Currently dead, migrating to learning Wayland instead and to drop X11 support.
+Will submit patches for Wayland later.
 ___
 
 PathToolKit is meant to be a simple-to-understand but deep in features widget/drawing toolkit that I can just use.
